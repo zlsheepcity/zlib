@@ -7,7 +7,10 @@
  
   "content_scripts": [{
     "css": ["styles.css"],
-    "matches": ["https://www.volleyballworld.tv/*"]
+    "matches": [
+        "https://www.volleyballworld.tv/*",
+        "https://tv.volleyballworld.com/*"
+    ]
   }]
  
 }
