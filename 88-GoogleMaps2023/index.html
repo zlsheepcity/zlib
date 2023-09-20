@@ -1,0 +1,330 @@
+<title>Geomap embed</title>
+<script>
+
+</script>
+<style display-source>
+    [display-source] {
+        display:     block;
+        padding:     0 1em 2em;
+        font-family: monospace;
+        white-space: pre-wrap;
+    }
+</style>
+
+<h2>Map section</h2>
+<section>
+    <style>
+        .container-geomap {
+            display: grid;
+            place-items: center;
+        }
+        .container-geomap >* {
+            width:  100%;
+            height: 60vw;
+            max-width: 1000px;
+            max-height: 600px;
+        }
+    </style>
+    <div class="container-geomap"><div id="geomapApiRender"></div></div>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script id="geomapApiScript"></script>
+    <script>
+
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Config
+        const Geomap = {
+            apiKey: location.hash.slice(1),
+            mapId:
+                '12f323c9b5a3b0df', // developer test
+            placeIds: [
+                'ChIJ_ZqKe2cw6UYREPzyaM3PAAA', // Latvija
+            ],
+            // placeId find tool, 2023
+            // https://developers.google.com/maps/documentation/javascript/dds-boundaries/coverage
+            language: 'lv',
+            region:   'LV',
+            initialState: {
+                lat: 56.85,
+                lng: 24.60, // Latvija
+                zoom: 7.50, // Full borders at 1000x600px
+            },
+            // format latt or long values
+            vLocation: (v=0) => v.toLocaleString('en-US', {
+                minimumFractionDigits: 8,
+                maximumFractionDigits: 8,
+            }),
+        };
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Init
+        function geomapApiScriptInit(Geomap) {
+            const {
+                apiKey,
+                language,
+                region,
+                geomapDelegatorOnLoadLibrary,
+            } = Geomap;
+            const script = document.getElementById('geomapApiScript');
+            const src = [
+                `https://maps.googleapis.com/maps/api/js`,
+                `?key=${apiKey}`,
+                `&callback=${'geomapApiScriptOnLoad'}`,
+                `&libraries=${''}`,
+                `&language=${language}`,
+                `&region=${region}`,
+                `&v=${'weekly'}`,
+            ].join('');
+            script.src = src;
+            script.defer = true;
+        };
+
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ OnLoad
+        function geomapApiScriptOnLoad() {
+            //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ OnLoad:config
+            const {mapId, placeIds} = Geomap;
+            const {lat, lng,  zoom} = Geomap.initialState;
+            //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Setup API
+            const API = {
+
+                mapCreate: () => {
+                    const {initialState:{zoom,lat,lng}, mapId} = Geomap;
+                    const htmlID = 'geomapApiRender';
+                    return new google.maps.Map(
+                        document.getElementById(htmlID),
+                        {mapId, center:{lat,lng}, zoom}
+                    );
+                },
+
+                mapListenerClick: () => {
+                    const {map, mapListenerClick} = Geomap;
+                    const action = googleListenerEV => {
+                        const {latLng} = googleListenerEV;
+                        const [lat, lng] = [latLng.lat(), latLng.lng()];
+                        mapListenerClick({lat, lng, latLng});
+                    };
+                    google.maps.event.addListener(map, 'click', action);
+                },
+
+                markerCreate: markerData => {
+                    const {title, lat, lng} = markerData;
+                    const {map, markersUpdate} = Geomap;
+                    const marker = new google.maps.Marker({
+                        map,
+                        title,
+                        position: {lat, lng},
+                        info: new google.maps.InfoWindow({content:''}),
+                        draggable: true,
+                    });
+                    google.maps.event.addListener(marker, "dragstart", ev => {
+                        marker.info.close(map, marker);
+                    });
+                    google.maps.event.addListener(marker, "dragend", ev => {
+                        const {latLng} = ev;
+                        const [lat, lng] = [latLng.lat(), latLng.lng()];
+                        markersUpdate({marker, lat, lng, latLng});
+                    });
+                    return marker;
+                },
+
+                markerUpdate: markerData => {
+                    const {marker, lat, lng, latLng} = markerData;
+                    const {map, vLocation} = Geomap;
+                    // first render without address line
+                    let content = '';
+                        content+= '<small>';
+                        content+= `${vLocation(lat)}, ${vLocation(lng)}`;
+                        content+= '</small>';
+                    marker.setPosition(latLng);
+                    marker.info.open(map, marker);
+                    marker.info.setContent(content);
+                    // second async render
+                    const geocoder = new google.maps.Geocoder();
+                    const location = {lat, lng};
+                    const makeAddressLine = address_components => {
+                        let addr = '';
+                        let strN = '';
+                        for(const o of address_components) {
+                            const type = o["types"][0];
+                            if (type === 'street_number') strN = o["long_name"];
+                            if (type !== 'plus_code'
+                             && type !== 'country'
+                             && type !== 'street_number') {
+                                addr += addr ? ', ' :'';
+                                addr += '<nobr>';
+                                addr += type === 'postal_code' ? 'LV-' :'';
+                                addr += o["long_name"];
+                                addr += type === 'route' && strN ? ` ${strN}` : '';
+                                addr += '</nobr>';
+                            };
+                        };
+                        return addr;
+                    };
+                    geocoder.geocode({location}, function (results, status) {
+                        if (status !== "OK" || !results[0]) return '';
+                        const {address_components} = results[0];
+                        const addressLine = makeAddressLine(address_components);
+                        const addressStyle = `
+                            max-width: 20em;
+                            margin-bottom: 0.5em;
+                            font-weight: bolder;
+                            text-align:center;
+                        `;
+                        const locationStyle = `
+                            font-size: 0.8em;
+                            text-align:center;
+                        `;
+                        let content = '';
+                            content+= `<div style="${addressStyle}">`;
+                            content+= `${addressLine}`;
+                            content+= '</div>';
+                            content+= `<div style="${locationStyle}">`;
+                            content+= `${vLocation(lat)}, ${vLocation(lng)}`;
+                            content+= '</div>';
+                        marker.info.setContent(content);
+                    });
+                },
+
+            };
+            Geomap.API = API;
+            Geomap.map = API.mapCreate(Geomap);
+
+            //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ OnLoad:features
+            //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+            // Feature: render shade for other countries
+            const mapStyleIgnoredShade = {
+              strokeColor: '#333333',
+              fillColor:   '#333333',
+              strokeOpacity: 0,
+              strokeWeight:  0,
+              fillOpacity: 0.5,
+            };
+            const mapCountryLayer = Geomap.map.getFeatureLayer('COUNTRY');
+            mapCountryLayer.style = (options) => {
+              if (!placeIds.includes(options.feature.placeId)) {
+                return mapStyleIgnoredShade;
+              }
+            };
+
+            //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+            // Feature: map markers
+            Geomap.markers = [];
+            Geomap.markersCreate = locationData => {
+                const {lat, lng, latLng} = locationData;
+                const  title  = '';
+                const  marker = Geomap.API.markerCreate({title,lat,lng});
+                Geomap.markers.push(marker);
+                Geomap.markersUpdate({...locationData, marker});
+            };
+            Geomap.markersUpdate = locationData => {
+                const {lat, lng, latLng} = locationData;
+                const {map, API, vLocation} = Geomap;
+                const marker = locationData.marker || Geomap.markers[0];
+                let content = '';
+                    content+= '<small>';
+                    content+= `${vLocation(lat)}, ${vLocation(lng)}`;
+                    content+= '</small>';
+                Geomap.API.markerUpdate({marker, lat, lng, latLng, content});
+            };
+
+            //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+            // Feature: click map to set marker
+            Geomap.mapListenerClick = locationData => {
+                let markerExist = Geomap.markers.length;
+                if (markerExist)  Geomap.markersUpdate(locationData);
+                else              Geomap.markersCreate(locationData);
+            };
+            API.mapListenerClick(Geomap);
+        };
+    </script>
+    <script>
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Run
+            geomapApiScriptInit(Geomap);
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ End
+    </script>
+</section>
+
+
+<!-- 
+
+function initMarker(position2) {
+    //Create the marker.
+    //infoWindow.close();
+    marker = new google.maps.Marker({
+        position: position2,
+        map: map,
+        title: mtitle,
+        draggable: true, //make it draggable
+    });
+    //Listen for drag events!
+    google.maps.event.addListener(marker, "dragend", function (event) {
+        //MBA get geocoord when dragged
+        //markerLocation();
+        //console.log(markerLocation);
+        //Get the location that the user clicked.
+        clickedLocation = event.latLng;
+        //var geocoder2 = new google.maps.Geocoder;
+        //If the marker hasn't been added.
+        //var mtitle = ''; //clickedLocation.lat() + ',' + clickedLocation.lng();
+        var pos3 = {
+            lat: clickedLocation.lat(),
+            lng: clickedLocation.lng(),
+        };
+        geocoord = {
+            latitude: clickedLocation.lat(),
+            longitude: clickedLocation.lng(),
+        };
+        var pos = new google.maps.LatLng(
+            clickedLocation.lat(),
+            clickedLocation.lng()
+        );
+
+        panTo(map, pos, 1000);
+        //setTimeout("map.setZoom(11)",700);
+        if (marker === undefined) {
+            initMarker(clickedLocation);
+        } else {
+            //Marker has already been added, so just change its location.
+            //marker.setTitle(mtitle);
+            marker.setPosition(clickedLocation);
+            marker.info.open(map, marker);
+            //Get the marker's location.
+            markerLocation();
+        }
+    });
+    marker.info = new google.maps.InfoWindow({
+        content: "",
+    });
+    marker.info.open(map, marker);
+    //Get the marker's location.
+    markerLocation();
+}
+
+    google.maps.event.addListener(map, "click", function (event) {
+        //Get the location that the user clicked.
+        clickedLocation = event.latLng;
+        //var geocoder2 = new google.maps.Geocoder;
+        //If the marker hasn't been added.
+        //var mtitle = ''; //clickedLocation.lat() + ',' + clickedLocation.lng();
+        var pos3 = {
+            lat: clickedLocation.lat(),
+            lng: clickedLocation.lng(),
+        };
+        geocoord = {
+            latitude: clickedLocation.lat(),
+            longitude: clickedLocation.lng(),
+        };
+        var pos = new google.maps.LatLng(
+            clickedLocation.lat(),
+            clickedLocation.lng()
+        );
+        panTo(map, pos, 1000);
+        //setTimeout("map.setZoom(11)",700);
+        if (marker === undefined) {
+            initMarker(clickedLocation);
+        } else {
+            //Marker has already been added, so just change its location.
+            //marker.setTitle(mtitle);
+            marker.setPosition(clickedLocation);
+            marker.info.open(map, marker);
+            //Get the marker's location.
+            markerLocation();
+        }
+    });
+ -->
