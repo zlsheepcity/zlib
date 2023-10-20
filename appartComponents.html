@@ -22,10 +22,26 @@
     <link
         href="app/css.15xLayouts.css"
         type="text/css" rel="stylesheet" media="all">
+    <link
+        href="app/css.16xTools.css"
+        type="text/css" rel="stylesheet" media="all">
 
     <link
         href="app/css.21xComponents.css"
         type="text/css" rel="stylesheet" media="all">
+
+    <style>
+        [mock] {
+            font-style: italic;
+            font-size:  1.25em;
+            letter-spacing: 0.1em;
+            opacity: 0.64;
+        }
+        [box] {
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+    </style>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 </head>
@@ -43,20 +59,35 @@
                        color: var(--color-PaperDark);
             padding: 1rem;
         }
-        [mock] {
-            font-style: italic;
-            font-size:  1.25em;
-            letter-spacing: 0.1em;
-            opacity: 0.64;
-        }
     </style>
     <style display-source>
-        details { padding-top: 1em; }
-        details[open] {
-          --color-NobleBlack:  hsl(226, 15%, 12%);
-          --color-NobleWhite:  hsl(226, 27%, 90%);
-            background-color: var(--color-NobleBlack);
-                       color: var(--color-NobleWhite);
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Common combos */
+
+        .flexbox {
+            display:         flex;
+            flex-direction:  column;
+            justify-content: center;
+            justify-items:   center;
+            align-items:     center;
+            align-content:   center;
+        }
+
+        .grid {
+            display:  grid;
+            padding:  1rem;
+            grid-gap: 1rem;
+            justify-content: center;
+            justify-items:   center;
+            align-items:     center;
+            align-content:   center;
+            grid-auto-flow:  row;
+            grid-auto-rows:  min-content;
+            grid-template-columns: auto auto;
+        }
+
+        .centered {
+            display: grid;
+            place-items: center;
         }
     </style>
     </section>
@@ -66,7 +97,7 @@
     <details>
     <summary class="summaryHeader">
         <header>
-            SUMMARY.summaryHeader
+            DETAILS.summaryHeader
         </header>
     </summary>
     <article class="layoutBook">
@@ -83,6 +114,14 @@
               --border-style-default: dotted;
               --border-style-open:    dotted;
               --border-style-hover:   dotted;
+            }
+
+            details { padding-top: 1em; }
+            details[open] {
+              --color-NobleBlack:  hsl(226, 15%, 12%);
+              --color-NobleWhite:  hsl(226, 27%, 90%);
+                background-color: var(--color-NobleBlack);
+                           color: var(--color-NobleWhite);
             }
         </style>
     </article>
@@ -229,6 +268,107 @@
             </section>
         </article>
 
+    </details>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+
+    <a name="independentComponents"></a>
+    <article class="layoutBook">
+        <header>
+            <h3>
+                Independent CSS Components
+            </h3>
+        </header>
+        <ul class="h4">
+            <li>
+                <a href="22-cssComponents/formGrowingTextarea.html">
+                    formGrowingTextarea
+                </a>
+            </li>
+            <li>
+                <a href="22-cssComponents/textCandyCaption.html">
+                    textCandyCaption
+                </a>
+            </li>
+        </ul>
+    </article>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+
+    <a name="layoutScreen"></a>
+    <details open>
+        <summary class="summaryHeader">
+            <header>
+                Tools
+            </header>
+        </summary>
+        <article class="layoutScreen background-blend-mixer"
+            id="demo-background-blend-mixer">
+
+            <h3 box>
+                .background-blend-mixer
+            </h3>
+            <style display-source>
+
+            #demo-background-blend-mixer {
+                background:
+                    url(art/artBackgroundMagenta.jpg),
+                    url(art/artBackgroundBlack.jpg),
+                    transparent
+                    ;
+                background-blend-mode: screen, multiply;
+                background-size: cover;
+            }
+
+            /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+            .background-blend-mixer {
+            /** Blends together the background layers
+              * without affecting the foreground content */
+                background:
+                /** Could have: */
+
+                    url(image1.png),        /* images */
+                    url(image2.png),
+                    rgba(244, 65, 106, 1),  /* colors */
+                    linear-gradient(        /* gradients */
+                        45deg,
+                        rgba(65, 68,244, 1),
+                        rgba(203, 66, 244, 0.5)
+                    )
+                    ;
+                background-size: cover;
+
+            /** We can specify multiple values for background-blend-mode
+              * one for each background layer */
+                background-blend-mode: screen, multiply;
+            }
+
+            </style>
+
+            <section class="layoutBook">
+                <img src="art/artBackgroundCyan.jpg" alt=""
+                    class="blend-with-color layoutBookWrap">
+            </section>
+            <style display-source>
+
+            img.blend-with-color,
+               .blend-with-color {
+              --background-color: hsl(204, 22%, 55%); /*NobleSky*/
+                background-color: var(--background-color);
+                mix-blend-mode: multiply;
+            }
+
+            </style>
+
+            <hr>
+        </article>
     </details>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
