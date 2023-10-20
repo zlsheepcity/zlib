@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- seed 2023.10.20 keiko -->
-    <title>cssSeedTemplate</title>
+    <!-- seed v2023.10.20 keiko -->
+    <title>appartComponents</title>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DESIGN -->
     <link
@@ -30,7 +30,10 @@
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 </head>
 <body class="">
-    <header><h1>cssSeedTemplate</h1></header>
+    <header>
+        <h1>appartComponents</h1>
+        <small>v2023.10.20 keiko</small>
+    </header>
     <section>
     <style display-source>
         body>header {
@@ -39,6 +42,12 @@
             background-color: var(--color-PaperBack);
                        color: var(--color-PaperDark);
             padding: 1rem;
+        }
+        [mock] {
+            font-style: italic;
+            font-size:  1.25em;
+            letter-spacing: 0.1em;
+            opacity: 0.64;
         }
     </style>
     <style display-source>
@@ -61,7 +70,7 @@
         </header>
     </summary>
     <article class="layoutBook">
-        <p>
+        <p mock>
             The theory of classical electromagnetism was completed in 1864 with Maxwell's equations, which described the relationship between the electric field, the magnetic field, electric current, and electric charge. Maxwell's equations implied the existence of electromagnetic waves, a phenomenon whereby electric and magnetic fields propagate from one spatial point to another at a finite speed, which turns out to be the speed of light. Action-at-a-distance was thus conclusively refuted.
         </p>
     </article>
@@ -121,12 +130,12 @@
             <p>v2023.10.20 keiko</p>
         </header>
         <section>
-            <p>
+            <p mock>
                 Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
             </p>
         </section>
         <blockquote>
-            <p>
+            <p mock>
                 Main article: History of quantum field theory
             </p>
         </blockquote>
@@ -135,21 +144,21 @@
             Theoretical background
         </h3>
         <section>
-            <p>
+            <p mock>
                 Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
             </p>
-            <p>
+            <p mock>
                 The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
             </p>
         </section>
         <blockquote>
-            <p>
+            <p mock>
                 [1] [2] [3]
             </p>
         </blockquote>
 
         <footer>
-            <p>
+            <p mock>
                 Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
             </p>
         </footer>
@@ -224,5 +233,6 @@
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
 
+    <footer class="layoutScreen"></footer>
 </body>
 </html>
