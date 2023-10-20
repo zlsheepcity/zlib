@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- seed 2023.10.20 keiko -->
+    <title>cssSeedTemplate</title>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DESIGN -->
+    <link
+        href="app/css.11xBase.css"
+        type="text/css" rel="stylesheet" media="all">
+    <link
+        href="app/css.12xMarkup.css"
+        type="text/css" rel="stylesheet" media="all">
+    <link
+        href="app/css.13xTypography.css"
+        type="text/css" rel="stylesheet" media="all">
+    <link
+        href="app/css.14xColors.css"
+        type="text/css" rel="stylesheet" media="all">
+    <link
+        href="app/css.15xLayouts.css"
+        type="text/css" rel="stylesheet" media="all">
+
+    <link
+        href="app/css.21xComponents.css"
+        type="text/css" rel="stylesheet" media="all">
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+</head>
+<body class="">
+    <header><h1>cssSeedTemplate</h1></header>
+    <section>
+    <style display-source>
+        body>header {
+          --color-PaperBack:  hsl( 37, 55%, 85%);
+          --color-PaperDark:  hsl(  0,  0%,  8%);
+            background-color: var(--color-PaperBack);
+                       color: var(--color-PaperDark);
+            padding: 1rem;
+        }
+    </style>
+    <style display-source>
+        details { padding-top: 1em; }
+        details[open] {
+          --color-NobleBlack:  hsl(226, 15%, 12%);
+          --color-NobleWhite:  hsl(226, 27%, 90%);
+            background-color: var(--color-NobleBlack);
+                       color: var(--color-NobleWhite);
+        }
+    </style>
+    </section>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <a name="summaryHeader"></a>
+    <details>
+    <summary class="summaryHeader">
+        <header>
+            SUMMARY.summaryHeader
+        </header>
+    </summary>
+    <article class="layoutBook">
+        <p>
+            The theory of classical electromagnetism was completed in 1864 with Maxwell's equations, which described the relationship between the electric field, the magnetic field, electric current, and electric charge. Maxwell's equations implied the existence of electromagnetic waves, a phenomenon whereby electric and magnetic fields propagate from one spatial point to another at a finite speed, which turns out to be the speed of light. Action-at-a-distance was thus conclusively refuted.
+        </p>
+    </article>
+    <article class="layoutBook">
+        <style class="layoutBookWrap" display-source>
+            summary.summaryHeader { /* config */
+              --font-size:   var(--h2-font-size,    3em);
+              --line-height: var(--h2-line-height, 1.25);
+              --marker-color:   currentColor;
+              --border-style-default: dotted;
+              --border-style-open:    dotted;
+              --border-style-hover:   dotted;
+            }
+        </style>
+    </article>
+    </details>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <a name="layoutBook"></a>
+    <details>
+    <summary class="summaryHeader">
+        <header>
+            ARTICLE.layoutBook
+        </header>
+    </summary>
+
+    <style display-source>
+        article.layoutBook { /* config */
+          --textSize: 42em;
+          --sideSize: 24em;
+          --grid-gap:  1em;
+          --join-gap:  2em;
+        }
+        article.layoutBook { /* custom design */
+            padding: 2em 0;
+        }
+    </style>
+    <textarea display-source rows="14" readonly>
+
+    <link
+        href="app/css.15xLayouts.css"
+        type="text/css" rel="stylesheet" media="all">
+
+    <article class="layoutBook">
+        <header></header>
+        <section>
+            <p></p>
+        </section>
+        <blockquote></blockquote>
+    </article>
+    </textarea>
+
+    <article class="layoutBook">
+        <header>
+            <h2>
+                .layoutBook
+            </h2>
+            <p>v2023.10.20 keiko</p>
+        </header>
+        <section>
+            <p>
+                Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
+            </p>
+        </section>
+        <blockquote>
+            <p>
+                Main article: History of quantum field theory
+            </p>
+        </blockquote>
+
+        <h3>
+            Theoretical background
+        </h3>
+        <section>
+            <p>
+                Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
+            </p>
+            <p>
+                The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
+            </p>
+        </section>
+        <blockquote>
+            <p>
+                [1] [2] [3]
+            </p>
+        </blockquote>
+
+        <footer>
+            <p>
+                Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
+            </p>
+        </footer>
+    </article>
+    </details>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <a name="layoutScreen"></a>
+    <details>
+        <summary class="summaryHeader">
+            <header>
+                SECTION.layoutScreen
+            </header>
+        </summary>
+        <style display-source>
+            [id$="Screen01"] {--i:url(art/artBackgroundMagenta.jpg)}
+            [id$="Screen02"] {--i:url(art/artBackgroundBlack.jpg)}
+            [id$="Screen04"] {--i:url(art/artBackgroundYellow.jpg)}
+            [id^="demo-layoutScreen"] {
+                background-image: var(--i);
+            }
+            header[id^="demo-layoutSticky"] {
+                text-align: center;
+                padding: 1rem;
+                opacity: 0.64;
+                background-color: black;
+                           color: white;
+            }
+        </style>
+        <textarea display-source rows="14" readonly>
+
+        <link
+            href="app/css.15xLayouts.css"
+            type="text/css" rel="stylesheet" media="all">
+
+        <article class="layoutScreen">
+            <section class="layoutScreen"
+                id="demo-layoutScreen01">
+            </section>
+            <section class="layoutScreen layoutSticky"
+                id="demo-layoutScreen02">
+            </section>
+        </article>
+        </textarea>
+        <article class="layoutScreen">
+            <section class="layoutScreen"
+                id="demo-layoutScreen01">
+                <header class="layoutSticky"
+                    id="demo-layoutSticky01">
+                    <h2>SECTION.layoutScreen</h2>
+                </header>
+            </section>
+            <section class="layoutScreen layoutSticky"
+                id="demo-layoutScreen02">
+                <header class="layoutSticky"
+                    id="demo-layoutSticky02">
+                    <h2>SECTION.layoutScreen.layoutSticky</h2>
+                </header>
+            </section>
+            <header class="layoutSticky"
+                id="demo-layoutSticky01">
+                <h2>.layoutSticky</h2>
+            </header>
+            <section class="layoutScreen"
+                id="demo-layoutScreen03">
+            </section>
+            <section class="layoutScreen"
+                id="demo-layoutScreen04">
+            </section>
+        </article>
+
+    </details>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+
+</body>
+</html>

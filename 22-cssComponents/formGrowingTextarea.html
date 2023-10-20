@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto-Growing Textarea</title>
+    <!-- 2023.9.27 -->
+    <style>
+        [display-source] {
+            display:     block;
+            padding:     0 1em 2em;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <h2>Auto-growing textarea</h2>
+    <article>
+        <section class="formGrowingTextareaWrap formGrowingTextareaStyle">
+            <textarea
+                name="xxx"
+                id="xxx"
+                onInput="this.parentNode.dataset.replicatedValue = this.value"
+                >So you’ve got a textarea, which cannot auto expand height. Instead, you exactly replicate the look, content, and position of the element in another element. You hide the replica visually (might as well leave the one that’s technically-functional visible).</textarea>
+        </section>
+    </article>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ HTML Markup -->
+
+    <style display-source>
+        Idea Source:
+        https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/
+
+        <section class="formGrowingTextareaWrap formGrowingTextareaStyle">
+            <textarea
+                name="xxx"
+                id="xxx"
+                onInput="this.parentNode.dataset.replicatedValue = this.value"
+                />
+        </section>
+    </style>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CSS code -->
+
+    <style display-source>
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ textarea functional */
+
+        .formGrowingTextareaWrap { display: grid; }
+        .formGrowingTextareaWrap textarea,
+        .formGrowingTextareaWrap::after {
+            grid-area: 1 / 1 / 2 / 2;
+        }
+        .formGrowingTextareaWrap::after {
+            /* content " " space to preventy jumpy behavior */
+            content: attr(data-replicated-value) " ";
+            visibility: hidden;
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ textarea style */
+
+        .formGrowingTextareaStyle textarea,
+        .formGrowingTextareaStyle::after {
+            /* font settings are same for both */
+            border: 0.075em solid currentColor;
+            padding: 0.5em;
+            font: inherit;
+            white-space: pre-wrap;
+            min-height: 8em;
+            max-width: 40em;
+            resize: none;
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ end */
+
+    </style>
+
+</body>
+</html>

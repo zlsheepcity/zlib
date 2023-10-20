@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colored Headings</title>
+    <!-- 2023.9.27 -->
+    <style>
+        [display-source] {
+            display:     block;
+            padding:     0 1em 2em;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DEMO -->
+
+    <article>
+        <style>
+            .demo-candy-captions {
+                display: grid;
+                grid-template-columns: repeat( auto-fit, minmax(30rem, max-content) );
+                grid-gap:  2rem;
+                font-size: 2rem;
+                padding:   2rem;
+                font-family: system-ui;
+                background-color: hsl(226, 15%, 12%);
+                           color: hsl(226, 27%, 90%);
+            }
+        </style>
+        <section class="demo-candy-captions">
+            <div class="textCandyCaption" style="font-size: 3rem;">
+                <b row size-a tint-a>
+                    <b size-a tint-y> colored</b>
+                    <b size-a tint-a> headings</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-c tint-m> attract</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-z tint-a> and</b>
+                    <b size-b tint-c> inspire</b>
+                </b>
+            </div>
+            <div class="textCandyCaption">
+                <b row size-a tint-a>
+                    <b size-a tint-c> colored</b>
+                    <b size-a tint-a> headings</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-c tint-c> attract</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-z tint-a> and</b>
+                    <b size-b tint-m> inspire</b>
+                </b>
+            </div>
+            <div class="textCandyCaption" style="font-size: 1.5rem;">
+                <b row size-a tint-a>
+                    <b size-a tint-g> colored</b>
+                    <b size-a tint-a> headings</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-c tint-m> attract</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-z tint-a> and</b>
+                    <b size-b tint-y> inspire</b>
+                </b>
+            </div>
+            <div class="textCandyCaption">
+                <b row size-a tint-a align-end>
+                    <b size-a tint-m> Auto</b>
+                    <b size-b tint-g> Growing</b>
+                </b>
+                <b row size-c tint-a>
+                    <b size-a tint-y> Textarea</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-a tint-a> Simple</b>
+                    <b size-a tint-a> Realisation</b>
+                </b>
+            </div>
+            <div class="textCandyCaption">
+                <b row size-a tint-y>
+                    <b size-b tint-a> Retro</b>
+                    <b size-b tint-a> Styled</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-c tint-g> Code</b>
+                    <b size-b tint-a> Block</b>
+                </b>
+            </div>
+            <div class="textCandyCaption" style="font-size: 2.5rem;">
+                <b row size-a tint-a align-end>
+                    <b size-b tint-y> Any</b>
+                    <b size-z tint-a> Custom</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-b tint-y> Heading</b>
+                </b>
+                <b row size-a tint-c>
+                    <b size-a tint-a> Insert</b>
+                    <b size-a tint-a> Here</b>
+                </b>
+            </div>
+        </section>
+    </article>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ HTML Markup -->
+
+    <style display-source>
+        <div class="textCandyCaption">
+            <b row size-a tint-a>
+                <b size-a tint-y> colored </b>
+                <b size-a tint-a> headings </b>
+            </b>
+            <b row size-a tint-a>
+                <b size-c tint-m> attract </b>
+            </b>
+            <b row size-a tint-a>
+                <b size-z tint-a> and </b>
+                <b size-b tint-c> inspire </b>
+            </b>
+        </div>
+    </style>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CSS -->
+
+    <style display-source>
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Layout */
+
+        .textCandyCaption {
+            display:        inline-flex;
+            flex-direction: column;
+            gap:            var(--space) 0;
+        }
+        .textCandyCaption [row] {
+            display:        inline-flex;
+            flex-direction: row;
+            align-items:    flex-start;
+            gap:            0 var(--space);
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Settings */
+
+        .textCandyCaption {
+
+         /* Font-based magic numbers */
+          --font-family:    sans-serif;
+          --line-height:    0.75;
+          --space:          0.25em;
+
+            text-transform: uppercase;
+            font-weight:    bold;
+            font-family:    var(--font-family);
+            line-height:    var(--line-height);
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Color and size models */
+
+        .textCandyCaption {
+
+         /* CMYG color model: g for green */
+          --tint-a: inherit;
+          --tint-c: hsl(184,74%,54%);
+          --tint-m: hsl(334,64%,54%);
+          --tint-y: hsl(414,84%,54%);
+          --tint-g: hsl(114,44%,54%);
+
+         /* Size model: …XYZ ← A → BCD… */
+          --size-a: 1.00em;
+          --size-b: 1.50em;
+          --size-c: 2.00em;
+          --size-d: 3.00em;
+          --size-z: 0.75em;
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Attributes */
+
+        .textCandyCaption [align-end] { align-items: flex-end; }
+
+        .textCandyCaption [size-a] { --font-size: var(--size-a); }
+        .textCandyCaption [size-b] { --font-size: var(--size-b); }
+        .textCandyCaption [size-c] { --font-size: var(--size-c); }
+        .textCandyCaption [size-d] { --font-size: var(--size-d); }
+        .textCandyCaption [size-z] { --font-size: var(--size-z); }
+
+        .textCandyCaption [tint-a] { --color: var(--tint-a); }
+        .textCandyCaption [tint-c] { --color: var(--tint-c); }
+        .textCandyCaption [tint-m] { --color: var(--tint-m); }
+        .textCandyCaption [tint-y] { --color: var(--tint-y); }
+        .textCandyCaption [tint-g] { --color: var(--tint-g); }
+
+        .textCandyCaption * {
+            font-size: var(--font-size, inherit);
+            color:     var(--color,     inherit);
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ End */
+
+    </style>
+
+</body>
+</html>
