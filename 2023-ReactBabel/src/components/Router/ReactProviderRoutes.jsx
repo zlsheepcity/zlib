@@ -1,32 +1,25 @@
 import React from 'react'
 import {
   createBrowserRouter,
-  RouterProvider,
-  RouteObject as IRouteObject,
+  RouterProvider
 } from 'react-router-dom'
-
-import {
-  IObject as IO,
-  IRoute,
-  IRoutes
-} from 'Interfaces'
 import { routes } from './routes'
 import { ProtectedRoute } from './ProtectedRoute'
 import { Error404 as Error404Page } from 'Pages'
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Convert routes
 
-const routesKeyAdded: IRoutes = {...routes}
+const routesKeyAdded = {...routes}
 
 Object.keys(routesKeyAdded).forEach(
   key => routesKeyAdded[key] = { ...routesKeyAdded[key], key }
 )
 
-const routesForReactRouter:IRouteObject[] = [
+const routesForReactRouter = [
 
   // convert routes
   ...Object.values(routes).map(
-    (route:IRoute) => ({
+    (route) => ({
       path: route.path,
       element: <ProtectedRoute route={route} />,
     })
@@ -42,26 +35,22 @@ const router = createBrowserRouter(routesForReactRouter)
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Context
 
-export interface IRoutesContext {
-  routes: IRoutes;
-  routePath: (key:string, params?:IO) => string;
-}
-const initialRoutesContext:IRoutesContext = {
+const initialRoutesContext = {
   routes,
-  routePath: (key:string, params:IO = {}) => '',
+  routePath: (key, params = {}) => '',
 }
-const RoutesContext = React.createContext<IRoutesContext>(initialRoutesContext);
+const RoutesContext = React.createContext(initialRoutesContext);
 export const useRoutesProvider = () => React.useContext(RoutesContext);
 
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Provider component
 
-export const ReactProviderRoutes:React.FC = () => {
-  const [routesList, setRoutesList] = React.useState<IRoutes>(routesKeyAdded)
+export const ReactProviderRoutes = () => {
+  const [routesList, setRoutesList] = React.useState(routesKeyAdded)
   const value = {
     ...initialRoutesContext,
     routes: routesList,
-    routePath: (key:string, params:IO = {}) => {
+    routePath: (key, params = {}) => {
       const { pathMaker } = routes[key] || {pathMaker:undefined}
       if (typeof pathMaker === 'function') return pathMaker(params)
       return routes[key] && routes[key]?.path || ''
