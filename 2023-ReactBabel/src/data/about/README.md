@@ -39,3 +39,48 @@ const MyComponent:React.FC = () => {
   return <>...</>;
 }
 ```
+
+```js
+import { dataRequest } from 'Data';
+import {
+  dataRequest,
+  dataSources,
+  dataSourceTemplate,
+} from 'Data';
+
+const MyComponent = () => {
+
+  const loadData = async () => {
+    // dataRequest props
+    const sourceKey = 'dataSourceTemplate'
+    const source    = dataSources[sourceKey]
+    const document  = documentTemplate
+    const params    = {}
+    // dataRequest loadData
+    const request = {
+      sourceKey,
+      source,
+      document,
+      params,
+    };
+    const response = await dataRequest(request);
+  };
+
+  const loadData = async () => {
+     const request = {sourceKey:'dataSourceTemplate'};
+     const response = await dataRequest(request);
+    return response;
+  };
+
+
+  const postDocument = async () => {
+    const request = {
+      source: 'SourcePostKey',
+      document: {id:1, name:'example'},
+    };
+    const response = await dataRequest(request);
+  }
+
+  return <>...</>;
+}
+```
