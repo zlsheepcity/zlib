@@ -1,24 +1,27 @@
 // 2023.11.22
 import React from 'react';
-import { PageContainer } from 'Components';
+import {
+  Container,Box,Stack, //Layout
+  TextField,Button,    //Inputs
+} from '@mui/material';
 
-//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Parts
+import { PageContainer } from 'Components';
 import {
   CadastreSearchInput,
   CadastreSearchOutput,
 } from 'Pages/CadastreSearch';
 
-//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ MUI
-import {
-//Layout
-  Container,
-  Box,
-  Stack,
-//Inputs
-  TextField,
-  Button,
-} from '@mui/material';
-//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /MUI
+const txt = {
+  InputLabel: 'Cadastre number',
+  ButtonText: 'Search',
+};
+
+//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+const RenderDataObject = ({
+  data = {},
+}) => {
+  return <></>;
+};
 
 //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 const Component = ComponentProps => {
@@ -27,12 +30,17 @@ const Component = ComponentProps => {
   } = ComponentProps || {};
 
   const [inputValue, inputValueSet] = React.useState('');
+  const [loading, loadingSet] = React.useState(false);
 
   const inputValueSetAction = React.useCallback(
     (v) => inputValueSet(v)
     ,[inputValueSet]
   );
 
+  // Run
+  React.useEffect(() => {
+      dataLoad();
+  },[cadastreNumber]);
   return (
     <PageContainer>
 

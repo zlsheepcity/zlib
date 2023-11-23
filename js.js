@@ -1,5 +1,17 @@
 //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ common snippets
 
+//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ async
+
+// response = await awaitThis(MOCK);
+const awaitThis = (data, delay=1000) => new Promise(
+  (resolve, reject) => {
+    try {
+      setTimeout(f => resolve(data), delay);
+    } catch (error) { reject(error) };
+  }
+);
+
+
 const fAsync = new Promise(
     function PromiseTemplate (resolve, reject) {
         try {
@@ -9,6 +21,7 @@ const fAsync = new Promise(
         };
     }
 );
+
 let result = function DemoPromise (resolve, reject) {
     try {
         resolve({})
@@ -16,9 +29,12 @@ let result = function DemoPromise (resolve, reject) {
         reject(err)
     };
 };
-return new Promise(result)
+return new Promise(result);
 
 
+
+
+//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 // before 23.9.5
 

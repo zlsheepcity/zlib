@@ -1,35 +1,39 @@
-/** Usage example
+import React from 'react';
+import { LinearProgress } from '@mui/material';
 
-import { LoadingOverlay } from 'Components'
+//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+const Component = ({
+  loading = true, // state
+  children,       // custom content
+}) => {
+  return loading? (
+    <>
+      <LinearProgress />
+      {children}
+    </>
+  ):(
+    <>
+      <LinearProgress sx={{visibility:'hidden'}} />
+    </>
+  );
+}
+
+//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+export const   LoadingOverlay = Component;
+export default LoadingOverlay ;
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Usage example:
+
+import { LoadingOverlay } from 'Components';
 const MyComponent = () => {
+  const loading = true;
   return (
     <>
-      <LoadingOverlay loading={true} />
+      <LoadingOverlay loading={loading} />
       {!loading && <>loaded content</>}
     </>
   );
 };
 
-**/
-
-import React from 'react'
-
-//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-const Component = ({
-  loading = true,
-  children,
-}) => {
-
-  if (!loading) return <></>;
-  return (
-    <>
-      LoadingOverlay
-      {children}
-    </>
-  )
-}
-//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-export const   LoadingOverlay = Component;
-export default LoadingOverlay ;
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ **/
