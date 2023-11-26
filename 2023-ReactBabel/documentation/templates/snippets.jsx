@@ -17,7 +17,7 @@ const txt = {
 };
 
 //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-const RenderDataObject = ({
+const Component = ({
   data = {},
 }) => {
   return <></>;
@@ -31,6 +31,11 @@ const Component = ComponentProps => {
 
   const [inputValue, inputValueSet] = React.useState('');
   const [loading, loadingSet] = React.useState(false);
+
+  const [
+    loading,
+    loadingSet,
+  ] = React.useState(false);
 
   const inputValueSetAction = React.useCallback(
     (v) => inputValueSet(v)
