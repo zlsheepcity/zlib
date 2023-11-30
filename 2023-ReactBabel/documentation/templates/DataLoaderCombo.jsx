@@ -60,7 +60,7 @@ const Component = ({
     // run
     setLoading(true);
     response = await source(request);
-    setValue(reponse);
+    setValue(response);
     setLoading(false);
   };
 
