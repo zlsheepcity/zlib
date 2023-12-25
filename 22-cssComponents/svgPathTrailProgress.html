@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG path trail progress</title>
+    <!-- 2023.12.25 -->
+    <style>
+        [display-source] {
+            display:     block;
+            padding:     0 1em 2em;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>
+            SVG path trail progress
+        </h2>
+    </header>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Demo -->
+
+    <section>
+        <div class="pathTrailPath">
+            <div class="pathTrailItem">A</div>
+        </div>
+    </section>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ HTML Markup -->
+
+    <style display-source>
+        <div class="pathTrailPath">
+            <div class="pathTrailItem">A</div>
+        </div>
+    </style>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CSS code -->
+
+    <style display-source class="layoutBookWrap">
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ path trail elements */
+
+        .pathTrailPath {
+          --image-pathTrailPath:
+              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="200" fill="none" stroke="red"><path d="M50,150 C50,0 200,0 200,75 C200,150 350,150 350,0"/></svg>');
+            background: var(--image-pathTrailPath) no-repeat;
+            width:  350px;
+            height: 200px;
+            padding: 0rem;
+            border: 1px solid lightslategray;
+        }
+        .pathTrailItem {
+            width:  2em;
+            height: 2em;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background-color: lightslategray;
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ path trail animation */
+
+        .pathTrailItem {
+            offset-path: path("M50,150 C50,0 200,0 200,75 C200,150 350,150 350,0");
+            offset-rotate: auto 90deg;
+            offset-anchor: 50% 50%;
+            offset-distance: 0%;
+            animation: pathTrailAnimation 8000ms infinite ease-in-out;
+        }
+        @keyframes pathTrailAnimation {
+             50% { offset-distance: 100%; }
+            100% { offset-distance:   0%; }
+        }
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+    </style>
+
+
+</body>
+</html>

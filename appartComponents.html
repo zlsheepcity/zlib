@@ -46,12 +46,13 @@
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 </head>
 <body class="">
+
     <header>
         <h1>appartComponents</h1>
         <small>v2023.10.20 keiko</small>
     </header>
     <section>
-    <style display-source>
+    <style>
         body>header {
           --color-PaperBack:  hsl( 37, 55%, 85%);
           --color-PaperDark:  hsl(  0,  0%,  8%);
@@ -276,11 +277,13 @@
 
 
     <a name="independentComponents"></a>
+    <a name="tools"></a>
+
     <article class="layoutBook">
         <header>
-            <h3>
-                Independent CSS Components
-            </h3>
+            <h1>
+                Tools and combos
+            </h1>
         </header>
         <ul class="h4">
             <li>
@@ -293,75 +296,17 @@
                     textCandyCaption
                 </a>
             </li>
+            <li>
+                <a href="22-cssComponents/svgPathTrailProgress.html">
+                    svgPathTrailProgress
+                </a>
+            </li>
         </ul>
     </article>
 
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-
-
-    <a name="tools"></a>
-    <article class="layoutBook">
-        <header>
-            <h1>
-                Tools and combos
-            </h1>
-        </header>
-    </article>
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-
-    <a name="tools"></a>
-    <article class="layoutBook">
-        <header>
-            <h3>
-                SVG .pathTrail
-            </h3>
-        </header>
-        <section>
-            <div class="pathTrailPath">
-                <div class="pathTrailItem"></div>
-            </div>
-        </section>
-        <style display-source contenteditable="true" class="layoutBookWrap">
-        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
-
-        .pathTrailPath {
-          --SVG-pathTrailPath: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="200" fill="none" stroke="red"><path d="M50,150 C50,0 200,0 200,75 C200,150 350,150 350,0"/></svg>');
-            width:      350px;
-            height:     200px;
-            padding:    0rem;
-            background-image: var(--SVG-pathTrailPath);
-            background-repeat: no-repeat;
-
-        }
-        .pathTrailItem {
-            /* define box */
-            width:  3rem;
-            height: 3rem;
-            border-right:  2px solid magenta;
-            background-color:  hsla(204, 44%, 34%, 0.5);
-
-            /* define path */
-            offset-path: path('M0,0 C40,160 60,160 100,0');
-            offset-path: path("M50,150 C50,0 200,0 200,75 C200,150 350,150 350,0");
-
-            offset-rotate: auto 90deg;
-            offset-anchor: 50% 50%;
-
-
-            animation: pathTrailAnimation 4000ms infinite ease-in-out;
-        }
-        @keyframes pathTrailAnimation {
-             50% { offset-distance: 100%; }
-            100% { offset-distance:   0%; }
-        }
-        </style>
-    </article>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
