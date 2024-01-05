@@ -49,18 +49,18 @@
 
     <header>
         <h1>appartComponents</h1>
-        <small>v2023.10.20 keiko</small>
+        <small class="font-native-sans">v2023.10.20 keiko</small>
     </header>
-    <section>
-    <style>
+    <style display-source>
         body>header {
-          --color-PaperBack:  hsl( 37, 55%, 85%);
-          --color-PaperDark:  hsl(  0,  0%,  8%);
-            background-color: var(--color-PaperBack);
-                       color: var(--color-PaperDark);
             padding: 1rem;
+          --color--PaperBack: hsl( 37, 55%, 85%);
+          --color--PaperText: hsl(  0,  0%,  8%);
+            background-color: var(--color--PaperBack);
+                       color: var(--color--PaperText);
         }
     </style>
+
     <style display-source>
         /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Common combos */
 
@@ -91,7 +91,6 @@
             place-items: center;
         }
     </style>
-    </section>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
     <a name="summaryHeader"></a>
