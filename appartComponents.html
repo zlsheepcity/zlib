@@ -247,6 +247,71 @@
     </details>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
     <a name="layoutScreen"></a>
+    <article class="layoutBook use-colors colors--swed-secondary">
+        <header>
+            <h3>EventDebouncer + DynamicVH</h3>
+        </header>
+        <script display-source class="layoutBookWrap">
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer 2024
+
+            function EventDebouncer (callback) {
+                this.callback = callback;
+                this.ticking = false;
+            };
+            EventDebouncer.prototype = {
+                constructor: EventDebouncer,
+                update:
+                    function() {
+                        this.callback && this.callback();
+                        this.ticking = false;
+                    },
+                requestTick:
+                    function() {
+                        if(!this.ticking) {
+                            const action = this.rafCallback || (this.rafCallback = this.update.bind(this));
+                            requestAnimationFrame(action);
+                            this.ticking = true;
+                        }
+                    },
+                handleEvent:
+                    function() {
+                        this.requestTick();
+                    }
+            };
+
+        /** USAGE:
+
+            const action = f => console.log(window.pageYOffset);
+            const eventReaction = new EventDebouncer(action);
+            window.addEventListener('scroll', eventReaction, false);
+            eventReaction.handleEvent();
+
+            **/
+
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer
+        </script>
+        <script display-source class="layoutBookWrap">
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
+
+            (function activateDynamicVH () {
+                const setVH = () => {
+                    let vh = window.innerHeight * 0.01;
+                    document.documentElement.style.setProperty('--vh', `${vh}px`);
+                    };
+                const event = new EventDebouncer(setVH);
+                window.addEventListener('resize',event);
+                event.handleEvent();
+            })();
+
+        /** USAGE:
+
+            min-height: calc( var(--vh, 1vh) *100 );
+
+            **/
+
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DynamicVH
+        </script>
+    </article>
     <details>
         <summary class="summaryHeader">
             <header>
@@ -254,13 +319,37 @@
             </header>
         </summary>
         <style display-source>
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutScreen */
+
+            .layoutScreen {
+                min-height: 100vh;
+                min-height: calc( var(--vh, 1vh) *100 );
+                position: relative;
+            }
+            .layoutScreen {
+                background-image:      none;
+                background-position:   50% 50%;
+                background-size:       cover;
+            }
+            .layoutSticky {
+                position: sticky;
+                top: 0;
+            }
+            .layoutFixed {
+                background-attachment: fixed;
+            }
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~/layoutScreen */
+        </style>
+        <style display-source>
+            /* DEMO */
             [id$="Screen01"] {--i:url(art/artBackgroundMagenta.jpg)}
             [id$="Screen02"] {--i:url(art/artBackgroundBlack.jpg)}
+            [id$="Screen03"] {--i:url(art/artBackgroundMagenta.jpg)}
             [id$="Screen04"] {--i:url(art/artBackgroundYellow.jpg)}
-            [id^="demo-layoutScreen"] {
-                background-image: var(--i);
-            }
-            header[id^="demo-layoutSticky"] {
+
+            [id^="demo-layoutScreen"] {background-image:var(--i)}
+            [id^="demo-layoutScreen"] header.layoutSticky {
                 text-align: center;
                 padding: 1rem;
                 opacity: 0.64;
@@ -268,43 +357,78 @@
                            color: white;
             }
         </style>
-        <textarea display-source rows="14" readonly>
-
-        <link
-            href="app/css.15xLayouts.css"
-            type="text/css" rel="stylesheet" media="all">
+        <style display-source>
+            <article class="layoutScreen">
+                <section class="layoutScreen layoutSticky"></section>
+                <section class="layoutScreen"></section>
+            </article>
+        </style>
 
         <article class="layoutScreen">
-            <section class="layoutScreen"
-                id="demo-layoutScreen01">
-            </section>
-            <section class="layoutScreen layoutSticky"
-                id="demo-layoutScreen02">
-            </section>
-        </article>
-        </textarea>
-        <article class="layoutScreen">
-            <section class="layoutScreen"
-                id="demo-layoutScreen01">
-                <header class="layoutSticky"
-                    id="demo-layoutSticky01">
-                    <h2>SECTION.layoutScreen</h2>
+
+            <section class="layoutScreen" id="demo-layoutScreen01">
+                <header class="layoutSticky">
+                    <h2>class="layoutScreen"</h2>
                 </header>
             </section>
-            <section class="layoutScreen layoutSticky"
-                id="demo-layoutScreen02">
-                <header class="layoutSticky"
-                    id="demo-layoutSticky02">
-                    <h2>SECTION.layoutScreen.layoutSticky</h2>
+
+            <section class="layoutScreen layoutFixed" id="demo-layoutScreen02">
+                <header class="layoutSticky">
+                    <h2>class="layoutScreen layoutFixed"</h2>
                 </header>
             </section>
-            <header class="layoutSticky"
-                id="demo-layoutSticky01">
-                <h2>.layoutSticky</h2>
-            </header>
-            <section class="layoutScreen"
-                id="demo-layoutScreen03">
+
+
+            <article class="layoutBook">
+                <header><h2>Demo content</h2></header>
+                <section mock>
+                    Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
+                </section>
+                <blockquote mock>
+                    Main article: History of quantum field theory
+                </blockquote>
+                <h3>Theoretical background</h3>
+                <section mock>
+                    Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
+
+                    The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
+                </section>
+                <blockquote mock>
+                    [1] [2] [3]
+                </blockquote>
+                <footer mock>
+                    Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
+                </footer>
+            </article>
+
+            <section class="layoutScreen layoutSticky" id="demo-layoutScreen03">
+                <header class="layoutSticky">
+                    <h2>class="layoutScreen layoutSticky"</h2>
+                </header>
             </section>
+
+            <article class="layoutBook">
+                <header><h2>Demo content</h2></header>
+                <section mock>
+                    Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
+                </section>
+                <blockquote mock>
+                    Main article: History of quantum field theory
+                </blockquote>
+                <h3>Theoretical background</h3>
+                <section mock>
+                    Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
+
+                    The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
+                </section>
+                <blockquote mock>
+                    [1] [2] [3]
+                </blockquote>
+                <footer mock>
+                    Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
+                </footer>
+            </article>
+
             <section class="layoutScreen"
                 id="demo-layoutScreen04">
             </section>
@@ -320,12 +444,7 @@
     <a name="independentComponents"></a>
     <a name="tools"></a>
 
-    <article class="layoutBook">
-        <header>
-            <h1>
-                Tools and combos
-            </h1>
-        </header>
+    <article class="layoutBook use-colors colors--ivory">
         <ul class="h4">
             <li>
                 <a href="22-cssComponents/formGrowingTextarea.html">

@@ -4,22 +4,26 @@
  *  zl
  */
 
-/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Screen */
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutScreen */
 
 
-.layoutScreen {
-  --background-image: none;
-    background-image: var(--background-image);
-  --background-position: 50% 50%;
-    background-position: var(--background-position);
-    background-size:  cover;
-    min-height:  100vh;
-    position: relative;
-}
-.layoutSticky {
-    position: sticky;
-    top: 0;
-}
+    .layoutScreen {
+        min-height: 100vh;
+        min-height: calc( var(--vh, 1vh) *100 );
+        position: relative;
+    }
+    .layoutScreen {
+        background-image:      none;
+        background-position:   50% 50%;
+        background-size:       cover;
+    }
+    .layoutSticky {
+        position: sticky;
+        top: 0;
+    }
+    .layoutFixed {
+        background-attachment: fixed;
+    }
 
 
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Summary Header */
@@ -50,7 +54,7 @@
     }
 
 
-/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Book Article */
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
 
 
 .layoutBook {
@@ -62,27 +66,31 @@
   --join-gap:  2em;
 
 /* functional */
+    position: relative;
     width:    100%;
     display:  grid;
     grid-gap: var(--grid-gap);
     grid-auto-flow:  row;
     grid-auto-rows:  min-content;
-    grid-template-columns: 0 var(--c) auto;
-  --c: minmax(auto,var(--textSize)) var(--join-gap) var(--sideSize);
+    grid-template-columns: 0 var(--useColumns) auto;
   --grid-column-full: 1/6;
   --grid-column-text: 2/3;
   --grid-column-side: 4/5;
   --grid-column-wrap: 2/5;
-
+  --useColumns:
+        minmax( auto, var(--textSize) )
+        var(--join-gap)
+        var(--sideSize)
+     ;
 }
 /* small screen */
 @media all and (max-width:68em) {
     .layoutBook {
-      --c: 1fr;
       --grid-column-full: 1/4;
       --grid-column-text: 2/3;
       --grid-column-side: 2/3;
       --grid-column-wrap: 2/3;
+      --useColumns: 1fr;
     }
 }
 
