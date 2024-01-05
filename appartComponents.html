@@ -107,22 +107,50 @@
     </article>
     <article class="layoutBook">
         <style class="layoutBookWrap" display-source>
-            summary.summaryHeader { /* config */
-              --font-size:   var(--h2-font-size,    3em);
-              --line-height: var(--h2-line-height, 1.25);
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Summary Header */
+            .summaryHeader { /* style config */
+              --font-size:  2.4em;
+              --line-height: 1.25;
               --marker-color:   currentColor;
               --border-style-default: dotted;
-              --border-style-open:    dotted;
-              --border-style-hover:   dotted;
             }
 
-            details { padding-top: 1em; }
+            .summaryHeader {
+                font-size:   var(--font-size);
+                line-height: var(--line-height);
+                width: max-content;
+                padding-right: 1em;
+            }
+            .summaryHeader::marker { color: var(--marker-color); }
+            .summaryHeader >header {
+                display: inline-block;
+                font-size:   inherit;
+                line-height: inherit;
+                margin-bottom: 0.4em;
+                border-bottom: 0.1em currentColor;
+                border-bottom-style: var(--border-style-default);
+                cursor: pointer;
+            }
+        </style>
+        <style class="layoutBookWrap" display-source>
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ open details */
+            details { padding: 1em 0; }
             details[open] {
               --color-NobleBlack:  hsl(226, 15%, 12%);
               --color-NobleWhite:  hsl(226, 27%, 90%);
                 background-color: var(--color-NobleBlack);
                            color: var(--color-NobleWhite);
             }
+        </style>
+        <style class="layoutBookWrap" display-source>
+            <details>
+                <summary class="summaryHeader">
+                    <header>textSummaryHeader</header>
+                </summary>
+                <article>
+                    xxx
+                </article>
+            </details>
         </style>
     </article>
     </details>

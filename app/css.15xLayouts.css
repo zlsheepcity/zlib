@@ -1,6 +1,6 @@
 /** 15xLayouts
  *  common combos
- *  v2023.10.20 keiko
+ *  v24.1.5 keiko
  *  zl
  */
 
@@ -25,40 +25,29 @@
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Summary Header */
 
 
-.summaryHeader {
+    .summaryHeader { /* style config */
+      --font-size:  2.4em;
+      --line-height: 1.25;
+      --marker-color:   currentColor;
+      --border-style-default: dotted;
+    }
 
-/* config */
-  --font-size:   var(--h2-font-size,    3em);
-  --line-height: var(--h2-line-height, 1.25);
-  --marker-color:   currentColor;
-  --border-style-default: dotted;
-  --border-style-open:    dotted;
-  --border-style-hover:   dotted;
-
-/* functional */
-    font-size:   var(--font-size);
-    line-height: var(--line-height);
-    width: max-content;
-    padding-right: 1em;
-}
-/* children */
-.summaryHeader >header {
-    display: inline-block;
-    border-bottom: 0.1em currentColor;
-    border-bottom-style: var(--border-style-default);
-    margin-bottom: 0.4em;
-    cursor: pointer;
-}
-.summaryHeader::marker {
-    color: var(--marker-color);
-}
-/* states */
-.summaryHeader:hover >header {
-    border-bottom-style: var(--border-style-hover);
-}
-details[open]> .summaryHeader >header {
-    border-bottom-style: var(--border-style-open);
-}
+    .summaryHeader {
+        font-size:   var(--font-size);
+        line-height: var(--line-height);
+        width: max-content;
+        padding-right: 1em;
+    }
+    .summaryHeader::marker { color: var(--marker-color); }
+    .summaryHeader >header {
+        display: inline-block;
+        font-size:   inherit;
+        line-height: inherit;
+        margin-bottom: 0.4em;
+        border-bottom: 0.1em currentColor;
+        border-bottom-style: var(--border-style-default);
+        cursor: pointer;
+    }
 
 
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Book Article */
