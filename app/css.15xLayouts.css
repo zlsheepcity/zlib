@@ -12,9 +12,9 @@
         position: relative;
     }
     .layoutScreen {
-        background-image:      none;
-        background-position:   50% 50%;
-        background-size:       cover;
+        background-image:    none;
+        background-size:     cover;
+        background-position: 50% 50%;
     }
     .layoutSticky {
         position: sticky;
