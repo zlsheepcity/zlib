@@ -13,6 +13,12 @@
         white-space: pre-wrap;
         padding:     0 1em 2em 1em;
     }
+    @media all and (max-width:64em) {
+    [display-source] {
+        white-space: pre;
+        overflow-x:  auto;
+    }
+    }
     [display-source]:is(textarea) {
         width:       100%;
         background:  transparent;
