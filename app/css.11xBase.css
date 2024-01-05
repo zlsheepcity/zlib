@@ -1,6 +1,6 @@
 /** css.11xBase
  *  presets and basic setup
- *  v2023.10.20 keiko
+ *  v24.1.5 keiko
  *  zl
  */
 
@@ -39,7 +39,6 @@
     }
 
 /** Scroll behavoir */
-    html { scroll-behavior:smooth; cursor:default; }
     body { overflow-y:scroll; scrollbar-gutter:stable; }
 
 /** Tap on clickable element */
