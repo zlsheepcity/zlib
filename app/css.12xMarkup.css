@@ -15,8 +15,8 @@
     }
     @media all and (max-width:64em) {
     [display-source] {
-        white-space: pre;
-        overflow-x:  auto;
+        --white-space: pre;
+        --overflow-x:  auto;
     }
     }
     [display-source]:is(textarea) {
