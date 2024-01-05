@@ -114,6 +114,11 @@
               --marker-color:   currentColor;
               --border-style-default: dotted;
             }
+            @media all and (max-width:68em) {
+            .summaryHeader {
+              --font-size:  1.6em;
+            }
+            }
 
             .summaryHeader {
                 font-size:   var(--font-size);
@@ -133,7 +138,7 @@
             }
         </style>
         <style class="layoutBookWrap" display-source>
-        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ open details */
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ custom details */
             details { padding: 1em 0; }
             details[open] {
               --color-NobleBlack:  hsl(226, 15%, 12%);
