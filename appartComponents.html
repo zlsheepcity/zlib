@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- seed v2023.10.20 keiko -->
     <title>appartComponents</title>
+    <meta name="description" content="html/css/js frontend code">
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DESIGN -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ FAVICON -->
+    <meta name="theme-color"             content="#314159">
+    <meta name="msapplication-TileColor" content="#314159">
+    <meta name="msapplication-TileImage" content="app/icon512.png">
+    <link rel="icon" type="image/png"       href="app/icon512.png">
+    <link rel="apple-touch-icon"            href="app/icon512.png">
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ APPART CSS -->
     <link
         href="app/css.11xBase.css"
         type="text/css" rel="stylesheet" media="all">
@@ -30,16 +38,14 @@
         href="app/css.21xComponents.css"
         type="text/css" rel="stylesheet" media="all">
 
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CUSTOM CSS -->
+
     <style>
         [mock] {
             font-style: italic;
             font-size:  1.25em;
             letter-spacing: 0.1em;
             opacity: 0.64;
-        }
-        [box] {
-            display: block;
-            padding: 0.5rem 1rem;
         }
     </style>
 
@@ -50,8 +56,11 @@
     <header>
         <h1>appartComponents</h1>
         <small class="font-native-sans">2024.1.5 keiko</small>
+        <small class="font-native-sans">
+            <a href="https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html">https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html</a>
+        </small>
     </header>
-    <style display-source>
+    <style>
         body>header {
             padding: 1rem;
           --color--PaperBack: hsl( 37, 55%, 85%);
@@ -62,7 +71,7 @@
     </style>
 
     <style display-source>
-        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Common combos */
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Common CSS combos */
 
         .flexbox {
             display:         flex;
@@ -90,6 +99,8 @@
             display: grid;
             place-items: center;
         }
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
     </style>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
@@ -97,15 +108,20 @@
     <details>
     <summary class="summaryHeader">
         <header>
-            DETAILS.summaryHeader
+            .summaryHeader
         </header>
     </summary>
     <article class="layoutBook">
-        <p mock>
-            The theory of classical electromagnetism was completed in 1864 with Maxwell's equations, which described the relationship between the electric field, the magnetic field, electric current, and electric charge. Maxwell's equations implied the existence of electromagnetic waves, a phenomenon whereby electric and magnetic fields propagate from one spatial point to another at a finite speed, which turns out to be the speed of light. Action-at-a-distance was thus conclusively refuted.
-        </p>
-    </article>
-    <article class="layoutBook">
+        <style class="layoutBookWrap" display-source>
+            <details>
+                <summary class="summaryHeader">
+                    <header>textSummaryHeader</header>
+                </summary>
+                <article>
+                    xxx
+                </article>
+            </details>
+        </style>
         <style class="layoutBookWrap" display-source>
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Summary Header */
             .summaryHeader { /* style config */
@@ -114,7 +130,7 @@
               --marker-color:   currentColor;
               --border-style-default: dotted;
             }
-            @media all and (max-width:68em) {
+            @media all and (max-width:64em) {
             .summaryHeader {
               --font-size:  1.6em;
             }
@@ -147,16 +163,6 @@
                            color: var(--color-NobleWhite);
             }
         </style>
-        <style class="layoutBookWrap" display-source>
-            <details>
-                <summary class="summaryHeader">
-                    <header>textSummaryHeader</header>
-                </summary>
-                <article>
-                    xxx
-                </article>
-            </details>
-        </style>
     </article>
     </details>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
@@ -164,7 +170,7 @@
     <details>
     <summary class="summaryHeader">
         <header>
-            ARTICLE.layoutBook
+            .layoutBook
         </header>
     </summary>
 
@@ -249,7 +255,7 @@
     <a name="layoutScreen"></a>
     <article class="layoutBook use-colors colors--swed-secondary">
         <header>
-            <h3>EventDebouncer + DynamicVH</h3>
+            <h3>EventDebouncer</h3>
         </header>
         <script display-source class="layoutBookWrap">
         //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer 2024
@@ -290,6 +296,9 @@
 
         //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer
         </script>
+        <header>
+            <h3>DynamicVH</h3>
+        </header>
         <script display-source class="layoutBookWrap">
         //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
 
@@ -315,7 +324,7 @@
     <details>
         <summary class="summaryHeader">
             <header>
-                SECTION.layoutScreen
+                .layoutScreen
             </header>
         </summary>
         <style display-source>

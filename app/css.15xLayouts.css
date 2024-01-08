@@ -23,6 +23,12 @@
     .layoutFixed {
         background-attachment: fixed;
     }
+    @media all and (max-width:64em) {
+    /* avoid fixed backgrounds for mobile browsers */
+    .layoutFixed {
+        background-attachment: scroll;
+    }
+    }
 
 
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Summary Header */
@@ -33,6 +39,11 @@
       --line-height: 1.25;
       --marker-color:   currentColor;
       --border-style-default: dotted;
+    }
+    @media all and (max-width:64em) {
+    .summaryHeader {
+      --font-size:  1.6em;
+    }
     }
 
     .summaryHeader {
