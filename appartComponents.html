@@ -477,7 +477,78 @@
             </li>
         </ul>
     </article>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <a name="intersectionObserver"></a>
+    <article class="layoutBook use-colors colors--swed-secondary">
+        <header>
+            <h3>intersectionObserver</h3>
+        </header>
+        <div id="DemoObserverTarget"
+             style="
+                background:slategray;
+                height:10em;
+                display: grid;
+                place-items: center;
+             ">
+            #DemoObserverTarget
+        </div>
+        <script display-source class="layoutBookWrap">
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ intersectionObserver 2024
 
+        function runObservation () {
+            const target = document.getElementById('DemoObserverTarget');
+            const action = entries => entries.forEach(entry => {
+                const {
+                    boundingClientRect,
+                    intersectionRatio,
+                    intersectionRect,
+                    isIntersecting,
+                    rootBounds,
+                    target,
+                    time,
+                } = entry;
+                // actions
+                if ( isIntersecting ) console.log('visible');
+                if (!isIntersecting ) console.log('hidden');
+            });
+            const option = {
+                root:       null,          // default window
+                rootMargin: '0% 0% 0% 0%', // margins
+                threshold:  [0,1]          // top and bottom line cross
+            };
+            const ObserverN1 = new IntersectionObserver(action, option);
+            ObserverN1.observe(target);
+        }
+
+        runObservation();
+
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /intersectionObserver
+        </script>
+        <header>
+            <h3>DynamicVH</h3>
+        </header>
+        <script display-source class="layoutBookWrap">
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
+
+            (function activateDynamicVH () {
+                const setVH = () => {
+                    let vh = window.innerHeight * 0.01;
+                    document.documentElement.style.setProperty('--vh', `${vh}px`);
+                    };
+                const event = new EventDebouncer(setVH);
+                window.addEventListener('resize',event);
+                event.handleEvent();
+            })();
+
+        /** USAGE:
+
+            min-height: calc( var(--vh, 1vh) *100 );
+
+            **/
+
+        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DynamicVH
+        </script>
+    </article>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
