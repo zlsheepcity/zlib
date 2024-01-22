@@ -19,36 +19,34 @@
 
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
 
-    /** .detailsWithSummaryHeader 24.1.22
+    /** .detailsWithSummaryHeader 24.1.23
         use details default marker
         use <header> for summary decoration
         */
         .detailsWithSummaryHeader {
-          --font-size:  2.4em;
-          --line-height: 1.25;
-          --marker-color:   currentColor;
-          --border-style-default: dotted;
+          --font-size:           2.4em;
+          --font-size--mini:     1.6em;
+          --line-height:          1.25;
+          --marker-color: currentColor;
         }
-        @media all and (max-width:64em) {
+        @media all and (max-width:42em) {
         .detailsWithSummaryHeader {
-            --font-size:  1.6em;
+            --font-size:  var(--font-size--mini);
         }
         }/* /media */
         .detailsWithSummaryHeader>summary {
             font-size:   var(--font-size);
             line-height: var(--line-height);
+            cursor: pointer;
             width: max-content;
-            padding-right: 1em;
+            max-width: 100%;
         }
         .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
         .detailsWithSummaryHeader>summary >header {
-            display: inline-block;
-            font-size:   inherit;
-            line-height: inherit;
-            margin-bottom: 0.4em;
-            border-bottom: 0.1em currentColor;
-            border-bottom-style: var(--border-style-default);
-            cursor: pointer;
+            display:    inline-block;
+            vertical-align: text-top;
+            word-break:    break-all;
+            max-width: 78vw;
         }
 
     /** .detailsWithSummaryHeader markup

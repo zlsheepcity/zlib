@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>LIB appart 24</title>
+    <title>appart</title>
     <!-- seed v2024.1.22 keiko ~ ʕ⊙ᴥ⊙ʔ ~ made with love -->
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> MICRODATA 2024 -->
     <meta name="description"
-          content="html/css/js/art code snippets">
+          content="Frontend code snippets">
     <meta property="og:image"
           content="https://zlsheepcity.github.io/zlib/art/mediaIWDev.jpg">
     <meta property="og:image:width"  content="2000">
@@ -83,6 +83,13 @@
             font-family: monospace;
             white-space: pre-wrap;
         }
+        @media all and (max-width:64em) {
+        [display-source] {
+            white-space:   pre;
+            padding-right: 1em;
+            --overflow-x:  auto;
+        }
+        }/* /media */
 
         body {
           --color--PaperTone: hsl( 37, 55%, 85%);
@@ -119,7 +126,7 @@
     <article link-list class="layoutBook">
         <ul>
             <li>
-                <a href="https://zlsheepcity.github.io/zlib/appartComponents.html">
+                <a href="https://zlsheepcity.github.io/zlib/appart.html">
                     this document web link
                 </a>
             </li>
@@ -147,7 +154,7 @@
                 Skroll down for the rest.
             </p>
             <p contenteditable>
-                Higlighted code is contenteditable and display live changes
+                Higlighted code is contenteditable with live changes
             </p>
     <style display-source contenteditable>
     [contenteditable] {
@@ -159,8 +166,25 @@
             <p>
                 appart means mix of engineering (app) and art
             </p>
+    <style display-source>
+    [display-source] {
+        display:     block;
+        padding:     1em 0;
+        font-family: monospace;
+        white-space: pre-wrap;
+    }
+
+    @media all and (max-width:64em) {
+    [display-source] {
+        white-space:   pre;
+        padding-right: 1em;
+        overflow-x:  auto;
+    }
+    }/* /media */
+    </style>
         </section>
     </article>
+    
 </header>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> details»summary -->
 <details class="detailsWithSummaryHeader" --open>
@@ -189,36 +213,34 @@
     <style display-source contenteditable>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
 
-    /** .detailsWithSummaryHeader 24.1.22
+    /** .detailsWithSummaryHeader 24.1.23
         use details default marker
         use <header> for summary decoration
         */
         .detailsWithSummaryHeader {
-          --font-size:  2.4em;
-          --line-height: 1.25;
-          --marker-color:   currentColor;
-          --border-style-default: dotted;
+          --font-size:           2.4em;
+          --font-size--mini:     1.6em;
+          --line-height:          1.25;
+          --marker-color: currentColor;
         }
-        @media all and (max-width:64em) {
+        @media all and (max-width:42em) {
         .detailsWithSummaryHeader {
-            --font-size:  1.6em;
+            --font-size:  var(--font-size--mini);
         }
         }/* /media */
         .detailsWithSummaryHeader>summary {
             font-size:   var(--font-size);
             line-height: var(--line-height);
+            cursor: pointer;
             width: max-content;
-            padding-right: 1em;
+            max-width: 100%;
         }
         .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
         .detailsWithSummaryHeader>summary >header {
-            display: inline-block;
-            font-size:   inherit;
-            line-height: inherit;
-            margin-bottom: 0.4em;
-            border-bottom: 0.1em currentColor;
-            border-bottom-style: var(--border-style-default);
-            cursor: pointer;
+            display:    inline-block;
+            vertical-align: text-top;
+            word-break:    break-all;
+            max-width: 78vw;
         }
     /** .detailsMarkerShowHide 24.1.22
         switch first-last child without layout jump
@@ -298,6 +320,7 @@
             font-size: 125%;
             padding: 0 2em 1em;
         }
+        [link-list] ul {margin:0}
     </style>
 </details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> layoutBook -->
