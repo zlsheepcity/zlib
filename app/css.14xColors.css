@@ -1,13 +1,14 @@
 /** css.14xColors
  *  color theme 2020
- *  v2023.10.20 keiko
+ *  v2024.1.22 keiko
  *  zl
  */
 
 :root {
  /* Paper Palette */
-  --color-PaperBack:   hsl( 37, 55%, 85%);
+  --color-PaperTone:   hsl( 37, 55%, 85%);
   --color-PaperDark:   hsl(  0,  0%,  8%);
+  --color-PaperRose:   hsl(359, 59%, 43%);
  /* Noble Palette */
   --color-NobleBlack:  hsl(226, 15%, 12%);
   --color-NobleWhite:  hsl(226, 27%, 90%);

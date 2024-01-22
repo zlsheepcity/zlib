@@ -88,14 +88,21 @@
         body {
           --color--PaperTone: hsl( 37, 55%, 85%);
           --color--PaperDark: hsl(  0,  0%,  8%);
+          --color--PaperRose: hsl(359, 59%, 43%);
             background-color: var(--color--PaperDark);
                        color: var(--color--PaperTone);
+              --accent-color: var(--color--PaperRose);
             margin: 0;
             font-family: monospace;
         }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
     </style>
-    <h1>appart code snippets</h1>
-    <p>v24.1.22 demia</p>
+    <h1>app<span accent>art</span> code snippets</h1>
+    <p>v24.1.22 keiko</p>
     <style>
         body>header h1,
         body>header h2,
@@ -106,14 +113,134 @@
         body>header p {
              margin-bottom: 1em;
         }
+        body [accent] {
+            color: var(--accent-color);
+        }
     </style>
-    <h2>links</h2>
-    <p>
-        <a href="https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html">https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html</a>
-    </p>
+    <article link-list class="layoutBook">
+        <ul>
+            <li>
+                <a href="https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html">
+                    this document web link
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/zlsheepcity/zlib/tree/main">
+                    this project git repository
+                </a>
+            </li>
+        </ul>
+        <section>
+            <h4>About</h4>
+            <p>
+                Frontend code snippets for copy-paste dependency free features.
+                Check the «view source» for the html»head markup.
+                Skroll down for the rest.
+            </p>
+            <p contenteditable>
+                Higlighted code is contenteditable to display live changes.
+            </p>
+    <style display-source contenteditable>
+    [contenteditable] {
+      --color: var(--accent-color);
+        color: var(--color);
+        border-left: 1rem solid var(--color);
+    }
+    </style>
+            <p>
+                appart means app (engineering) and art mix
+            </p>
+        </section>
+    </article>
 </header>
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > common snippets -->
-<article>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > details»summary -->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
+        <header>
+            extended details»summary
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source>
+        <details class="detailsWithSummaryHeader" open>
+            <summary>
+                <header>
+                    extended details»summary
+                    <span class="detailsMarkerShowHide">
+                        <span>[show]</span>
+                        <span>[hide]</span>
+                    </span>
+                </header>
+            </summary>
+        </details>
+    </style>
+    <style display-source contenteditable>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
+
+    /** .detailsWithSummaryHeader 24.1.22
+        use details default marker
+        use <header> for summary decoration
+        */
+        .detailsWithSummaryHeader {
+          --font-size:  2.4em;
+          --line-height: 1.25;
+          --marker-color:   currentColor;
+          --border-style-default: dotted;
+        }
+        @media all and (max-width:64em) {
+        .detailsWithSummaryHeader {
+            --font-size:  1.6em;
+        }
+        }/* /media */
+        .detailsWithSummaryHeader>summary {
+            font-size:   var(--font-size);
+            line-height: var(--line-height);
+            width: max-content;
+            padding-right: 1em;
+        }
+        .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
+        .detailsWithSummaryHeader>summary >header {
+            display: inline-block;
+            font-size:   inherit;
+            line-height: inherit;
+            margin-bottom: 0.4em;
+            border-bottom: 0.1em currentColor;
+            border-bottom-style: var(--border-style-default);
+            cursor: pointer;
+        }
+    /** .detailsMarkerShowHide 24.1.22
+        switch first-last child without layout jump
+        */
+        .detailsMarkerShowHide {
+            display: inline-grid;
+            grid-template-areas: 'overlay';
+        }
+        .detailsMarkerShowHide>* {
+            grid-area:  overlay;
+            pointer-events: all;
+            pointer-events: var(--visible, none);
+            opacity:        var(--visible, 0);
+        }
+        details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
+        details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
+    </style>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > css combos -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            <span accent>css</span> snippets
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
     <style display-source>
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Common CSS combos */
 
@@ -146,76 +273,22 @@
 
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
     </style>
-</article>
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > details -->
-<details class="detailsWithSummaryHeader" open>
-    <summary>
-        <header>
-            html details»summary
-            <span class="detailsMarkerShowHide">
-                <span>[show]</span>
-                <span>[hide]</span>
-            </span>
-        </header>
-    </summary>
-    <style display-source>
-        <details class="detailsWithSummaryHeader" --open>
-            <summary>
-                <header>
-                    CAPTION
-                    <span class="detailsMarkerShowHide">
-                        <span>[show]</span>
-                        <span>[hide]</span>
-                    </span>
-                </header>
-            </summary>
-        </details>
-    </style>
-    <style display-source>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
-
-        .detailsWithSummaryHeader {
-          --font-size:  2.4em;
-          --line-height: 1.25;
-          --marker-color:   currentColor;
-          --border-style-default: dotted;
+    <article link-list class="layoutBook">
+        <header><h3>css topics</h3></header>
+        <ul class="layoutBook">
+            <li><a href="app/css.11xBase.css">app/css.11xBase.css</a></li>
+            <li><a href="app/css.12xMarkup.css">app/css.12xMarkup.css</a></li>
+            <li><a href="app/css.13xTypography.css">app/css.13xTypography.css</a></li>
+            <li><a href="app/css.14xColors.css">app/css.14xColors.css</a></li>
+            <li><a href="app/css.15xLayouts.css">app/css.15xLayouts.css</a></li>
+            <li><a href="app/css.16xTools.css">app/css.16xTools.css</a></li>
+        </ul>
+    </article>
+    <style display-source contenteditable accent>
+        [link-list] {
+            font-size: 125%;
+            padding: 0 2em 1em;
         }
-        @media all and (max-width:64em) {
-        .detailsWithSummaryHeader {
-            --font-size:  1.6em;
-        }
-        }/* /media */
-        .detailsWithSummaryHeader>summary {
-            font-size:   var(--font-size);
-            line-height: var(--line-height);
-            width: max-content;
-            padding-right: 1em;
-        }
-        .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
-        .detailsWithSummaryHeader>summary >header {
-            display: inline-block;
-            font-size:   inherit;
-            line-height: inherit;
-            margin-bottom: 0.4em;
-            border-bottom: 0.1em currentColor;
-            border-bottom-style: var(--border-style-default);
-            cursor: pointer;
-        }
-
-        .detailsMarkerShowHide {
-            display: inline-grid;
-            grid-template-areas: 'overlay';
-        }
-        .detailsMarkerShowHide>* {
-            grid-area:  overlay;
-            pointer-events: all;
-            pointer-events: var(--visible, none);
-            opacity:        var(--visible, 0);
-        }
-        details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
-        details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
-
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
     </style>
 </details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > layoutBook -->
@@ -246,7 +319,7 @@
             <div class="layoutBookFull">xxx</div>
         </article>
     </style>
-    <style display-source>
+    <style display-source contenteditable>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
 
         .layoutBook {
@@ -265,6 +338,7 @@
             grid-auto-flow:  row;
             grid-auto-rows:  min-content;
             grid-template-columns: 0 var(--useColumns) auto;
+            grid-column: var(--grid-column-full);
           --grid-column-full: 1/6;
           --grid-column-text: 2/3;
           --grid-column-side: 4/5;
@@ -319,7 +393,7 @@
                 .layoutBook.DemoBoxNB
             </h2>
             <p>v2023.10.20 keiko</p>
-            <style display-source>
+            <style display-source contenteditable>
             .layoutBook.DemoBoxNB {
               --color:            hsl(226, 27%, 90%); /* NobleWhite */
               --background-color: hsl(226, 15%, 12%); /* NobleBlack */
@@ -364,78 +438,6 @@
         </footer>
     </article>
 </details>
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > JS -->
-<details class="detailsWithSummaryHeader" --open>
-    <summary>
-        <header>
-            JS EventDebouncer + DynamicVH
-            <span class="detailsMarkerShowHide">
-                <span>[show]</span>
-                <span>[hide]</span>
-            </span>
-        </header>
-    </summary>
-    <script display-source class="layoutBookWrap">
-    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer 2024
-
-        function EventDebouncer (callback) {
-            this.callback = callback;
-            this.ticking = false;
-        };
-        EventDebouncer.prototype = {
-            constructor: EventDebouncer,
-            update:
-                function() {
-                    this.callback && this.callback();
-                    this.ticking = false;
-                },
-            requestTick:
-                function() {
-                    if(!this.ticking) {
-                        const action = this.rafCallback || (this.rafCallback = this.update.bind(this));
-                        requestAnimationFrame(action);
-                        this.ticking = true;
-                    }
-                },
-            handleEvent:
-                function() {
-                    this.requestTick();
-                }
-        };
-
-    /** USAGE:
-
-        const action = f => console.log(window.pageYOffset);
-        const eventReaction = new EventDebouncer(action);
-        window.addEventListener('scroll', eventReaction, false);
-        eventReaction.handleEvent();
-
-        **/
-
-    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer
-    </script>
-    <script display-source class="layoutBookWrap">
-    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
-
-        (function activateDynamicVH () {
-            const setVH = () => {
-                let vh = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', `${vh}px`);
-                };
-            const event = new EventDebouncer(setVH);
-            window.addEventListener('resize',event);
-            event.handleEvent();
-        })();
-
-    /** USAGE:
-
-        min-height: calc( var(--vh, 1vh) *100 );
-
-        **/
-
-    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DynamicVH
-    </script>
-</details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > layoutScreen -->
 <details class="detailsWithSummaryHeader" --open>
     <summary>
@@ -448,7 +450,7 @@
         </header>
     </summary>
 
-        <style display-source>
+        <style display-source contenteditable>
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutScreen */
 
             .layoutScreen {
@@ -470,7 +472,7 @@
 
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~/layoutScreen */
         </style>
-        <style display-source>
+        <style display-source contenteditable>
             /* DEMO */
             [id$="Screen01"] {--i:url(art/artBackgroundMagenta.jpg)}
             [id$="Screen02"] {--i:url(art/artBackgroundBlack.jpg)}
@@ -565,61 +567,201 @@
         <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~/layoutScreen DEMO -->
 
 </details>
-
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > depra -->
-
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-
-
-    <a name="independentComponents"></a>
-    <a name="tools"></a>
-
-    <article class="layoutBook use-colors colors--ivory">
-        <ul class="h4">
-            <li>
-                <a href="22-cssComponents/formGrowingTextarea.html">
-                    formGrowingTextarea
-                </a>
-            </li>
-            <li>
-                <a href="22-cssComponents/textCandyCaption.html">
-                    textCandyCaption
-                </a>
-            </li>
-            <li>
-                <a href="22-cssComponents/svgPathTrailProgress.html">
-                    svgPathTrailProgress
-                </a>
-            </li>
-            <li>
-                <a href="22-cssComponents/gridGalleryG23.html">
-                    gridGalleryG23
-                </a>
-            </li>
-        </ul>
-    </article>
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-    <a name="intersectionObserver"></a>
-    <article class="layoutBook use-colors colors--swed-secondary">
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > background-blend-mode -->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
         <header>
-            <h3>intersectionObserver</h3>
+            background-blend-mode
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
         </header>
-        <div id="DemoObserverTarget"
-             style="
-                background:slategray;
-                height:10em;
-                display: grid;
-                place-items: center;
-             ">
-            #DemoObserverTarget
-        </div>
-        <script display-source class="layoutBookWrap">
-        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ intersectionObserver 2024
+    </summary>
+    <article
+        class="layoutScreen background-blend-mixer"
+        id="demo-background-blend-mixer"
+        >
+
+        <style display-source>
+
+        #demo-background-blend-mixer {
+            background:
+                url(art/artBackgroundMagenta.jpg),
+                url(art/artBackgroundBlack.jpg),
+                transparent
+                ;
+            background-blend-mode: screen, multiply;
+            background-size: cover;
+        }
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        .background-blend-mixer {
+        /** Blends together the background layers
+          * without affecting the foreground content */
+            background:
+            /** Could have: */
+
+                url(image1.png),        /* images */
+                url(image2.png),
+                rgba(244, 65, 106, 1),  /* colors */
+                linear-gradient(        /* gradients */
+                    45deg,
+                    rgba(65, 68,244, 1),
+                    rgba(203, 66, 244, 0.5)
+                )
+                ;
+            background-size: cover;
+
+        /** We can specify multiple values for background-blend-mode
+          * one for each background layer */
+            background-blend-mode: screen, multiply;
+        }
+
+        </style>
+
+        <section class="layoutBook">
+            <img src="art/artBackgroundCyan.jpg" alt=""
+                class="blend-with-color layoutBookWrap">
+        </section>
+        <style display-source>
+
+        img.blend-with-color,
+           .blend-with-color {
+          --background-color: hsl(204, 22%, 55%); /*NobleSky*/
+            background-color: var(--background-color);
+            mix-blend-mode: multiply;
+        }
+
+        </style>
+
+        <hr>
+    </article>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > link-list -->
+<article link-list class="layoutBook">
+    <header><h3>frontend features 2024</h3></header>
+    <ul class="layoutBook">
+        <li>
+            <a href="22-cssComponents/formGrowingTextarea.html">
+                formGrowingTextarea (usability)
+            </a>
+        </li>
+        <li>
+            <a href="22-cssComponents/textCandyCaption.html">
+                textCandyCaption (design)
+            </a>
+        </li>
+        <li>
+            <a href="22-cssComponents/svgPathTrailProgress.html">
+                svgPathTrailProgress (animation/svg)
+            </a>
+        </li>
+        <li>
+            <a href="22-cssComponents/gridGalleryG23.html">
+                gridGalleryG23 (layout)
+            </a>
+        </li>
+    </ul>
+</article>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > JS EventDebouncer + DynamicVH -->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
+        <header>
+            JS EventDebouncer + DynamicVH
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <script display-source class="layoutBookWrap">
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer 2024
+
+        function EventDebouncer (callback) {
+            this.callback = callback;
+            this.ticking = false;
+        };
+        EventDebouncer.prototype = {
+            constructor: EventDebouncer,
+            update:
+                function() {
+                    this.callback && this.callback();
+                    this.ticking = false;
+                },
+            requestTick:
+                function() {
+                    if(!this.ticking) {
+                        const action = this.rafCallback || (this.rafCallback = this.update.bind(this));
+                        requestAnimationFrame(action);
+                        this.ticking = true;
+                    }
+                },
+            handleEvent:
+                function() {
+                    this.requestTick();
+                }
+        };
+
+    /** USAGE:
+
+        const action = f => console.log(window.pageYOffset);
+        const eventReaction = new EventDebouncer(action);
+        window.addEventListener('scroll', eventReaction, false);
+        eventReaction.handleEvent();
+
+        **/
+
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer
+    </script>
+    <script display-source class="layoutBookWrap">
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
+
+        (function activateDynamicVH () {
+            const setVH = () => {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+                };
+            const event = new EventDebouncer(setVH);
+            window.addEventListener('resize',event);
+            event.handleEvent();
+        })();
+
+    /** USAGE:
+
+        min-height: calc( var(--vh, 1vh) *100 );
+
+        **/
+
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DynamicVH
+    </script>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > JS intersectionObserver-->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
+        <header>
+            JS intersectionObserver
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <div id="runObservationDemoTarget">
+        <style display-source>
+        #runObservationDemoTarget {
+            background:slategray;
+            display: grid;
+            place-items: center;
+        }
+        </style>
+    </div>
+    <script display-source class="layoutBookWrap">
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ intersectionObserver 2024
 
         function runObservation () {
-            const target = document.getElementById('DemoObserverTarget');
+            const target = document.getElementById('runObservationDemoTarget');
             const action = entries => entries.forEach(entry => {
                 const {
                     boundingClientRect,
@@ -645,109 +787,27 @@
 
         runObservation();
 
-        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /intersectionObserver
-        </script>
-        <header>
-            <h3>DynamicVH</h3>
-        </header>
-        <script display-source class="layoutBookWrap">
-        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
-
-            (function activateDynamicVH () {
-                const setVH = () => {
-                    let vh = window.innerHeight * 0.01;
-                    document.documentElement.style.setProperty('--vh', `${vh}px`);
-                    };
-                const event = new EventDebouncer(setVH);
-                window.addEventListener('resize',event);
-                event.handleEvent();
-            })();
-
-        /** USAGE:
-
-            min-height: calc( var(--vh, 1vh) *100 );
-
-            **/
-
-        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DynamicVH
-        </script>
-    </article>
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-
-    <details>
-        <summary class="summaryHeader">
-            <header>
-                CSS background-blend-mode
-            </header>
-        </summary>
-        <article
-            class="layoutScreen background-blend-mixer"
-            id="demo-background-blend-mixer"
-            >
-
-            <style display-source>
-
-            #demo-background-blend-mixer {
-                background:
-                    url(art/artBackgroundMagenta.jpg),
-                    url(art/artBackgroundBlack.jpg),
-                    transparent
-                    ;
-                background-blend-mode: screen, multiply;
-                background-size: cover;
-            }
-
-            /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
-
-            .background-blend-mixer {
-            /** Blends together the background layers
-              * without affecting the foreground content */
-                background:
-                /** Could have: */
-
-                    url(image1.png),        /* images */
-                    url(image2.png),
-                    rgba(244, 65, 106, 1),  /* colors */
-                    linear-gradient(        /* gradients */
-                        45deg,
-                        rgba(65, 68,244, 1),
-                        rgba(203, 66, 244, 0.5)
-                    )
-                    ;
-                background-size: cover;
-
-            /** We can specify multiple values for background-blend-mode
-              * one for each background layer */
-                background-blend-mode: screen, multiply;
-            }
-
-            </style>
-
-            <section class="layoutBook">
-                <img src="art/artBackgroundCyan.jpg" alt=""
-                    class="blend-with-color layoutBookWrap">
-            </section>
-            <style display-source>
-
-            img.blend-with-color,
-               .blend-with-color {
-              --background-color: hsl(204, 22%, 55%); /*NobleSky*/
-                background-color: var(--background-color);
-                mix-blend-mode: multiply;
-            }
-
-            </style>
-
-            <hr>
-        </article>
-    </details>
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-
-
-    <footer class="layoutScreen"></footer>
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /intersectionObserver
+    </script>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > hr -->
+<article>
+    <style display-source contenteditable>
+        hr[section-divider] {
+          --height: 20vh;
+            height: var(--height);
+            background: transparent;
+            box-shadow: none;
+            border:  0;
+            margin:  0;
+            display:    block;
+            font-size:  inherit;
+        }
+    </style>
+    <hr section-divider/>
+</article>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+<footer class=""></footer>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 </body>
 </html>

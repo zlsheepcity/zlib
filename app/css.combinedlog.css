@@ -11,6 +11,12 @@
 
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > LOG */
 
+:root {
+ /* Paper Palette */
+  --color-PaperBack:   hsl( 37, 55%, 85%);
+}
+
+
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
 
     /** .detailsWithSummaryHeader 24.1.22
