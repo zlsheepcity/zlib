@@ -3,21 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- seed v2023.10.20 keiko -->
-    <title>appartComponents</title>
-    <meta name="description" content="html/css/js frontend code">
+    <title>LIB appart 24</title>
+    <!-- seed v2024.1.22 demia -->
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > MICRODATA 2024 -->
+    <meta name="description"
+          content="html/css/js/art code snippets">
+    <meta property="og:image"
+          content="https://zlsheepcity.github.io/zlib/art/mediaIWDev.jpg">
+    <meta property="og:image:width"  content="2000">
+    <meta property="og:image:height" content="1000">
+    <!--  --
+    <meta property="og:type"   content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url"    content="">
+    <!--  -->
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > FAVICON 2024 -->
     <meta name="theme-color" content="#314159">
     <link rel="icon" type="image/png" href="app/icon512.png">
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > appart cssweb24 -->
-    <!--
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > APPART cssweb24 -->
+    <!--  --
     <link
         href="https://zlsheepcity.github.io/zlib/app/css.combinedlog.css"
         type="text/css" rel="stylesheet" media="all">
-    -->
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ APPART CSS -->
+    <!--  -->
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ APPART css parts -->
+    <!--  --
     <link
         href="app/css.11xBase.css"
         type="text/css" rel="stylesheet" media="all">
@@ -36,43 +51,69 @@
     <link
         href="app/css.16xTools.css"
         type="text/css" rel="stylesheet" media="all">
-
     <link
         href="app/css.21xComponents.css"
         type="text/css" rel="stylesheet" media="all">
+    <!--  -->
+    <link
+        href="app/css.combinedlog.css"
+        type="text/css" rel="stylesheet" media="all">
+    <!--  -->
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CUSTOM CSS -->
-
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CSS CUSTOM -->
+    <!--  -->
     <style>
-        [mock] {
+        [mocktext] {
             font-style: italic;
             font-size:  1.25em;
             letter-spacing: 0.1em;
             opacity: 0.64;
         }
     </style>
+    <!--  -->
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 </head>
 <body class="">
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > body>header -->
+<header>
+    <style display-source>
+        [display-source] {
+            display:     block;
+            padding:     1em 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
 
-    <header>
-        <h1>appartComponents</h1>
-        <small class="font-native-sans">2024.1.5 keiko</small>
-        <small class="font-native-sans">
-            <a href="https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html">https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html</a>
-        </small>
-    </header>
-    <style>
-        body>header {
-            padding: 1rem;
-          --color--PaperBack: hsl( 37, 55%, 85%);
-          --color--PaperText: hsl(  0,  0%,  8%);
-            background-color: var(--color--PaperBack);
-                       color: var(--color--PaperText);
+        body {
+          --color--PaperTone: hsl( 37, 55%, 85%);
+          --color--PaperDark: hsl(  0,  0%,  8%);
+            background-color: var(--color--PaperDark);
+                       color: var(--color--PaperTone);
+            margin: 0;
+            font-family: monospace;
         }
     </style>
-
+    <h1>appart code snippets</h1>
+    <p>v24.1.22 demia</p>
+    <style>
+        body>header h1,
+        body>header h2,
+        body>header p {
+             padding: 0 2rem;
+             margin:  0;
+        }
+        body>header p {
+             margin-bottom: 1em;
+        }
+    </style>
+    <h2>links</h2>
+    <p>
+        <a href="https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html">https://github.com/zlsheepcity/zlib/blob/main/appartComponents.html</a>
+    </p>
+</header>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > common snippets -->
+<article>
     <style display-source>
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Common CSS combos */
 
@@ -98,104 +139,97 @@
             grid-template-columns: auto auto;
         }
 
-        .centered {
+        .centerit {
             display: grid;
             place-items: center;
         }
 
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
     </style>
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-    <a name="summaryHeader"></a>
-    <details>
-    <summary class="summaryHeader">
+</article>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > details -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
         <header>
-            .summaryHeader
+            html details»summary
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
         </header>
     </summary>
-    <article class="layoutBook">
-        <style class="layoutBookWrap" display-source>
-            <details>
-                <summary class="summaryHeader">
-                    <header>textSummaryHeader</header>
-                </summary>
-                <article>
-                    xxx
-                </article>
-            </details>
-        </style>
-        <style class="layoutBookWrap" display-source>
-        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Summary Header */
-            .summaryHeader { /* style config */
-              --font-size:  2.4em;
-              --line-height: 1.25;
-              --marker-color:   currentColor;
-              --border-style-default: dotted;
-            }
-            @media all and (max-width:64em) {
-            .summaryHeader {
-              --font-size:  1.6em;
-            }
-            }
-
-            .summaryHeader {
-                font-size:   var(--font-size);
-                line-height: var(--line-height);
-                max-width: 100%;
-                width: max-content;
-                padding-right: 1em;
-            }
-            .summaryHeader::marker { color: var(--marker-color); }
-            .summaryHeader >header {
-                display: inline-block;
-                font-size:   inherit;
-                line-height: inherit;
-                margin-bottom: 0.4em;
-                border-bottom: 0.1em currentColor;
-                border-bottom-style: var(--border-style-default);
-                cursor: pointer;
-            }
-        </style>
-        <style class="layoutBookWrap" display-source>
-        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ custom details */
-            details { padding: 1em 0; }
-            details[open] {
-              --color-NobleBlack:  hsl(226, 15%, 12%);
-              --color-NobleWhite:  hsl(226, 27%, 90%);
-                background-color: var(--color-NobleBlack);
-                           color: var(--color-NobleWhite);
-            }
-        </style>
-    </article>
-    </details>
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-    <a name="layoutBook"></a>
-    <details>
-    <summary class="summaryHeader">
-        <header>
-            .layoutBook
-        </header>
-    </summary>
-
     <style display-source>
-        article.layoutBook { /* config */
-          --textSize: 42em;
-          --sideSize: 24em;
-          --grid-gap:  1em;
-          --join-gap:  2em;
-        }
-        article.layoutBook { /* custom design */
-            padding: 2em 0;
-        }
+        <details class="detailsWithSummaryHeader" --open>
+            <summary>
+                <header>
+                    CAPTION
+                    <span class="detailsMarkerShowHide">
+                        <span>[show]</span>
+                        <span>[hide]</span>
+                    </span>
+                </header>
+            </summary>
+        </details>
     </style>
     <style display-source>
-        https://zlsheepcity.github.io/zlib/app/css.15xLayouts.css
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
 
-        <link
-            href="app/css.15xLayouts.css"
-            type="text/css" rel="stylesheet" media="all">
+        .detailsWithSummaryHeader {
+          --font-size:  2.4em;
+          --line-height: 1.25;
+          --marker-color:   currentColor;
+          --border-style-default: dotted;
+        }
+        @media all and (max-width:64em) {
+        .detailsWithSummaryHeader {
+            --font-size:  1.6em;
+        }
+        }/* /media */
+        .detailsWithSummaryHeader>summary {
+            font-size:   var(--font-size);
+            line-height: var(--line-height);
+            width: max-content;
+            padding-right: 1em;
+        }
+        .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
+        .detailsWithSummaryHeader>summary >header {
+            display: inline-block;
+            font-size:   inherit;
+            line-height: inherit;
+            margin-bottom: 0.4em;
+            border-bottom: 0.1em currentColor;
+            border-bottom-style: var(--border-style-default);
+            cursor: pointer;
+        }
 
+        .detailsMarkerShowHide {
+            display: inline-grid;
+            grid-template-areas: 'overlay';
+        }
+        .detailsMarkerShowHide>* {
+            grid-area:  overlay;
+            pointer-events: all;
+            pointer-events: var(--visible, none);
+            opacity:        var(--visible, 0);
+        }
+        details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
+        details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
+    </style>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > layoutBook -->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
+        <header>
+            .layoutBook
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source>
         <article class="layoutBook">
             <header>wrap</header>
             <footer>wrap</footer>
@@ -212,21 +246,96 @@
             <div class="layoutBookFull">xxx</div>
         </article>
     </style>
+    <style display-source>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
 
-    <article class="layoutBook">
+        .layoutBook {
+
+        /* config */
+          --textSize: 42em;
+          --sideSize: 24em;
+          --grid-gap:  1em;
+          --join-gap:  2em;
+
+        /* functional */
+            position: relative;
+            width:    100%;
+            display:  grid;
+            grid-gap: var(--grid-gap);
+            grid-auto-flow:  row;
+            grid-auto-rows:  min-content;
+            grid-template-columns: 0 var(--useColumns) auto;
+          --grid-column-full: 1/6;
+          --grid-column-text: 2/3;
+          --grid-column-side: 4/5;
+          --grid-column-wrap: 2/5;
+          --useColumns:
+                minmax( auto, var(--textSize) )
+                var(--join-gap)
+                var(--sideSize)
+             ;
+        }
+        /* small screen */
+        @media all and (max-width:68em) {
+            .layoutBook {
+              --grid-column-full: 1/4;
+              --grid-column-text: 2/3;
+              --grid-column-side: 2/3;
+              --grid-column-wrap: 2/3;
+              --useColumns: 1fr;
+            }
+        }
+
+        /* children */
+        .layoutBook >*          {grid-column:var(--grid-column-text)} /* text paragraph */
+        .layoutBook >section    {grid-column:var(--grid-column-text)} /* paragraphs combined */
+        .layoutBook >blockquote {grid-column:var(--grid-column-side)} /* side note */
+        .layoutBook >header     {grid-column:var(--grid-column-wrap)} /* double column */
+        .layoutBook >footer     {grid-column:var(--grid-column-wrap)} /* double column */
+        .layoutBook >article    {grid-column:var(--grid-column-full)} /* overlay */
+
+        .layoutBook >.layoutBookText {grid-column:var(--grid-column-text)}
+        .layoutBook >.layoutBookWrap {grid-column:var(--grid-column-wrap)}
+        .layoutBook >.layoutBookSide {grid-column:var(--grid-column-side)}
+        .layoutBook >.layoutBookFull {grid-column:var(--grid-column-full)}
+
+        /* sub-grid */
+        .layoutBook >header,
+        .layoutBook >footer,
+        .layoutBook >section {
+            width:    100%;
+            display:  grid;
+            grid-gap: var(--grid-gap);
+            grid-auto-flow:  row;
+            grid-auto-rows:  min-content;
+            grid-template-columns: 1fr;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
+    </style>
+    <article class="layoutBook DemoBoxNB">
         <header>
             <h2>
-                .layoutBook
+                .layoutBook.DemoBoxNB
             </h2>
             <p>v2023.10.20 keiko</p>
+            <style display-source>
+            .layoutBook.DemoBoxNB {
+              --color:            hsl(226, 27%, 90%); /* NobleWhite */
+              --background-color: hsl(226, 15%, 12%); /* NobleBlack */
+                background-color: var(--background-color);
+                color:            var(--color);
+                padding: 1em 0;
+            }
+            </style>
         </header>
         <section>
-            <p mock>
+            <p mocktext>
                 Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
             </p>
         </section>
         <blockquote>
-            <p mock>
+            <p mocktext>
                 Main article: History of quantum field theory
             </p>
         </blockquote>
@@ -235,102 +344,110 @@
             Theoretical background
         </h3>
         <section>
-            <p mock>
+            <p mocktext>
                 Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
             </p>
-            <p mock>
+            <p mocktext>
                 The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
             </p>
         </section>
         <blockquote>
-            <p mock>
+            <p mocktext>
                 [1] [2] [3]
             </p>
         </blockquote>
 
         <footer>
-            <p mock>
+            <p mocktext>
                 Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
             </p>
         </footer>
     </article>
-    </details>
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-    <a name="layoutScreen"></a>
-    <article class="layoutBook use-colors colors--swed-secondary">
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > JS -->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
         <header>
-            <h3>EventDebouncer</h3>
+            JS EventDebouncer + DynamicVH
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
         </header>
-        <script display-source class="layoutBookWrap">
-        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer 2024
+    </summary>
+    <script display-source class="layoutBookWrap">
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer 2024
 
-            function EventDebouncer (callback) {
-                this.callback = callback;
-                this.ticking = false;
-            };
-            EventDebouncer.prototype = {
-                constructor: EventDebouncer,
-                update:
-                    function() {
-                        this.callback && this.callback();
-                        this.ticking = false;
-                    },
-                requestTick:
-                    function() {
-                        if(!this.ticking) {
-                            const action = this.rafCallback || (this.rafCallback = this.update.bind(this));
-                            requestAnimationFrame(action);
-                            this.ticking = true;
-                        }
-                    },
-                handleEvent:
-                    function() {
-                        this.requestTick();
+        function EventDebouncer (callback) {
+            this.callback = callback;
+            this.ticking = false;
+        };
+        EventDebouncer.prototype = {
+            constructor: EventDebouncer,
+            update:
+                function() {
+                    this.callback && this.callback();
+                    this.ticking = false;
+                },
+            requestTick:
+                function() {
+                    if(!this.ticking) {
+                        const action = this.rafCallback || (this.rafCallback = this.update.bind(this));
+                        requestAnimationFrame(action);
+                        this.ticking = true;
                     }
-            };
+                },
+            handleEvent:
+                function() {
+                    this.requestTick();
+                }
+        };
 
-        /** USAGE:
+    /** USAGE:
 
-            const action = f => console.log(window.pageYOffset);
-            const eventReaction = new EventDebouncer(action);
-            window.addEventListener('scroll', eventReaction, false);
-            eventReaction.handleEvent();
+        const action = f => console.log(window.pageYOffset);
+        const eventReaction = new EventDebouncer(action);
+        window.addEventListener('scroll', eventReaction, false);
+        eventReaction.handleEvent();
 
-            **/
+        **/
 
-        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer
-        </script>
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer
+    </script>
+    <script display-source class="layoutBookWrap">
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
+
+        (function activateDynamicVH () {
+            const setVH = () => {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+                };
+            const event = new EventDebouncer(setVH);
+            window.addEventListener('resize',event);
+            event.handleEvent();
+        })();
+
+    /** USAGE:
+
+        min-height: calc( var(--vh, 1vh) *100 );
+
+        **/
+
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DynamicVH
+    </script>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > layoutScreen -->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
         <header>
-            <h3>DynamicVH</h3>
+            .layoutScreen
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
         </header>
-        <script display-source class="layoutBookWrap">
-        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
+    </summary>
 
-            (function activateDynamicVH () {
-                const setVH = () => {
-                    let vh = window.innerHeight * 0.01;
-                    document.documentElement.style.setProperty('--vh', `${vh}px`);
-                    };
-                const event = new EventDebouncer(setVH);
-                window.addEventListener('resize',event);
-                event.handleEvent();
-            })();
-
-        /** USAGE:
-
-            min-height: calc( var(--vh, 1vh) *100 );
-
-            **/
-
-        //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DynamicVH
-        </script>
-    </article>
-    <details>
-        <summary class="summaryHeader">
-            <header>
-                .layoutScreen
-            </header>
-        </summary>
         <style display-source>
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutScreen */
 
@@ -393,22 +510,22 @@
 
             <article class="layoutBook">
                 <header><h2>Demo content</h2></header>
-                <section mock>
+                <section mocktext>
                     Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
                 </section>
-                <blockquote mock>
+                <blockquote mocktext>
                     Main article: History of quantum field theory
                 </blockquote>
                 <h3>Theoretical background</h3>
-                <section mock>
+                <section mocktext>
                     Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
 
                     The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
                 </section>
-                <blockquote mock>
+                <blockquote mocktext>
                     [1] [2] [3]
                 </blockquote>
-                <footer mock>
+                <footer mocktext>
                     Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
                 </footer>
             </article>
@@ -421,22 +538,22 @@
 
             <article class="layoutBook">
                 <header><h2>Demo content</h2></header>
-                <section mock>
+                <section mocktext>
                     Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
                 </section>
-                <blockquote mock>
+                <blockquote mocktext>
                     Main article: History of quantum field theory
                 </blockquote>
                 <h3>Theoretical background</h3>
-                <section mock>
+                <section mocktext>
                     Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
 
                     The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
                 </section>
-                <blockquote mock>
+                <blockquote mocktext>
                     [1] [2] [3]
                 </blockquote>
-                <footer mock>
+                <footer mocktext>
                     Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
                 </footer>
             </article>
@@ -447,7 +564,9 @@
         </article>
         <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~/layoutScreen DEMO -->
 
-    </details>
+</details>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > depra -->
 
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->

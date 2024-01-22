@@ -11,6 +11,75 @@
 
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > LOG */
 
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
+
+    /** .detailsWithSummaryHeader 24.1.22
+        use details default marker
+        use <header> for summary decoration
+        */
+        .detailsWithSummaryHeader {
+          --font-size:  2.4em;
+          --line-height: 1.25;
+          --marker-color:   currentColor;
+          --border-style-default: dotted;
+        }
+        @media all and (max-width:64em) {
+        .detailsWithSummaryHeader {
+            --font-size:  1.6em;
+        }
+        }/* /media */
+        .detailsWithSummaryHeader>summary {
+            font-size:   var(--font-size);
+            line-height: var(--line-height);
+            width: max-content;
+            padding-right: 1em;
+        }
+        .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
+        .detailsWithSummaryHeader>summary >header {
+            display: inline-block;
+            font-size:   inherit;
+            line-height: inherit;
+            margin-bottom: 0.4em;
+            border-bottom: 0.1em currentColor;
+            border-bottom-style: var(--border-style-default);
+            cursor: pointer;
+        }
+
+    /** .detailsWithSummaryHeader markup
+        <details class="detailsWithSummaryHeader" --open>
+            <summary>
+                <header>
+                    CAPTION
+                </header>
+            </summary>
+        </details>
+        */
+
+    /** .detailsMarkerShowHide 24.1.22
+        switch first-last child without layout jump
+        */
+        .detailsMarkerShowHide {
+            display: inline-grid;
+            grid-template-areas: 'overlay';
+        }
+        .detailsMarkerShowHide>* {
+            grid-area:  overlay;
+            pointer-events: all;
+            pointer-events: var(--visible, none);
+            opacity:        var(--visible, 0);
+        }
+        details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
+        details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
+
+    /** .detailsMarkerShowHide markup
+        <span class="detailsMarkerShowHide">
+            <span>[show]</span>
+            <span>[hide]</span>
+        </span>
+        */
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
+
 
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > XX PARTS 2024.1.22 */
 
