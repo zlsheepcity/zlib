@@ -1,24 +1,22 @@
 /** css.12xMarkup
  *  html tags default styling
- *  v2023.10.20 keiko
+ *  v2024.1.23 keiko
  *  zl
  */
 
-/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Code source */
-
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ display-source */
+/** 24.1.23 **/
 
     [display-source] {
-        display:     block;
+        display: block;
+        padding: 0 1em 1em 0;
+        margin:  0 0   1em 0;
+        max-width: max-content;
         font-family: monospace;
-        white-space: pre-wrap;
-        padding:     0 1em 2em 1em;
-    }
-    @media all and (max-width:64em) {
-    [display-source] {
         white-space: pre;
-        overflow-x:  auto;
+        overflow-x: auto;
     }
-    }
+
     [display-source]:is(textarea) {
         width:       100%;
         background:  transparent;
@@ -26,6 +24,16 @@
         border:      0;
         outline:     0;
     }
+
+    /** **
+    [contenteditable] {
+      --color: currentColor;
+        color: var(--color);
+        border-left: 1em solid var(--color);
+    }
+    /** **/
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /display-source */
 
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ HTML attributes */
 

@@ -76,7 +76,7 @@
 
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> header -->
 <article class="layoutBook">
-    <style display-source>
+    <style display-source class="layoutBookFull">
         body {
           --color--PaperTone: hsl( 37, 55%, 85%);
           --color--PaperDark: hsl(  0,  0%,  8%);
@@ -123,7 +123,7 @@
     <section>
         <h4>About</h4>
         <p>
-            Frontend code snippets for copy-paste features without dependency.
+            Frontend code snippets for copy-paste features without dependencies.
             Check the «view source» for the html»head markup.
             Skroll down for the rest.
         </p>
@@ -136,33 +136,21 @@
     </section>
     <style display-source contenteditable class="layoutBookFull">
         [contenteditable] {
-          --space: var(--grid-gap, 1rem);
           --color: var(--accent-color);
             color: var(--color);
-            border-left: var(--space) solid var(--color);
+            border-left: 1em solid var(--color);
         }
 
         [display-source] {
             display: block;
             padding: 0 1em 1em 0;
             margin:  0 0   1em 0;
+            max-width: max-content;
             font-family: monospace;
             white-space: pre;
             overflow-x: auto;
         }
     </style>
-    <ul class="text-block-bigger">
-        <li>
-            <a href="https://zlsheepcity.github.io/zlib/htmlseed.html">
-                htmlseed.html file
-            </a>
-        </li>
-        <li>
-            <a href="https://zlsheepcity.github.io/zlib/htmlseedAllFeatures.html">
-                htmlseedAllFeatures.html file
-            </a>
-        </li>
-    </ul>
 </article>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> details»summary -->
 <details class="detailsWithSummaryHeader" --open>
@@ -190,11 +178,13 @@
     </style>
     <style display-source contenteditable>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
+    /** 24.1.23 **/
 
-    /** .detailsWithSummaryHeader 24.1.23
+    /** .detailsWithSummaryHeader
         use details default marker
         use <header> for summary decoration
         */
+
         .detailsWithSummaryHeader {
           --font-size:           2.4em;
           --font-size--mini:     1.6em;
@@ -220,9 +210,11 @@
             word-break:    break-all;
             max-width: 78vw;
         }
-    /** .detailsMarkerShowHide 24.1.22
+
+    /** .detailsMarkerShowHide
         switch first-last child without layout jump
         */
+
         .detailsMarkerShowHide {
             display: inline-grid;
             grid-template-areas: 'overlay';
@@ -238,6 +230,52 @@
 
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
     </style>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> html quickstart -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            <span accent>html</span> quickstart
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <article class="articleSecondaryDesign layoutBook">
+        <ul class="text-block-bigger">
+            <li>
+                <a href="https://zlsheepcity.github.io/zlib/htmlseed.html">
+                    htmlseed.html file
+                </a>
+            </li>
+            <li>
+                <a href="https://zlsheepcity.github.io/zlib/htmlseedAllFeatures.html">
+                    htmlseedAllFeatures.html file
+                </a>
+            </li>
+            <li>
+                <a href="https://zlsheepcity.github.io/appart/colors.html">
+                    colors set
+                </a>
+            </li>
+        </ul>
+    <style display-source contenteditable class="layoutBookFull">
+        .articleSecondaryDesign {
+          --color--NobleBlack:  hsl(226, 15%, 12%);
+          --color--NobleWhite:  hsl(226, 27%, 90%);
+          --color--NobleSky:    hsl(204, 22%, 55%);
+            background-color: var(--color--NobleBlack);
+                       color: var(--color--NobleWhite);
+              --accent-color: var(--color--NobleSky);
+        }
+
+        .articleSecondaryDesign {
+            padding: 1em 0;
+            margin:  1em 0;
+        }
+    </style>
+    </article>
 </details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> css combos -->
 <details class="detailsWithSummaryHeader" open>
@@ -285,9 +323,9 @@
 
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
     </style>
-    <article link-list class="layoutBook">
+    <article class="articleSecondaryDesign layoutBook">
         <header><h3>css topics</h3></header>
-        <ul class="layoutBook">
+        <ul class="text-block-bigger">
             <li><a href="app/css.11xBase.css">app/css.11xBase.css</a></li>
             <li><a href="app/css.12xMarkup.css">app/css.12xMarkup.css</a></li>
             <li><a href="app/css.13xTypography.css">app/css.13xTypography.css</a></li>
@@ -296,13 +334,6 @@
             <li><a href="app/css.16xTools.css">app/css.16xTools.css</a></li>
         </ul>
     </article>
-    <style display-source contenteditable accent>
-        [link-list] {
-            font-size: 125%;
-            padding: 0 2em 1em;
-        }
-        [link-list] ul {margin:0}
-    </style>
 </details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> layoutBook -->
 <details class="detailsWithSummaryHeader" --open>
@@ -499,6 +530,7 @@
 
             [id^="demo-layoutScreen"] {background-image:var(--i)}
             [id^="demo-layoutScreen"] header.layoutSticky {
+                word-break: break-all;
                 text-align: center;
                 padding: 1rem;
                 opacity: 0.64;
@@ -658,9 +690,11 @@
     </article>
 </details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> link-list -->
-<article link-list class="layoutBook">
-    <header><h3>frontend features 2024</h3></header>
-    <ul class="layoutBook">
+<article class="articleSecondaryDesign layoutBook">
+    <header>
+        <h3>frontend features 2024</h3>
+    </header>
+    <ul class="text-block-bigger">
         <li>
             <a href="22-cssComponents/formGrowingTextarea.html">
                 formGrowingTextarea (usability)
