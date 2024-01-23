@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>.layoutGallery</title>
+    <!-- v2024.1.23 keiko ~ ʕ⊙ᴥ⊙ʔ ~ made with love -->
+    <base href="https://zlsheepcity.github.io/zplay/2023-gallery/" />
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> FAVICON web2024 -->
+    <meta name="theme-color" content="#314159">
+    <link rel="icon" type="image/png" href="app/icon512.png">
+
+    <style>
+        [contenteditable] {
+          --color: var(--accent-color);
+            color: var(--color);
+            border-left: 1em solid var(--color);
+        }
+
+        [display-source] {
+            display: block;
+            padding: 0 1em 1em 0;
+            margin:  0 0   1em 0;
+            max-width: max-content;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+<style display-source contenteditable>
+    body {
+      --color--PaperTone: hsl( 37, 55%, 85%);
+      --color--PaperDark: hsl(  0,  0%,  8%);
+      --color--PaperRose: hsl(359, 59%, 43%);
+
+      --background-color: var(--color--PaperDark);
+      --foreground-color: var(--color--PaperTone);
+          --accent-color: var(--color--PaperRose);
+    }
+
+    body {
+        background-color: var(--background-color);
+        margin: 0; color: var(--foreground-color);
+        font-family: monospace;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+</style>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > body>header -->
+<header>
+    <h1>Grid layout for media</h1>
+    <p>v24.1.23 DM23 de mia</p>
+    <style>
+        body>header h1,
+        body>header h2,
+        body>header p {
+             padding: 0 2rem;
+             margin:  0;
+        }
+        body>header p {
+             margin-bottom: 1em;
+        }
+    </style>
+    <p>
+        <a href="layoutGallery.css">layoutGallery.css</a>
+    </p>
+</header>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > body>components -->
+<article>
+    <style>
+     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
+        /** 24.1.23 **/
+
+        /** .detailsWithSummaryHeader
+            use details default marker
+            use <header> for summary decoration
+            */
+
+            .detailsWithSummaryHeader {
+              --font-size:           2.4em;
+              --font-size--mini:     1.6em;
+              --line-height:          1.25;
+              --marker-color: currentColor;
+            }
+            @media all and (max-width:42em) {
+            .detailsWithSummaryHeader {
+                --font-size:  var(--font-size--mini);
+            }
+            }/* /media */
+            .detailsWithSummaryHeader>summary {
+                font-size:   var(--font-size);
+                line-height: var(--line-height);
+                cursor: pointer;
+                width: max-content;
+                max-width: 100%;
+            }
+            .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
+            .detailsWithSummaryHeader>summary >header {
+                display:    inline-block;
+                vertical-align: text-top;
+                word-break:    break-all;
+                max-width: 78vw;
+            }
+
+        /** .detailsMarkerShowHide
+            switch first-last child without layout jump
+            */
+
+            .detailsMarkerShowHide {
+                display: inline-grid;
+                grid-template-areas: 'overlay';
+            }
+            .detailsMarkerShowHide>* {
+                grid-area:  overlay;
+                pointer-events: all;
+                pointer-events: var(--visible, none);
+                opacity:        var(--visible, 0);
+            }
+            details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
+            details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
+    </style>
+</article>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > markup -->
+<article>
+    <style display-source>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ markup base */
+
+        <link
+            href="https://zlsheepcity.github.io/zlib/22-cssComponents/layoutGallery.css"
+            type="text/css" rel="stylesheet" media="all">
+
+        <article class="layoutGallery">
+            <section class="gridline">
+                <div class="gridskip"></div>
+                <div class="gridline"></div>
+            </section>
+            <section class="gridline XX">
+                <img class="Qratio"
+                     src="art/placeholderGQ33.jpg"
+                     alt="">
+                <video class="" loop muted controls --autoplay
+                    ><source type="video/webm"
+                     src="art/placeholderWEBM.webm"
+                     ></video>
+            </section>
+        </article>
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /markup base */
+    </style>
+</article>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > CSS -->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
+        <header>
+            CSS code
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source contenteditable>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutGallery */
+    /** v2024.1.23 demia **/
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ colors */
+
+        .layoutGallery {
+          --color:            hsl(226, 27%, 90%); /* NobleWhite */
+          --background-color: hsl(226, 15%, 12%); /* NobleBlack */
+        }
+
+        .layoutGallery {
+            background-color: var(--background-color);
+            color:            var(--color);
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ gaps */
+
+        .layoutGallery {
+          --gap--base: 1.500em;
+          --gap--mini: 0.125em;
+          --gap: var(--gap--base);
+        }
+
+        @media all and (max-width:1080px) {
+        .layoutGallery {--gap: var(--gap--mini);}
+        }/* /media */
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ grid */
+
+        .layoutGallery,
+        .layoutGallery .gridline {
+            position: relative;
+            max-width: 100%;
+            display: grid;
+            grid-gap: var(--gap);
+            align-content: start;
+            grid-template-columns: var(--grid-template-columns);
+          --grid-template-columns: 1fr;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ lines */
+
+        .layoutGallery .gridline.X    {--grid-template-columns: repeat(1, 1fr);}
+        .layoutGallery .gridline.XX   {--grid-template-columns: repeat(2, 1fr);}
+        .layoutGallery .gridline.XXX  {--grid-template-columns: repeat(3, 1fr);}
+        .layoutGallery .gridline.XXXX {--grid-template-columns: repeat(4, 1fr);}
+        .layoutGallery .gridline.X5   {--grid-template-columns: repeat(5, 1fr);}
+        .layoutGallery .gridline.X6   {--grid-template-columns: repeat(6, 1fr);}
+
+        .layoutGallery .gridline.OOX>*:first-child { grid-column:  1 /  3 }
+        .layoutGallery .gridline.XOO>*:last-child  { grid-column: -3 / -1 }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ lines more */
+    /** VWQ ratio set 2023 */
+
+        .layoutGallery {
+          --aspect-ratio--Qratio: 1080/1080;
+          --aspect-ratio--Wratio: 1774/1080;
+          --aspect-ratio--Vratio: 1080/1774;
+        }
+
+        .layoutGallery .gridline.WQ
+        {--grid-template-columns: 1774fr 1080fr}
+        .layoutGallery .gridline.QW
+        {--grid-template-columns: 1080fr 1774fr}
+
+        .layoutGallery .gridline.QWW
+        {--grid-template-columns: 1080fr 1774fr 1774fr}
+        .layoutGallery .gridline.QQW
+        {--grid-template-columns: 1080fr 1080fr 1774fr}
+        .layoutGallery .gridline.QWQ
+        {--grid-template-columns: 1080fr 1774fr 1080fr}
+        .layoutGallery .gridline.WQW
+        {--grid-template-columns: 1774fr 1080fr 1774fr}
+        .layoutGallery .gridline.WWQ
+        {--grid-template-columns: 1774fr 1774fr 1080fr}
+        .layoutGallery .gridline.WQQ
+        {--grid-template-columns: 1774fr 1080fr 1080fr}
+
+        .layoutGallery .gridline.VWV
+        {--grid-template-columns: 658fr 1774fr 658fr}
+        .layoutGallery .gridline.VQV
+        {--grid-template-columns: 658fr 1080fr 658fr}
+        .layoutGallery .gridline.QVQ
+        {--grid-template-columns: 1080fr 658fr 1080fr}
+        .layoutGallery .gridline.WVW
+        {--grid-template-columns: 1774fr 658fr 1774fr}
+        .layoutGallery .gridline.VWQV
+        {--grid-template-columns: 658fr 1774fr 1080fr 658fr}
+        .layoutGallery .gridline.VQWV
+        {--grid-template-columns: 658fr 1080fr 1774fr 658fr}
+
+        .layoutGallery .gridline.VQW
+        {--grid-template-columns: 658fr 1080fr 1774fr}
+        .layoutGallery .gridline.VWQ
+        {--grid-template-columns: 658fr 1774fr 1080fr}
+        .layoutGallery .gridline.WQV
+        {--grid-template-columns: 1774fr 1080fr 658fr}
+        .layoutGallery .gridline.QWV
+        {--grid-template-columns: 1080fr 1774fr 658fr}
+        .layoutGallery .gridline.WVQ
+        {--grid-template-columns: 1774fr 658fr 1080fr}
+        .layoutGallery .gridline.QVW
+        {--grid-template-columns: 1080fr 658fr 1774fr}
+
+        .layoutGallery .Qratio {aspect-ratio: var(--aspect-ratio--Qratio);}
+        .layoutGallery .Wratio {aspect-ratio: var(--aspect-ratio--Wratio);}
+        .layoutGallery .Vratio {aspect-ratio: var(--aspect-ratio--Vratio);}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ empty cells */
+
+        .layoutGallery .gridline,
+        .layoutGallery .gridskip {
+            pointer-events: none;
+        }
+        .layoutGallery .gridline >*:not(.gridline, .gridskip),
+        .layoutGallery .gridskip >*:not(.gridline, .gridskip) {
+            pointer-events: all;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ scroll slices */
+
+        .layoutGallery .scrolltopGroup >*,
+        .layoutGallery .scrolltop { position:sticky; top:0; }
+
+        .layoutGallery .scrollbotGroup >*,
+        .layoutGallery .scrollbot { position:sticky; bottom:0; }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ items */
+
+        .layoutGallery video,
+        .layoutGallery img {
+            display: block;
+            width:   100%;
+            height:  auto;
+            object-fit: contain;
+        }
+
+        .layoutGallery video,
+        .layoutGallery img {
+            outline: var(--gap) solid var(--background-color);
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ plugins */
+
+        .layoutGallery:is(article) {
+            padding: var(--gap) 0;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ workers */
+
+        .layoutGallery .screenHeight {min-height: 100vh}
+        .layoutGallery .centerit {
+            display: grid;
+            place-items: center;
+        }
+        .layoutGallery .fitme  {
+            object-fit: cover;
+            height: 100%;
+        }
+        .layoutGallery .fillme {
+            background-color: var(--background-color);
+            outline: var(--gap) solid var(--background-color);
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutGallery */
+    </style>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Demo -->
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Basic demo -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            Basic demo
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <article class="layoutGallery">
+        <section class="gridline XXXX">
+            <img class="Wratio"
+                 src="art/placeholderFW11.jpg"
+                 alt="">
+            <img class="Wratio"
+                 src="art/placeholderFW11b.jpg"
+                 alt="">
+            <img class="Wratio"
+                 src="art/placeholderFW11c.jpg"
+                 alt="">
+            <div class="Wratio centerit">
+                .gridline.XXXX
+                </div>
+        </section>
+        <section class="gridline XXX">
+            <img class="Wratio"
+                 src="art/placeholderFW11b.jpg"
+                 alt="">
+            <div class="Wratio centerit">
+                .gridline.XXX
+                </div>
+            <img class="Wratio"
+                 src="art/placeholderFW11.jpg"
+                 alt="">
+        </section>
+        <section class="gridline WQ">
+            <img class="Wratio"
+                 src="art/placeholderFW11c.jpg"
+                 alt="">
+            <div class="Wratio centerit">
+                .gridline.WQ
+                </div>
+        </section>
+        <section class="gridline XX">
+            <div class="Qratio centerit">
+                .gridline.XX
+                </div>
+            <img class="Qratio"
+                 src="art/placeholderFQ11.jpg"
+                 alt="">
+        </section>
+        <section class="gridline QW">
+            <div class="gridskip"></div>
+            <section class="gridline XX">
+                <img class="Wratio"
+                     src="art/placeholderFW11.jpg"
+                     alt="">
+                <img class="Wratio"
+                     src="art/placeholderFW11b.jpg"
+                     alt="">
+                <img class="Wratio"
+                     src="art/placeholderFW11c.jpg"
+                     alt="">
+                <img class="Wratio"
+                     src="art/placeholderFW11.jpg"
+                     alt="">
+                <img class="Wratio"
+                     src="art/placeholderFW11b.jpg"
+                     alt="">
+                <img class="Wratio"
+                     src="art/placeholderFW11c.jpg"
+                     alt="">
+            </section>
+        </section>
+        <section class="gridline X">
+            <img class="Wratio"
+                 src="art/placeholderFW11.jpg"
+                 alt="">
+        </section>
+    </article>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Demo de mia -->
+    <article class="layoutGallery">
+        <section class="gridline">
+
+            <!-- de. cov -->
+            <div class="gridline X scrolltop">
+                <img class="Qratio"
+                     src="art/placeholderGQDM11.jpg"
+                     alt="">
+            </div>
+            <!-- de. mia -->
+            <div class="gridline XXXX">
+                <img class="Vratio"
+                     src="art/placeholderGVDM11.jpg"
+                     alt="">
+                <img class="Vratio"
+                     src="art/placeholderGVDM12.jpg"
+                     alt="">
+                <img class="Vratio"
+                     src="art/placeholderGVDM13.jpg"
+                     alt="">
+                <img class="Vratio"
+                     src="art/placeholderGVDM14.jpg"
+                     alt="">
+            </div>
+            <!-- de. pau --><div class="gridskip Wratio"></div>
+            <!-- de. cov -->
+            <div class="gridline X scrolltop">
+                <img class="Qratio"
+                     src="art/placeholderGQDM12.jpg"
+                     alt="">
+            </div>
+            <!-- de. boa -->
+            <section class="gridline">
+                <!-- de. mio -->
+                <div class="gridline XXX">
+                    <div class="gridskip"></div>
+                    <div class="gridskip"></div>
+                    <img class="Qratio"
+                         src="art/placeholderGQDM18.jpg"
+                         alt="">
+                </div>
+                <!-- de. cov -->
+                <div class="gridline QW scrolltop">
+                    <img class="Vratio"
+                         src="art/placeholderGVDM14.jpg"
+                         alt="">
+                </div>
+                <!-- de. mia -->
+                <section class="gridline QW">
+                    <div class="gridskip"></div>
+                    <div class="gridline X scrolltopGroup">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM10.jpg"
+                             alt="">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM15.jpg"
+                             alt="">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM17.jpg"
+                             alt="">
+                        <img class="Wratio"
+                             src="art/placeholderFW12c.jpg"
+                             alt="">
+                    </div>
+                    <div class="gridskip"></div>
+                    <div class="gridline X">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM16.jpg"
+                             alt="">
+                    </div>
+                </section>
+                <!-- de. cov -->
+                <div class="gridline QW scrolltop" style="opacity:0.5">
+                    <div class="gridskip"></div>
+                    <img class="Qratio"
+                         src="art/placeholderGQDM17.jpg"
+                         alt="">
+                </div>
+                <div class="gridline X scrolltop">
+                    <img class="Qratio"
+                         src="art/placeholderGQDM13.jpg"
+                         alt="">
+                </div>
+                <!-- de. cov -->
+                <div class="gridline QW scrolltop">
+                    <img class="Vratio"
+                         src="art/placeholderGVDM14.jpg"
+                         alt="">
+                </div>
+                <!-- de. mia -->
+
+            <!-- de. blob -->
+            <section class="gridline QW">
+                <div class="gridskip"></div>
+                <div class="gridline X">
+                    <img class="Wratio"
+                         src="art/placeholderFW11.jpg"
+                         alt="">
+                    <img class="Wratio"
+                         src="art/placeholderFW11b.jpg"
+                         alt="">
+                    <img class="Wratio"
+                         src="art/placeholderFW11c.jpg"
+                         alt="">
+                    <img class="Wratio"
+                         src="art/placeholderFW11.jpg"
+                         alt="">
+                </div>
+            </section>
+            <!-- de/ blob -->
+
+                <!-- de. fin -->
+                <div class="gridline QW">
+                    <div class="gridskip"></div>
+                    <img class="Qratio"
+                         src="art/placeholderGQDM18.jpg"
+                         alt="">
+                </div>
+                <!-- de/ mia -->
+                <!-- de. bot -->
+                <div class="gridline QW scrollbot">
+                    <img class="Wratio"
+                         src="art/placeholderFW12c.jpg"
+                         alt="">
+                </div>
+                <!-- de/ bot -->
+            </section>
+            <!-- de/ mia -->
+
+        </section>
+
+        <section class="gridline X">
+            <img class="Wratio"
+                 src="art/placeholderFW11.jpg"
+                 alt="">
+        </section>
+
+    </article>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > /Demo -->
+
+</body>
+</html>
