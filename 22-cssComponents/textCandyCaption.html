@@ -3,35 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Colored Headings</title>
-    <!-- 2023.9.27 -->
+    <!-- 2024.1.23 -->
     <style>
         [display-source] {
-            display:     block;
-            padding:     0 1em 2em;
+            display: block;
+            padding: 0 1em 1em 0;
+            margin:  0 0   1em 0;
+            max-width: max-content;
             font-family: monospace;
-            white-space: pre-wrap;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        [contenteditable] {
+          --color: var(--accent-color, currentColor);
+            color: var(--color);
+            border-left: 1em solid var(--color);
+        }
+    </style>
+    <style>
+        body {
+          --color--PaperTone: hsl( 37, 55%, 85%);
+          --color--PaperDark: hsl(  0,  0%,  8%);
+          --color--PaperRose: hsl(359, 59%, 43%);
+
+          --background-color: var(--color--PaperDark);
+          --foreground-color: var(--color--PaperTone);
+              --accent-color: var(--color--PaperRose);
+        }
+
+        body {
+            background-color: var(--background-color);
+            margin: 0; color: var(--foreground-color);
+            font-family: monospace;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DEMO -->
-
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DEMO -->
     <article>
         <style>
-            .demo-candy-captions {
+            .textCandyCaptionDemoWrap {
                 display: grid;
                 grid-template-columns: repeat( auto-fit, minmax(30rem, max-content) );
-                grid-gap:  2rem;
-                font-size: 2rem;
-                padding:   2rem;
+                grid-gap:  2em;
+              --font-size: 2em;
+                padding:   2em;
                 font-family: system-ui;
                 background-color: hsl(226, 15%, 12%);
                            color: hsl(226, 27%, 90%);
             }
+            .textCandyCaptionDemoWrap [demosize-a] {font-size:1.0em}
+            .textCandyCaptionDemoWrap [demosize-b] {font-size:1.5em}
+            .textCandyCaptionDemoWrap [demosize-c] {font-size:2.5em}
+            .textCandyCaptionDemoWrap [demosize-d] {font-size:3.0em}
         </style>
-        <section class="demo-candy-captions">
-            <div class="textCandyCaption" style="font-size: 3rem;">
+        <section class="textCandyCaptionDemoWrap">
+            <div class="textCandyCaption" demosize-d>
                 <b row size-a tint-a>
                     <b size-a tint-y> colored</b>
                     <b size-a tint-a> headings</b>
@@ -44,7 +76,7 @@
                     <b size-b tint-c> inspire</b>
                 </b>
             </div>
-            <div class="textCandyCaption">
+            <div class="textCandyCaption" demosize-a>
                 <b row size-a tint-a>
                     <b size-a tint-c> colored</b>
                     <b size-a tint-a> headings</b>
@@ -57,7 +89,7 @@
                     <b size-b tint-m> inspire</b>
                 </b>
             </div>
-            <div class="textCandyCaption" style="font-size: 1.5rem;">
+            <div class="textCandyCaption" demosize-b>
                 <b row size-a tint-a>
                     <b size-a tint-g> colored</b>
                     <b size-a tint-a> headings</b>
@@ -70,8 +102,8 @@
                     <b size-b tint-y> inspire</b>
                 </b>
             </div>
-            <div class="textCandyCaption">
-                <b row size-a tint-a align-end>
+            <div class="textCandyCaption" demosize-a>
+                <b row size-a tint-a laydown>
                     <b size-a tint-m> Auto</b>
                     <b size-b tint-g> Growing</b>
                 </b>
@@ -83,7 +115,7 @@
                     <b size-a tint-a> Realisation</b>
                 </b>
             </div>
-            <div class="textCandyCaption">
+            <div class="textCandyCaption" demosize-a>
                 <b row size-a tint-y>
                     <b size-b tint-a> Retro</b>
                     <b size-b tint-a> Styled</b>
@@ -93,8 +125,8 @@
                     <b size-b tint-a> Block</b>
                 </b>
             </div>
-            <div class="textCandyCaption" style="font-size: 2.5rem;">
-                <b row size-a tint-a align-end>
+            <div class="textCandyCaption" demosize-c>
+                <b row size-a tint-a laydown>
                     <b size-b tint-y> Any</b>
                     <b size-z tint-a> Custom</b>
                 </b>
@@ -108,9 +140,7 @@
             </div>
         </section>
     </article>
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ HTML Markup -->
-
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Markup -->
     <style display-source>
         <div class="textCandyCaption">
             <b row size-a tint-a>
@@ -126,12 +156,12 @@
             </b>
         </div>
     </style>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS -->
+    <style display-source contenteditable>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Candy caption */
+    /** 24.1.23 **/
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CSS -->
-
-    <style display-source>
-
-        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Layout */
+        /** Layout */
 
         .textCandyCaption {
             display:        inline-flex;
@@ -144,34 +174,38 @@
             align-items:    flex-start;
             gap:            0 var(--space);
         }
+        .textCandyCaption [laydown] {
+            align-items: flex-end;
+        }
 
-        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Settings */
+        /** Design */
 
         .textCandyCaption {
-
-         /* Font-based magic numbers */
           --font-family:    sans-serif;
           --line-height:    0.75;
           --space:          0.25em;
-
+        }
+        .textCandyCaption {
             text-transform: uppercase;
             font-weight:    bold;
             font-family:    var(--font-family);
             line-height:    var(--line-height);
         }
+        .textCandyCaption * {
+            font-size: var(--font-size, inherit);
+            color:     var(--color,     inherit);
+        }
 
-        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Color and size models */
+        /** Model tint&size 2023 */
 
         .textCandyCaption {
-
-         /* CMYG color model: g for green */
-          --tint-a: inherit;
-          --tint-c: hsl(184,74%,54%);
-          --tint-m: hsl(334,64%,54%);
-          --tint-y: hsl(414,84%,54%);
-          --tint-g: hsl(114,44%,54%);
-
-         /* Size model: …XYZ ← A → BCD… */
+          --tint-a: inherit;          /* a for alpha */
+          --tint-c: hsl(184,74%,54%); /* c for cyan */
+          --tint-m: hsl(334,64%,54%); /* m for magenta */
+          --tint-y: hsl(414,84%,54%); /* y for yellow */
+          --tint-g: hsl(114,44%,54%); /* g for green */
+        }
+        .textCandyCaption {
           --size-a: 1.00em;
           --size-b: 1.50em;
           --size-c: 2.00em;
@@ -179,30 +213,22 @@
           --size-z: 0.75em;
         }
 
-        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Attributes */
+        .textCandyCaption [size-a] {--font-size: var(--size-a);}
+        .textCandyCaption [size-b] {--font-size: var(--size-b);}
+        .textCandyCaption [size-c] {--font-size: var(--size-c);}
+        .textCandyCaption [size-d] {--font-size: var(--size-d);}
+        .textCandyCaption [size-z] {--font-size: var(--size-z);}
 
-        .textCandyCaption [align-end] { align-items: flex-end; }
+        .textCandyCaption [tint-a] {--color: var(--tint-a);}
+        .textCandyCaption [tint-c] {--color: var(--tint-c);}
+        .textCandyCaption [tint-m] {--color: var(--tint-m);}
+        .textCandyCaption [tint-y] {--color: var(--tint-y);}
+        .textCandyCaption [tint-g] {--color: var(--tint-g);}
 
-        .textCandyCaption [size-a] { --font-size: var(--size-a); }
-        .textCandyCaption [size-b] { --font-size: var(--size-b); }
-        .textCandyCaption [size-c] { --font-size: var(--size-c); }
-        .textCandyCaption [size-d] { --font-size: var(--size-d); }
-        .textCandyCaption [size-z] { --font-size: var(--size-z); }
-
-        .textCandyCaption [tint-a] { --color: var(--tint-a); }
-        .textCandyCaption [tint-c] { --color: var(--tint-c); }
-        .textCandyCaption [tint-m] { --color: var(--tint-m); }
-        .textCandyCaption [tint-y] { --color: var(--tint-y); }
-        .textCandyCaption [tint-g] { --color: var(--tint-g); }
-
-        .textCandyCaption * {
-            font-size: var(--font-size, inherit);
-            color:     var(--color,     inherit);
-        }
-
-        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ End */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /Candy caption */
 
     </style>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
 </body>
 </html>
