@@ -148,18 +148,7 @@
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Code source */
 
 
-    [display-source] {
-        display:     block;
-        font-family: monospace;
-        white-space: pre-wrap;
-        padding:     0 1em 2em 1em;
-    }
-    @media all and (max-width:64em) {
-    [display-source] {
-        white-space: pre;
-        overflow-x:  auto;
-    }
-    }
+
     [display-source]:is(textarea) {
         width:       100%;
         background:  transparent;
@@ -836,70 +825,77 @@ body {
     }
 
 
-/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook 24.1.23 */
 
+        .layoutBook {
 
-.layoutBook {
+        /** config */
+          --textSize: 42em;
+          --sideSize: 24em;
+          --grid-gap:  1em;
+          --join-gap:  2em;
 
-/* config */
-  --textSize: 42em;
-  --sideSize: 24em;
-  --grid-gap:  1em;
-  --join-gap:  2em;
+        /** functional */
+            position: relative;
+            width:    100%;
+            display:  grid;
+            grid-gap: var(--grid-gap);
+            grid-auto-flow:  row;
+            grid-auto-rows:  min-content;
+            grid-template-columns: var(--grid-gap) var(--useColumns) auto;
+            grid-column: var(--grid-column-full);
+        }
 
-/* functional */
-    position: relative;
-    width:    100%;
-    display:  grid;
-    grid-gap: var(--grid-gap);
-    grid-auto-flow:  row;
-    grid-auto-rows:  min-content;
-    grid-template-columns: 0 var(--useColumns) auto;
-  --grid-column-full: 1/6;
-  --grid-column-text: 2/3;
-  --grid-column-side: 4/5;
-  --grid-column-wrap: 2/5;
-  --useColumns:
-        minmax( auto, var(--textSize) )
-        var(--join-gap)
-        var(--sideSize)
-     ;
-}
-/* small screen */
-@media all and (max-width:68em) {
-    .layoutBook {
-      --grid-column-full: 1/4;
-      --grid-column-text: 2/3;
-      --grid-column-side: 2/3;
-      --grid-column-wrap: 2/3;
-      --useColumns: 1fr;
-    }
-}
+        /** columns */
+        @media all {
+        .layoutBook {
+          --grid-column-full: 1/6;
+          --grid-column-text: 2/3;
+          --grid-column-side: 4/5;
+          --grid-column-wrap: 2/5;
+          --useColumns:
+                minmax( auto, var(--textSize) )
+                var(--join-gap)
+                var(--sideSize)
+             ;
+        }
+        }/* /media */
+        @media all and (max-width:68em) {
+        .layoutBook {
+          --grid-column-full: 1/4;
+          --grid-column-text: 2/3;
+          --grid-column-side: 2/3;
+          --grid-column-wrap: 2/3;
+          --useColumns: minmax(auto, var(--textSize));
+        }
+        }/* /media */
 
-/* children */
-.layoutBook >*          {grid-column:var(--grid-column-text)} /* text paragraph */
-.layoutBook >section    {grid-column:var(--grid-column-text)} /* paragraphs combined */
-.layoutBook >blockquote {grid-column:var(--grid-column-side)} /* side note */
-.layoutBook >header     {grid-column:var(--grid-column-wrap)} /* double column */
-.layoutBook >footer     {grid-column:var(--grid-column-wrap)} /* double column */
-.layoutBook >article    {grid-column:var(--grid-column-full)} /* overlay */
+        /** children */
+        .layoutBook >*          {grid-column:var(--grid-column-text)} /* text paragraph */
+        .layoutBook >section    {grid-column:var(--grid-column-text)} /* paragraphs combined */
+        .layoutBook >blockquote {grid-column:var(--grid-column-side)} /* side note */
+        .layoutBook >header     {grid-column:var(--grid-column-wrap)} /* double column */
+        .layoutBook >footer     {grid-column:var(--grid-column-wrap)} /* double column */
+        .layoutBook >article    {grid-column:var(--grid-column-full)} /* overlay */
 
-.layoutBook >.layoutBookText {grid-column:var(--grid-column-text)}
-.layoutBook >.layoutBookWrap {grid-column:var(--grid-column-wrap)}
-.layoutBook >.layoutBookSide {grid-column:var(--grid-column-side)}
-.layoutBook >.layoutBookFull {grid-column:var(--grid-column-full)}
+        .layoutBook >.layoutBookText {grid-column:var(--grid-column-text)}
+        .layoutBook >.layoutBookWrap {grid-column:var(--grid-column-wrap)}
+        .layoutBook >.layoutBookSide {grid-column:var(--grid-column-side)}
+        .layoutBook >.layoutBookFull {grid-column:var(--grid-column-full)}
 
-/* sub-grid */
-.layoutBook >header,
-.layoutBook >footer,
-.layoutBook >section {
-    width:    100%;
-    display:  grid;
-    grid-gap: var(--grid-gap);
-    grid-auto-flow:  row;
-    grid-auto-rows:  min-content;
-    grid-template-columns: 1fr;
-}
+        /* sub-grid */
+        .layoutBook >header,
+        .layoutBook >footer,
+        .layoutBook >section {
+            width:    100%;
+            display:  grid;
+            grid-gap: var(--grid-gap);
+            grid-auto-flow:  row;
+            grid-auto-rows:  min-content;
+            grid-template-columns: 1fr;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutBook */
 
 
 /** EOF Layouts */

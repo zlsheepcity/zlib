@@ -74,23 +74,9 @@
 </head>
 <body class="">
 
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> body>header -->
-<header>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> header -->
+<article class="layoutBook">
     <style display-source>
-        [display-source] {
-            display:     block;
-            padding:     1em 0;
-            font-family: monospace;
-            white-space: pre-wrap;
-        }
-        @media all and (max-width:64em) {
-        [display-source] {
-            white-space:   pre;
-            padding-right: 1em;
-            --overflow-x:  auto;
-        }
-        }/* /media */
-
         body {
           --color--PaperTone: hsl( 37, 55%, 85%);
           --color--PaperDark: hsl(  0,  0%,  8%);
@@ -98,6 +84,9 @@
             background-color: var(--color--PaperDark);
                        color: var(--color--PaperTone);
               --accent-color: var(--color--PaperRose);
+        }
+
+        body {
             margin: 0;
             font-family: monospace;
         }
@@ -107,85 +96,74 @@
             text-decoration: underline;
         }
     </style>
-    <h1>app<span accent>art</span> code snippets</h1>
-    <p>v24.1.22 keiko</p>
+    <header>
+        <h1>
+            app<span accent>art</span>
+            code snippets
+        </h1>
+        <p>
+            2024.1.23 keiko
+        </p>
+    </header>
     <style>
-        body>header h1,
-        body>header h2,
-        body>header p {
-             padding: 0 2rem;
-             margin:  0;
-        }
-        body>header p {
-             margin-bottom: 1em;
-        }
-        body [accent] {
-            color: var(--accent-color);
-        }
+        [accent]   { color: var(--accent-color); }
     </style>
-    <article link-list class="layoutBook">
-        <ul>
-            <li>
-                <a href="https://zlsheepcity.github.io/zlib/appart.html">
-                    this document web link
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/zlsheepcity/zlib/tree/main">
-                    this project git repository
-                </a>
-            </li>
-            <li>
-                <a href="https://zlsheepcity.github.io/zlib/htmlseed.html">
-                    html file seed
-                </a>
-            </li>
-            <li>
-                <a href="https://zlsheepcity.github.io/zlib/htmlseedAllFeatures.html">
-                    html file all features
-                </a>
-            </li>
-        </ul>
-        <section>
-            <h4>About</h4>
-            <p>
-                Frontend code snippets for copy-paste dependency free features.
-                Check the «view source» for the html»head markup.
-                Skroll down for the rest.
-            </p>
-            <p contenteditable>
-                Higlighted code is contenteditable with live changes
-            </p>
-    <style display-source contenteditable>
-    [contenteditable] {
-      --color: var(--accent-color);
-        color: var(--color);
-        border-left: 1rem solid var(--color);
-    }
-    </style>
-            <p>
-                appart means mix of engineering (app) and art
-            </p>
-    <style display-source>
-    [display-source] {
-        display:     block;
-        padding:     1em 0;
-        font-family: monospace;
-        white-space: pre-wrap;
-    }
+    <ul class="text-block-bigger">
+        <li>
+            <a href="https://zlsheepcity.github.io/zlib/appart.html">
+                this document web link
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/zlsheepcity/zlib/tree/main">
+                this project git repository
+            </a>
+        </li>
+    </ul>
+    <section>
+        <h4>About</h4>
+        <p>
+            Frontend code snippets for copy-paste features without dependency.
+            Check the «view source» for the html»head markup.
+            Skroll down for the rest.
+        </p>
+        <p>
+            appart means mix of engineering (app) and art
+        </p>
+        <p accent>
+            Higlighted code is contenteditable with live changes
+        </p>
+    </section>
+    <style display-source contenteditable class="layoutBookFull">
+        [contenteditable] {
+          --space: var(--grid-gap, 1rem);
+          --color: var(--accent-color);
+            color: var(--color);
+            border-left: var(--space) solid var(--color);
+        }
 
-    @media all and (max-width:64em) {
-    [display-source] {
-        white-space:   pre;
-        padding-right: 1em;
-        overflow-x:  auto;
-    }
-    }/* /media */
+        [display-source] {
+            display: block;
+            padding: 0 1em 1em 0;
+            margin:  0 0   1em 0;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
     </style>
-        </section>
-    </article>
-    
-</header>
+    <ul class="text-block-bigger">
+        <li>
+            <a href="https://zlsheepcity.github.io/zlib/htmlseed.html">
+                htmlseed.html file
+            </a>
+        </li>
+        <li>
+            <a href="https://zlsheepcity.github.io/zlib/htmlseedAllFeatures.html">
+                htmlseedAllFeatures.html file
+            </a>
+        </li>
+    </ul>
+</article>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> details»summary -->
 <details class="detailsWithSummaryHeader" --open>
     <summary>
@@ -302,6 +280,9 @@
             place-items: center;
         }
 
+        @media all and (max-width:42em) and (min-width:64em) {
+        }/* /media */
+
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
     </style>
     <article link-list class="layoutBook">
@@ -352,17 +333,17 @@
         </article>
     </style>
     <style display-source contenteditable>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook 24.1.23 */
 
         .layoutBook {
 
-        /* config */
+        /** config */
           --textSize: 42em;
           --sideSize: 24em;
           --grid-gap:  1em;
           --join-gap:  2em;
 
-        /* functional */
+        /** functional */
             position: relative;
             width:    100%;
             display:  grid;
@@ -371,6 +352,11 @@
             grid-auto-rows:  min-content;
             grid-template-columns: 0 var(--useColumns) auto;
             grid-column: var(--grid-column-full);
+        }
+
+        /** columns */
+        @media all {
+        .layoutBook {
           --grid-column-full: 1/6;
           --grid-column-text: 2/3;
           --grid-column-side: 4/5;
@@ -381,18 +367,18 @@
                 var(--sideSize)
              ;
         }
-        /* small screen */
+        }/* /media */
         @media all and (max-width:68em) {
-            .layoutBook {
-              --grid-column-full: 1/4;
-              --grid-column-text: 2/3;
-              --grid-column-side: 2/3;
-              --grid-column-wrap: 2/3;
-              --useColumns: 1fr;
-            }
+        .layoutBook {
+          --grid-column-full: 1/4;
+          --grid-column-text: 2/3;
+          --grid-column-side: 2/3;
+          --grid-column-wrap: 2/3;
+          --useColumns: minmax(auto, var(--textSize));
         }
+        }/* /media */
 
-        /* children */
+        /** children */
         .layoutBook >*          {grid-column:var(--grid-column-text)} /* text paragraph */
         .layoutBook >section    {grid-column:var(--grid-column-text)} /* paragraphs combined */
         .layoutBook >blockquote {grid-column:var(--grid-column-side)} /* side note */
@@ -405,19 +391,19 @@
         .layoutBook >.layoutBookSide {grid-column:var(--grid-column-side)}
         .layoutBook >.layoutBookFull {grid-column:var(--grid-column-full)}
 
-        /* sub-grid */
+        /** subgrid single column */
         .layoutBook >header,
         .layoutBook >footer,
         .layoutBook >section {
             width:    100%;
             display:  grid;
             grid-gap: var(--grid-gap);
-            grid-auto-flow:  row;
-            grid-auto-rows:  min-content;
-            grid-template-columns: 1fr;
+            grid-auto-flow: row;
+            grid-auto-rows: min-content;
+            grid-template-columns:  1fr;
         }
 
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutBook */
     </style>
     <article class="layoutBook DemoBoxNB">
         <header>
