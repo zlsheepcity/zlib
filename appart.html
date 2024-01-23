@@ -81,13 +81,15 @@
           --color--PaperTone: hsl( 37, 55%, 85%);
           --color--PaperDark: hsl(  0,  0%,  8%);
           --color--PaperRose: hsl(359, 59%, 43%);
-            background-color: var(--color--PaperDark);
-                       color: var(--color--PaperTone);
+
+          --background-color: var(--color--PaperDark);
+          --foreground-color: var(--color--PaperTone);
               --accent-color: var(--color--PaperRose);
         }
 
         body {
-            margin: 0;
+            background-color: var(--background-color);
+            margin: 0; color: var(--foreground-color);
             font-family: monospace;
         }
 
@@ -124,7 +126,7 @@
         <h4>About</h4>
         <p>
             Frontend code snippets for copy-paste features without dependencies.
-            Check the «view source» for the html»head markup.
+            Check the «view source» for the html markup.
             Skroll down for the rest.
         </p>
         <p>
@@ -261,16 +263,34 @@
             </li>
         </ul>
     <style display-source contenteditable class="layoutBookFull">
+        body {
+          --color--PaperTone: hsl( 37, 55%, 85%);
+          --color--PaperDark: hsl(  0,  0%,  8%);
+          --color--PaperRose: hsl(359, 59%, 43%);
+
+          --background-color: var(--color--PaperDark);
+                     --color: var(--color--PaperTone);
+              --accent-color: var(--color--PaperRose);
+        }
+
+        body {
+            
+            margin: 0; color: var(--color);
+            font-family: monospace;
+        }
         .articleSecondaryDesign {
           --color--NobleBlack:  hsl(226, 15%, 12%);
           --color--NobleWhite:  hsl(226, 27%, 90%);
           --color--NobleSky:    hsl(204, 22%, 55%);
-            background-color: var(--color--NobleBlack);
-                       color: var(--color--NobleWhite);
+
+          --background-color: var(--color--NobleBlack);
+          --foreground-color: var(--color--NobleWhite);
               --accent-color: var(--color--NobleSky);
         }
 
         .articleSecondaryDesign {
+            background-color: var(--background-color);
+                       color: var(--foreground-color);
             padding: 1em 0;
             margin:  1em 0;
         }
