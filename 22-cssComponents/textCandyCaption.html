@@ -138,6 +138,20 @@
                     <b size-a tint-a> Here</b>
                 </b>
             </div>
+            <div class="textCandyCaption" demosize-a>
+                <b row size-a tint-a>
+                    <b size-a tint-a> updated</b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-b tint-c> 2024 </b>
+                    <b size-c tint-y> . </b>
+                </b>
+                <b row size-a tint-a>
+                    <b size-c tint-y> 1 </b>
+                    <b size-b tint-a> . </b>
+                    <b size-d tint-m> 23 </b>
+                </b>
+            </div>
         </section>
     </article>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Markup -->
@@ -181,15 +195,16 @@
         /** Design */
 
         .textCandyCaption {
-          --font-family:    sans-serif;
-          --line-height:    0.75;
-          --space:          0.25em;
+          --font-family:     sans-serif;
+          --line-height:     0.75;
+          --space:           0.25em;
         }
         .textCandyCaption {
-            text-transform: uppercase;
-            font-weight:    bold;
-            font-family:    var(--font-family);
-            line-height:    var(--line-height);
+            text-transform:  uppercase;
+            font-weight:     bold;
+            font-family:     var(--font-family);
+            line-height:     var(--line-height);
+            text-decoration: none;
         }
         .textCandyCaption * {
             font-size: var(--font-size, inherit);

@@ -34,15 +34,16 @@
         /** Design */
 
         .textCandyCaption {
-          --font-family:    sans-serif;
-          --line-height:    0.75;
-          --space:          0.25em;
+          --font-family:     sans-serif;
+          --line-height:     0.75;
+          --space:           0.25em;
         }
         .textCandyCaption {
-            text-transform: uppercase;
-            font-weight:    bold;
-            font-family:    var(--font-family);
-            line-height:    var(--line-height);
+            text-transform:  uppercase;
+            font-weight:     bold;
+            font-family:     var(--font-family);
+            line-height:     var(--line-height);
+            text-decoration: none;
         }
         .textCandyCaption * {
             font-size: var(--font-size, inherit);
