@@ -55,7 +55,7 @@
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > body>header -->
 <header>
     <h1>Grid layout for media</h1>
-    <p>v24.1.23 DM23 de mia</p>
+    <p>v24.1.24 DM23 de mia</p>
     <style>
         body>header h1,
         body>header h2,
@@ -345,9 +345,6 @@
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutGallery */
     </style>
 </details>
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Demo -->
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Basic demo -->
 <details class="detailsWithSummaryHeader" open>
     <summary>
@@ -472,13 +469,11 @@
             </span>
         </header>
     </summary>
-<article class="layoutGalleryScrollWrapper">
-<section class="layoutGalleryScrollWindow">
-    <style display-source>
+    <style display-source contenteditable>
         .layoutGalleryScrollWrapper {
             display:     grid;
             place-items: center;
-            min-height:  min(100vh, 76vw);
+            padding:     8vh 0;
         }
 
         .layoutGalleryScrollWindow {
@@ -491,12 +486,131 @@
         .layoutGalleryScrollWindow .screensize {
             min-height: 72vmin;
         }
-
-        .layoutGalleryScrollWindow {
-            background-color: slategray;
-        }
-
     </style>
+<article class="layoutGalleryScrollWrapper">
+<section class="layoutGalleryScrollWindow">
+    <section class="layoutGallery fitness">
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ season start -->
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ episode welcome -->
+
+        <section class="gridline">
+            <!-- de. cover -->
+            <section class="gridline X scrolltop">
+                <img class="Qratio"
+                     src="art/placeholderGQDM13.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de. character -->
+            <section class="gridline QW scrolltop">
+                <div class="gridline">
+                    <img class="Vratio"
+                         src="art/placeholderGQDM10.jpg"
+                         alt="art/placeholder">
+                    <img class="Wratio scrollbot"
+                         src="art/placeholderGWDM16.jpg"
+                         alt="art_placeholder">
+                </div>
+            </section>
+            <!-- de. flow -->
+            <section class="gridline WWQ">
+                <div class="gridskip"></div>
+                <div class="gridskip"></div>
+                <div class="gridline scrolltopGroup">
+                    <img class="Qratio"
+                         src="art/placeholderGQDM17.jpg"
+                         alt="art_placeholder">
+                    <img class="Qratio"
+                         src="art/placeholderGQDM15.jpg"
+                         alt="art_placeholder">
+                </div>
+                <div class="gridskip"></div>
+                <div class="gridskip"></div>
+                <div class="gridskip Qratio"></div>
+            </section>
+            <!-- de/ flow -->
+        </section>
+
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ episode story -->
+
+        <section class="gridline">
+            <!-- de. cover -->
+            <section class="gridline X scrolltop">
+                <img class="Qratio"
+                     src="art/placeholderGQDM11.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de. flow -->
+            <section class="gridline WQV">
+                <div class="gridskip"></div>
+                <img class="Qratio fitme"
+                     src="art/placeholderGQDM18.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio fitme"
+                     src="art/placeholderGVDM12.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de. story-->
+            <section class="gridline">
+                <!-- de. character_screensize -->
+                <section class="gridline WQW scrolltop">
+                    <img class="screensize fitme"
+                         src="art/placeholderGQDM17.jpg"
+                         alt="art_placeholder">
+                </section>
+                <!-- de. flow -->
+                <section class="gridline WWQ XOO">
+                    <div class="gridskip"></div>
+                    <div class="gridline scrolltopGroup">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM15.jpg"
+                             alt="art_placeholder">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM16.jpg"
+                             alt="art_placeholder">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM10.jpg"
+                             alt="art_placeholder">
+                        <img class="Xratio"
+                             src="art/placeholderGVDM18.jpg"
+                             alt="art_placeholder">
+                    </div>
+                </section>
+                <!-- de/ storyflow -->
+            </section>
+            <!-- de. flow -->
+            <section class="gridline XXXX">
+                <img class="Vratio"
+                     src="art/placeholderGVDM11.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio"
+                     src="art/placeholderGVDM12.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio"
+                     src="art/placeholderGVDM13.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio"
+                     src="art/placeholderGVDM14.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de/ flow -->
+        </section>
+
+       <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ season end -->
+    </section>
+</section>
+</article>
+</details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Sticky scroll body -->
+<details class="detailsWithSummaryHeader" --open>
+    <summary>
+        <header>
+            Same gallery with body scroll
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
     <article class="layoutGallery fitness">
         <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ season start -->
         <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ episode welcome -->
@@ -605,21 +719,109 @@
 
        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ season end -->
     </article>
-</section>
-</article>
 </details>
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Demo de mia -->
-    <article class="layoutGallery">
-        <section class="gridline">
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Sticky scroll markup -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            Markup snippets
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source>
+    <article class="layoutGallery fitness">
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ season start -->
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ episode welcome -->
 
-            <!-- de. cov -->
-            <div class="gridline X scrolltop">
+        <section class="gridline">
+            <!-- de. cover -->
+            <section class="gridline X scrolltop">
+                <img class="Qratio"
+                     src="art/placeholderGQDM13.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de. character -->
+            <section class="gridline QW scrolltop">
+                <div class="gridline">
+                    <img class="Vratio"
+                         src="art/placeholderGQDM10.jpg"
+                         alt="art/placeholder">
+                    <img class="Wratio scrollbot"
+                         src="art/placeholderGWDM16.jpg"
+                         alt="art_placeholder">
+                </div>
+            </section>
+            <!-- de. flow -->
+            <section class="gridline WWQ">
+                <div class="gridskip"></div>
+                <div class="gridskip"></div>
+                <div class="gridline scrolltopGroup">
+                    <img class="Qratio"
+                         src="art/placeholderGQDM17.jpg"
+                         alt="art_placeholder">
+                    <img class="Qratio"
+                         src="art/placeholderGQDM15.jpg"
+                         alt="art_placeholder">
+                </div>
+                <div class="gridskip"></div>
+                <div class="gridskip"></div>
+                <div class="gridskip Qratio"></div>
+            </section>
+            <!-- de/ flow -->
+        </section>
+
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ episode story -->
+
+        <section class="gridline">
+            <!-- de. cover -->
+            <section class="gridline X scrolltop">
                 <img class="Qratio"
                      src="art/placeholderGQDM11.jpg"
                      alt="art_placeholder">
-            </div>
-            <!-- de. mia -->
-            <div class="gridline XXXX">
+            </section>
+            <!-- de. flow -->
+            <section class="gridline WQV">
+                <div class="gridskip"></div>
+                <img class="Qratio fitme"
+                     src="art/placeholderGQDM18.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio fitme"
+                     src="art/placeholderGVDM12.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de. story-->
+            <section class="gridline">
+                <!-- de. character_screensize -->
+                <section class="gridline WQW scrolltop">
+                    <img class="screensize fitme"
+                         src="art/placeholderGQDM17.jpg"
+                         alt="art_placeholder">
+                </section>
+                <!-- de. flow -->
+                <section class="gridline WWQ XOO">
+                    <div class="gridskip"></div>
+                    <div class="gridline scrolltopGroup">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM15.jpg"
+                             alt="art_placeholder">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM16.jpg"
+                             alt="art_placeholder">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM10.jpg"
+                             alt="art_placeholder">
+                        <img class="Xratio"
+                             src="art/placeholderGVDM18.jpg"
+                             alt="art_placeholder">
+                    </div>
+                </section>
+                <!-- de/ storyflow -->
+            </section>
+            <!-- de. flow -->
+            <section class="gridline XXXX">
                 <img class="Vratio"
                      src="art/placeholderGVDM11.jpg"
                      alt="art_placeholder">
@@ -632,123 +834,16 @@
                 <img class="Vratio"
                      src="art/placeholderGVDM14.jpg"
                      alt="art_placeholder">
-            </div>
-            <!-- de. pau --><div class="gridskip Wratio"></div>
-            <!-- de. cov -->
-            <div class="gridline X scrolltop">
-                <img class="Qratio"
-                     src="art/placeholderGQDM12.jpg"
-                     alt="art_placeholder">
-            </div>
-            <!-- de. boa -->
-            <section class="gridline">
-                <!-- de. mio -->
-                <div class="gridline XXX">
-                    <div class="gridskip"></div>
-                    <div class="gridskip"></div>
-                    <img class="Qratio"
-                         src="art/placeholderGQDM18.jpg"
-                         alt="art_placeholder">
-                </div>
-                <!-- de. cov -->
-                <div class="gridline QW scrolltop">
-                    <img class="Vratio"
-                         src="art/placeholderGVDM14.jpg"
-                         alt="art_placeholder">
-                </div>
-                <!-- de. mia -->
-                <section class="gridline QW">
-                    <div class="gridskip"></div>
-                    <div class="gridline X scrolltopGroup">
-                        <img class="Qratio"
-                             src="art/placeholderGQDM10.jpg"
-                             alt="art_placeholder">
-                        <img class="Qratio"
-                             src="art/placeholderGQDM15.jpg"
-                             alt="art_placeholder">
-                        <img class="Qratio"
-                             src="art/placeholderGQDM17.jpg"
-                             alt="art_placeholder">
-                        <img class="Wratio"
-                             src="art/placeholderFW12c.jpg"
-                             alt="art_placeholder">
-                    </div>
-                    <div class="gridskip"></div>
-                    <div class="gridline X">
-                        <img class="Qratio"
-                             src="art/placeholderGQDM16.jpg"
-                             alt="art_placeholder">
-                    </div>
-                </section>
-                <!-- de. cov -->
-                <div class="gridline QW scrolltop" style="opacity:0.5">
-                    <div class="gridskip"></div>
-                    <img class="Qratio"
-                         src="art/placeholderGQDM17.jpg"
-                         alt="art_placeholder">
-                </div>
-                <div class="gridline X scrolltop">
-                    <img class="Qratio"
-                         src="art/placeholderGQDM13.jpg"
-                         alt="art_placeholder">
-                </div>
-                <!-- de. cov -->
-                <div class="gridline QW scrolltop">
-                    <img class="Vratio"
-                         src="art/placeholderGVDM14.jpg"
-                         alt="art_placeholder">
-                </div>
-                <!-- de. mia -->
-
-            <!-- de. blob -->
-            <section class="gridline QW">
-                <div class="gridskip"></div>
-                <div class="gridline X">
-                    <img class="Wratio"
-                         src="art/placeholderFW11.jpg"
-                         alt="art_placeholder">
-                    <img class="Wratio"
-                         src="art/placeholderFW11b.jpg"
-                         alt="art_placeholder">
-                    <img class="Wratio"
-                         src="art/placeholderFW11c.jpg"
-                         alt="art_placeholder">
-                    <img class="Wratio"
-                         src="art/placeholderFW11.jpg"
-                         alt="art_placeholder">
-                </div>
             </section>
-            <!-- de/ blob -->
-
-                <!-- de. fin -->
-                <div class="gridline QW">
-                    <div class="gridskip"></div>
-                    <img class="Qratio"
-                         src="art/placeholderGQDM18.jpg"
-                         alt="art_placeholder">
-                </div>
-                <!-- de/ mia -->
-                <!-- de. bot -->
-                <div class="gridline QW scrollbot">
-                    <img class="Wratio"
-                         src="art/placeholderFW12c.jpg"
-                         alt="art_placeholder">
-                </div>
-                <!-- de/ bot -->
-            </section>
-            <!-- de/ mia -->
-
+            <!-- de/ flow -->
         </section>
 
-        <section class="gridline X">
-            <img class="Wratio"
-                 src="art/placeholderFW11.jpg"
-                 alt="art_placeholder">
-        </section>
-
+       <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ season end -->
     </article>
+    </style>
+</details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > /Demo -->
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > /scroll set -->
 
 </body>
 </html>
