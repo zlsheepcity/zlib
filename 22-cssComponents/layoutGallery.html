@@ -129,10 +129,17 @@
     </style>
 </article>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > markup -->
-<article>
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            Markup
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
     <style display-source>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ markup base */
-
         <link
             href="https://zlsheepcity.github.io/zlib/22-cssComponents/layoutGallery.css"
             type="text/css" rel="stylesheet" media="all">
@@ -143,19 +150,17 @@
                 <div class="gridline"></div>
             </section>
             <section class="gridline XX">
-                <img class="Qratio"
+                <img class="Qratio fitme"
                      src="art/placeholderGQ33.jpg"
                      alt="">
-                <video class="" loop muted controls --autoplay
-                    ><source type="video/webm"
-                     src="art/placeholderWEBM.webm"
-                     ></video>
+                <video class="Wratio" loop muted controls --autoplay>
+                    <source type="video/webm"
+                        src="art/placeholderWEBM.webm">
+                        </video>
             </section>
         </article>
-
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /markup base */
     </style>
-</article>
+</details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > CSS -->
 <details class="detailsWithSummaryHeader" --open>
     <summary>
@@ -342,7 +347,7 @@
 <details class="detailsWithSummaryHeader" open>
     <summary>
         <header>
-            Basic demo
+            Basic constructions demo
             <span class="detailsMarkerShowHide">
                 <span>[show]</span>
                 <span>[hide]</span>
@@ -360,43 +365,35 @@
             <img class="Wratio"
                  src="art/placeholderFW11c.jpg"
                  alt="">
-            <div class="Wratio centerit">
-                .gridline.XXXX
-                </div>
+            <div class="Wratio centerit">.XXXX</div>
         </section>
         <section class="gridline XXX">
             <img class="Wratio"
-                 src="art/placeholderFW11b.jpg"
+                 src="art/placeholderFW11c.jpg"
                  alt="">
-            <div class="Wratio centerit">
-                .gridline.XXX
-                </div>
+            <div class="Wratio centerit">.XXX</div>
             <img class="Wratio"
                  src="art/placeholderFW11.jpg"
                  alt="">
         </section>
+        <section class="gridline WQV">
+            <img class="Wratio"
+                 src="art/placeholderFW11d.jpg"
+                 alt="">
+            <div class="Qratio centerit">.VWQ</div>
+            <img class="Vratio"
+                 src="art/placeholderFV11.jpg"
+                 alt="">
+        </section>
         <section class="gridline WQ">
             <img class="Wratio"
-                 src="art/placeholderFW11c.jpg"
+                 src="art/placeholderFW11b.jpg"
                  alt="">
-            <div class="Wratio centerit">
-                .gridline.WQ
-                </div>
+            <div class="Qratio centerit">.WQ</div>
         </section>
         <section class="gridline XX">
-            <div class="Qratio centerit">
-                .gridline.XX
-                </div>
-            <img class="Qratio"
-                 src="art/placeholderFQ11.jpg"
-                 alt="">
-        </section>
-        <section class="gridline QW">
-            <div class="gridskip"></div>
-            <section class="gridline XX">
-                <img class="Wratio"
-                     src="art/placeholderFW11.jpg"
-                     alt="">
+            <div class="gridline XX">
+                <div class="Wratio centerit">.XX > .XX</div>
                 <img class="Wratio"
                      src="art/placeholderFW11b.jpg"
                      alt="">
@@ -404,23 +401,126 @@
                      src="art/placeholderFW11c.jpg"
                      alt="">
                 <img class="Wratio"
-                     src="art/placeholderFW11.jpg"
+                     src="art/placeholderFW11d.jpg"
                      alt="">
-                <img class="Wratio"
-                     src="art/placeholderFW11b.jpg"
-                     alt="">
-                <img class="Wratio"
-                     src="art/placeholderFW11c.jpg"
-                     alt="">
-            </section>
-        </section>
-        <section class="gridline X">
-            <img class="Wratio"
+            </div>
+            <img class="Wratio fitme"
                  src="art/placeholderFW11.jpg"
                  alt="">
         </section>
     </article>
 </details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Article complexity -->
+<article class="articleDescription">
+    <style>
+        .articleDescription {
+          --color--NobleNight:  hsl(212, 34%, 29%);
+          --color--NobleWhite:  hsl(226, 27%, 90%);
+          --color--NobleSky:    hsl(204, 22%, 55%);
+
+          --background-color: var(--color--NobleNight);
+          --foreground-color: var(--color--NobleWhite);
+              --accent-color: var(--color--NobleSky);
+        }
+
+        .articleDescription {
+            background-color: var(--background-color);
+                       color: var(--foreground-color);
+            padding: 2em;
+            font-size: 1.25em;
+            line-height: 1.2;
+        }
+
+        p {
+            max-width: 36em;
+            padding: 0 0 1em 0;
+            margin:  0;
+        }
+    </style>
+    <p>
+        Думаю, что по настоящему интересная сетка —
+        с переплетениями строк и размеров —
+        строится индивидуально под задачу, без шаблонов.
+    </p>
+    <p>
+        Реализация этой сетки состоит из строк
+        и набора трёх пропорций: Vertical, sQuare, Wide.
+    </p>
+    <p>
+        zl, 2024.1.24
+    </p>
+    <p>
+        Чтобы разнообразить геометрию большой галереи
+        (высотой в несколько экранов),
+        есть пример с прокручивающимися слоями —
+        sticky scroll
+    </p>
+</article>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Sticky scroll wrap -->
+<article class="layoutGalleryScrollWrapper">
+<section class="layoutGalleryScrollWindow">
+    <style display-source>
+        .layoutGalleryScrollWrapper {
+            display:     grid;
+            place-items: center;
+            min-height:  min(100vh, 76vw);
+        }
+
+        .layoutGalleryScrollWindow {
+            width:  96vmin;
+            height: 72vmin;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .layoutGalleryScrollWindow {
+            background-color: slategray;
+        }
+    </style>
+    <article class="layoutGallery">
+
+        <!-- chapter profile -->
+
+        <section class="gridline">
+            <!-- de. cover -->
+            <section class="gridline X scrolltop">
+                <img class="Qratio"
+                     src="art/placeholderGQDM13.jpg"
+                     alt="">
+            </section>
+            <!-- de. character-->
+            <section class="gridline QW scrolltop">
+                <div class="gridline">
+                    <img class="Vratio fitme"
+                         src="art/placeholderGQDM10.jpg"
+                         alt="">
+                    <img class="Wratio scrollbot fillme"
+                         src="art/placeholderGWDM16.jpg"
+                         alt="">
+                </div>
+            </section>
+            <!-- de. flow -->
+            <section class="gridline">
+                <div class="gridline WWQ">
+                    <div class="gridskip"></div>
+                    <div class="gridskip"></div>
+                    <div class="gridline scrolltopGroup">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM17.jpg"
+                             alt="">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM15.jpg"
+                             alt="">
+                        <div class="Vratio gridskip"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- de/ end -->
+        </section>
+
+    </article>
+</section>
+</article>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Demo de mia -->
     <article class="layoutGallery">
         <section class="gridline">
