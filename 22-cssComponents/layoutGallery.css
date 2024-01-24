@@ -1,5 +1,5 @@
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutGallery */
-/** v2024.1.23 demia **/
+/** v2024.1.24 demia **/
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ colors */
 
     .layoutGallery {
@@ -133,6 +133,7 @@
         width:   100%;
         height:  auto;
         object-fit: contain;
+        background-color: var(--background-color);
     }
 
     .layoutGallery video,
@@ -145,10 +146,14 @@
     .layoutGallery:is(article) {
         padding: var(--gap) 0;
     }
+    .layoutGallery.fitness *:is(img,video)  {
+        object-fit: cover;
+        height: 100%;
+    }
 
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ workers */
 
-    .layoutGallery .screenHeight {min-height: 100vh}
+    .layoutGallery .screensize {min-height:100vh}
     .layoutGallery .centerit {
         display: grid;
         place-items: center;

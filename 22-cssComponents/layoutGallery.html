@@ -152,7 +152,7 @@
             <section class="gridline XX">
                 <img class="Qratio fitme"
                      src="art/placeholderGQ33.jpg"
-                     alt="">
+                     alt="art_placeholder">
                 <video class="Wratio" loop muted controls --autoplay>
                     <source type="video/webm"
                         src="art/placeholderWEBM.webm">
@@ -174,7 +174,7 @@
     </summary>
     <style display-source contenteditable>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutGallery */
-    /** v2024.1.23 demia **/
+    /** v2024.1.24 demia **/
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ colors */
 
         .layoutGallery {
@@ -308,6 +308,7 @@
             width:   100%;
             height:  auto;
             object-fit: contain;
+            background-color: var(--background-color);
         }
 
         .layoutGallery video,
@@ -320,10 +321,14 @@
         .layoutGallery:is(article) {
             padding: var(--gap) 0;
         }
+        .layoutGallery.fitness *:is(img,video)  {
+            object-fit: cover;
+            height: 100%;
+        }
 
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ workers */
 
-        .layoutGallery .screenHeight {min-height: 100vh}
+        .layoutGallery .screensize {min-height:100vh}
         .layoutGallery .centerit {
             display: grid;
             place-items: center;
@@ -358,37 +363,37 @@
         <section class="gridline XXXX">
             <img class="Wratio"
                  src="art/placeholderFW11.jpg"
-                 alt="">
+                 alt="art_placeholder">
             <img class="Wratio"
                  src="art/placeholderFW11b.jpg"
-                 alt="">
+                 alt="art_placeholder">
             <img class="Wratio"
                  src="art/placeholderFW11c.jpg"
-                 alt="">
+                 alt="art_placeholder">
             <div class="Wratio centerit">.XXXX</div>
         </section>
         <section class="gridline XXX">
             <img class="Wratio"
                  src="art/placeholderFW11c.jpg"
-                 alt="">
+                 alt="art_placeholder">
             <div class="Wratio centerit">.XXX</div>
             <img class="Wratio"
                  src="art/placeholderFW11.jpg"
-                 alt="">
+                 alt="art_placeholder">
         </section>
         <section class="gridline WQV">
             <img class="Wratio"
                  src="art/placeholderFW11d.jpg"
-                 alt="">
+                 alt="art_placeholder">
             <div class="Qratio centerit">.VWQ</div>
             <img class="Vratio"
                  src="art/placeholderFV11.jpg"
-                 alt="">
+                 alt="art_placeholder">
         </section>
         <section class="gridline WQ">
             <img class="Wratio"
                  src="art/placeholderFW11b.jpg"
-                 alt="">
+                 alt="art_placeholder">
             <div class="Qratio centerit">.WQ</div>
         </section>
         <section class="gridline XX">
@@ -396,17 +401,17 @@
                 <div class="Wratio centerit">.XX > .XX</div>
                 <img class="Wratio"
                      src="art/placeholderFW11b.jpg"
-                     alt="">
+                     alt="art_placeholder">
                 <img class="Wratio"
                      src="art/placeholderFW11c.jpg"
-                     alt="">
+                     alt="art_placeholder">
                 <img class="Wratio"
                      src="art/placeholderFW11d.jpg"
-                     alt="">
+                     alt="art_placeholder">
             </div>
             <img class="Wratio fitme"
                  src="art/placeholderFW11.jpg"
-                 alt="">
+                 alt="art_placeholder">
         </section>
     </article>
 </details>
@@ -457,6 +462,16 @@
     </p>
 </article>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Sticky scroll wrap -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            Scroll feature demo
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
 <article class="layoutGalleryScrollWrapper">
 <section class="layoutGalleryScrollWindow">
     <style display-source>
@@ -473,54 +488,126 @@
             overflow-x: hidden;
         }
 
+        .layoutGalleryScrollWindow .screensize {
+            min-height: 72vmin;
+        }
+
         .layoutGalleryScrollWindow {
             background-color: slategray;
         }
-    </style>
-    <article class="layoutGallery">
 
-        <!-- chapter profile -->
+    </style>
+    <article class="layoutGallery fitness">
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ season start -->
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ episode welcome -->
 
         <section class="gridline">
             <!-- de. cover -->
             <section class="gridline X scrolltop">
                 <img class="Qratio"
                      src="art/placeholderGQDM13.jpg"
-                     alt="">
+                     alt="art_placeholder">
             </section>
-            <!-- de. character-->
+            <!-- de. character -->
             <section class="gridline QW scrolltop">
                 <div class="gridline">
-                    <img class="Vratio fitme"
+                    <img class="Vratio"
                          src="art/placeholderGQDM10.jpg"
-                         alt="">
-                    <img class="Wratio scrollbot fillme"
+                         alt="art/placeholder">
+                    <img class="Wratio scrollbot"
                          src="art/placeholderGWDM16.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
             </section>
             <!-- de. flow -->
+            <section class="gridline WWQ">
+                <div class="gridskip"></div>
+                <div class="gridskip"></div>
+                <div class="gridline scrolltopGroup">
+                    <img class="Qratio"
+                         src="art/placeholderGQDM17.jpg"
+                         alt="art_placeholder">
+                    <img class="Qratio"
+                         src="art/placeholderGQDM15.jpg"
+                         alt="art_placeholder">
+                </div>
+                <div class="gridskip"></div>
+                <div class="gridskip"></div>
+                <div class="gridskip Qratio"></div>
+            </section>
+            <!-- de/ flow -->
+        </section>
+
+        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ episode story -->
+
+        <section class="gridline">
+            <!-- de. cover -->
+            <section class="gridline X scrolltop">
+                <img class="Qratio"
+                     src="art/placeholderGQDM11.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de. flow -->
+            <section class="gridline WQV">
+                <div class="gridskip"></div>
+                <img class="Qratio fitme"
+                     src="art/placeholderGQDM18.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio fitme"
+                     src="art/placeholderGVDM12.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de. story-->
             <section class="gridline">
-                <div class="gridline WWQ">
-                    <div class="gridskip"></div>
+                <!-- de. character_screensize -->
+                <section class="gridline WQW scrolltop">
+                    <img class="screensize fitme"
+                         src="art/placeholderGQDM17.jpg"
+                         alt="art_placeholder">
+                </section>
+                <!-- de. flow -->
+                <section class="gridline WWQ XOO">
                     <div class="gridskip"></div>
                     <div class="gridline scrolltopGroup">
                         <img class="Qratio"
-                             src="art/placeholderGQDM17.jpg"
-                             alt="">
-                        <img class="Qratio"
                              src="art/placeholderGQDM15.jpg"
-                             alt="">
-                        <div class="Vratio gridskip"></div>
+                             alt="art_placeholder">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM16.jpg"
+                             alt="art_placeholder">
+                        <img class="Qratio"
+                             src="art/placeholderGQDM10.jpg"
+                             alt="art_placeholder">
+                        <img class="Xratio"
+                             src="art/placeholderGVDM18.jpg"
+                             alt="art_placeholder">
                     </div>
-                </div>
+                </section>
+                <!-- de/ storyflow -->
             </section>
-            <!-- de/ end -->
+            <!-- de. flow -->
+            <section class="gridline XXXX">
+                <img class="Vratio"
+                     src="art/placeholderGVDM11.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio"
+                     src="art/placeholderGVDM12.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio"
+                     src="art/placeholderGVDM13.jpg"
+                     alt="art_placeholder">
+                <img class="Vratio"
+                     src="art/placeholderGVDM14.jpg"
+                     alt="art_placeholder">
+            </section>
+            <!-- de/ flow -->
         </section>
 
+       <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ season end -->
     </article>
 </section>
 </article>
+</details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > Demo de mia -->
     <article class="layoutGallery">
         <section class="gridline">
@@ -529,29 +616,29 @@
             <div class="gridline X scrolltop">
                 <img class="Qratio"
                      src="art/placeholderGQDM11.jpg"
-                     alt="">
+                     alt="art_placeholder">
             </div>
             <!-- de. mia -->
             <div class="gridline XXXX">
                 <img class="Vratio"
                      src="art/placeholderGVDM11.jpg"
-                     alt="">
+                     alt="art_placeholder">
                 <img class="Vratio"
                      src="art/placeholderGVDM12.jpg"
-                     alt="">
+                     alt="art_placeholder">
                 <img class="Vratio"
                      src="art/placeholderGVDM13.jpg"
-                     alt="">
+                     alt="art_placeholder">
                 <img class="Vratio"
                      src="art/placeholderGVDM14.jpg"
-                     alt="">
+                     alt="art_placeholder">
             </div>
             <!-- de. pau --><div class="gridskip Wratio"></div>
             <!-- de. cov -->
             <div class="gridline X scrolltop">
                 <img class="Qratio"
                      src="art/placeholderGQDM12.jpg"
-                     alt="">
+                     alt="art_placeholder">
             </div>
             <!-- de. boa -->
             <section class="gridline">
@@ -561,13 +648,13 @@
                     <div class="gridskip"></div>
                     <img class="Qratio"
                          src="art/placeholderGQDM18.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
                 <!-- de. cov -->
                 <div class="gridline QW scrolltop">
                     <img class="Vratio"
                          src="art/placeholderGVDM14.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
                 <!-- de. mia -->
                 <section class="gridline QW">
@@ -575,22 +662,22 @@
                     <div class="gridline X scrolltopGroup">
                         <img class="Qratio"
                              src="art/placeholderGQDM10.jpg"
-                             alt="">
+                             alt="art_placeholder">
                         <img class="Qratio"
                              src="art/placeholderGQDM15.jpg"
-                             alt="">
+                             alt="art_placeholder">
                         <img class="Qratio"
                              src="art/placeholderGQDM17.jpg"
-                             alt="">
+                             alt="art_placeholder">
                         <img class="Wratio"
                              src="art/placeholderFW12c.jpg"
-                             alt="">
+                             alt="art_placeholder">
                     </div>
                     <div class="gridskip"></div>
                     <div class="gridline X">
                         <img class="Qratio"
                              src="art/placeholderGQDM16.jpg"
-                             alt="">
+                             alt="art_placeholder">
                     </div>
                 </section>
                 <!-- de. cov -->
@@ -598,18 +685,18 @@
                     <div class="gridskip"></div>
                     <img class="Qratio"
                          src="art/placeholderGQDM17.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
                 <div class="gridline X scrolltop">
                     <img class="Qratio"
                          src="art/placeholderGQDM13.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
                 <!-- de. cov -->
                 <div class="gridline QW scrolltop">
                     <img class="Vratio"
                          src="art/placeholderGVDM14.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
                 <!-- de. mia -->
 
@@ -619,16 +706,16 @@
                 <div class="gridline X">
                     <img class="Wratio"
                          src="art/placeholderFW11.jpg"
-                         alt="">
+                         alt="art_placeholder">
                     <img class="Wratio"
                          src="art/placeholderFW11b.jpg"
-                         alt="">
+                         alt="art_placeholder">
                     <img class="Wratio"
                          src="art/placeholderFW11c.jpg"
-                         alt="">
+                         alt="art_placeholder">
                     <img class="Wratio"
                          src="art/placeholderFW11.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
             </section>
             <!-- de/ blob -->
@@ -638,14 +725,14 @@
                     <div class="gridskip"></div>
                     <img class="Qratio"
                          src="art/placeholderGQDM18.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
                 <!-- de/ mia -->
                 <!-- de. bot -->
                 <div class="gridline QW scrollbot">
                     <img class="Wratio"
                          src="art/placeholderFW12c.jpg"
-                         alt="">
+                         alt="art_placeholder">
                 </div>
                 <!-- de/ bot -->
             </section>
@@ -656,7 +743,7 @@
         <section class="gridline X">
             <img class="Wratio"
                  src="art/placeholderFW11.jpg"
-                 alt="">
+                 alt="art_placeholder">
         </section>
 
     </article>
