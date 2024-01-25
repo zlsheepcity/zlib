@@ -3,34 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width,initial-scale=1" name="viewport">
-    <!--> htmlseed v2024.1.25 keiko ~ ʕ⊙ᴥ⊙ʔ ~ made with love <-->
+    <!-- .htmlseed v2024.1.25 keiko ~ ʕ⊙ᴥ⊙ʔ ~ made with love -->
+    <base href="https://zlsheepcity.github.io/zlib/" />
 
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Tab Data -->
     <title>htmlseed</title>
-
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> FAVICON 2024 -->
     <meta name="theme-color" content="#314159">
     <link rel="icon" type="image/png" href="app/icon512.png">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> GOOGLE FONTS 2023 -->
-    <!--  -->
-    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
-    <link
-        media="none" onload="if(media!='all')media='all'"
-        href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700&subset=cyrillic"
-        rel="stylesheet">
-    <noscript>
-    <link
-        media="all"
-        href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700&subset=cyrillic"
-        rel="stylesheet">
-    </noscript>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Fonts Tufte 2024Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap">
     <style>
         body {
             font-family: var(--font-family, sans-serif);
-          --font-family: var(--font-family-tufte-serif);
-          --font-family-tufte-serif:
-                Vollkorn, et-book, Palatino,
+          --font-family: var(--font-family--TufteSerif);
+          --font-family--TufteSerif:
+                Vollkorn, "et-book", Palatino,
                "Palatino Linotype","Palatino LT STD","Book Antiqua",
                 Georgia, serif,
                "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -38,38 +30,72 @@
     </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> STYLES -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS Preset 2024 -->
     <style>
         body {
-            margin: 0;
-            overflow-y:  scroll;
-            font-family: sans-serif;
+          --color--PaperTone: hsl( 37, 55%, 85%);
+          --color--PaperDark: hsl(  0,  0%,  8%);
+          --color--PaperRose: hsl(359, 59%, 43%);
+
+          --background-color: var(--color--PaperDark);
+          --foreground-color: var(--color--PaperTone);
+              --accent-color: var(--color--PaperRose);
         }
+
+        body {
+            background-color: var(--background-color);
+            margin: 0; color: var(--foreground-color);
+            font-family: monospace; overflow-y:scroll;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
         img, video, svg {
             margin: 0;
             border: 0;
             max-width: 100%;
             display:  block;
         }
-    </style>
-    <!-- appart combined css -->
-    <link
-        href="https://zlsheepcity.github.io/zlib/app/css.combinedlog.css"
-        type="text/css" rel="stylesheet" media="all">
-    <!--  -->
 
+        center {
+            display: grid;
+            place-items: center;
+        }
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS Custom -->
+    <style>
+        [display-source] {
+            display: block;
+            padding: 0 1em 1em 0;
+            margin:  0 0   1em 0;
+            max-width: max-content;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        [contenteditable] {
+          --color: var(--accent-color);
+            color: var(--color);
+            border-left: 1em solid var(--color);
+        }
+    </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
 </head>
 <body class="">
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> ARTICLE -->
-    <style display-source>
-        /** htmlseed.html */
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SECTION -->
+    <style display-source contenteditable>
+        body {
+          --color--PaperTone: hsl( 37, 55%, 85%);
+          --color--PaperDark: hsl(  0,  0%,  8%);
+          --color--PaperRose: hsl(359, 59%, 43%);
 
-        [display-source] {
-            display:     block;
-            padding:     0 1em 2em;
-            font-family: monospace;
-            white-space: pre-wrap;
+          --background-color: var(--color--PaperDark);
+          --foreground-color: var(--color--PaperTone);
+              --accent-color: var(--color--PaperRose);
         }
     </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
