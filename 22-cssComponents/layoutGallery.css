@@ -1,5 +1,5 @@
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutGallery */
-/** v2024.1.24 demia **/
+/** v2024.1.25 demia **/
 /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ colors */
 
     .layoutGallery {
@@ -7,7 +7,7 @@
       --background-color: hsl(226, 15%, 12%); /* NobleBlack */
     }
 
-    .layoutGallery {
+    .layoutGallery:not(.transparent) {
         background-color: var(--background-color);
         color:            var(--color);
     }

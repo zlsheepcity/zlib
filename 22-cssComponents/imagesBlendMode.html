@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width,initial-scale=1" name="viewport">
-    <!-- .htmlseed 24.1.25 made with love ~ ʕ⊙ᴥ⊙ʔ ~ -->
-    <base href="https://zlsheepcity.github.io/zlib/" />
+    <!-- .htmlseed v2024.1.25 keiko ~ ʕ⊙ᴥ⊙ʔ ~ made with love -->
+    <base href="../" />
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Tab data -->
-    <title>htmlseed</title>
+    <title>blend-mode</title>
     <meta name="theme-color" content="#314159">
     <link rel="icon" type="image/png" href="app/icon512.png">
-    <meta name="description"  content="htmlseed">
+    <meta name="description"  content="CSS playground">
     <meta property="og:image" content="art/mediaIWDev.jpg">
     <meta property="og:image:width"  content="2000">
     <meta property="og:image:height" content="1000">
@@ -70,26 +70,8 @@
     </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS stylesheet -->
     <link
-        href="app/custom.css"
+        href="22-cssComponents/layoutGallery.css"
         type="text/css" rel="stylesheet" media="all">
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Art TufteFont 2024Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap">
-    <style>
-        body {
-            font-family: var(--font-family, sans-serif);
-          --font-family: var(--font-family--TufteSerif);
-          --font-family--TufteSerif:
-                Vollkorn, "et-book", Palatino,
-               "Palatino Linotype","Palatino LT STD","Book Antiqua",
-                Georgia, serif,
-               "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        }
-    </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
 </head>
@@ -106,6 +88,84 @@
               --accent-color: var(--color--PaperRose);
         }
     </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> TEAM -->
+    <article class="layoutGallery">
+        <section class="gridline XXX">
+            <img class="Xratio"
+                 src="art/artBackgroundMagenta.jpg"
+                 alt="art_placeholder">
+            <img class="Xratio"
+                 src="art/artBackgroundBlack.jpg"
+                 alt="art_placeholder">
+            <img class="Xratio"
+                 src="art/artBackgroundCyan.jpg"
+                 alt="art_placeholder">
+        </section>
+    </article>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DEMO23a -->
+    <article
+        class="layoutScreen background-blend-mixer"
+        id="demo-background-blend-mixer"
+        >
+
+        <style display-source>
+
+        #demo-background-blend-mixer {
+            background:
+                url(art/artBackgroundMagenta.jpg),
+                url(art/artBackgroundBlack.jpg),
+                transparent
+                ;
+            background-blend-mode: screen, multiply;
+            background-size: cover;
+        }
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        .background-blend-mixer {
+        /** Blends together the background layers
+          * without affecting the foreground content */
+            background:
+            /** Could have: */
+
+                url(image1.png),        /* images */
+                url(image2.png),
+                rgba(244, 65, 106, 1),  /* colors */
+                linear-gradient(        /* gradients */
+                    45deg,
+                    rgba(65, 68,244, 1),
+                    rgba(203, 66, 244, 0.5)
+                )
+                ;
+            background-size: cover;
+
+        /** We can specify multiple values for background-blend-mode
+          * one for each background layer */
+            background-blend-mode: screen, multiply;
+        }
+
+        </style>
+
+        <article class="layoutGallery transparent">
+            <section class="gridline WQ">
+                <img class="blend-with-color"
+                     src="art/artBackgroundCyan.jpg"
+                     alt="art_placeholder">
+            </section>
+        </article>
+
+        <style display-source>
+
+        img.blend-with-color,
+           .blend-with-color {
+          --background-color: hsl(204, 22%, 55%); /*NobleSky*/
+            background-color: var(--background-color);
+            mix-blend-mode: multiply;
+        }
+
+        </style>
+
+    </article>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BLOB -->
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> END -->
