@@ -800,76 +800,6 @@
             padding: 1em;
         }
     </style>
-    <style>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Candy caption */
-    /** 24.1.23 **/
-
-        /** Layout */
-
-        .textCandyCaption {
-            display:        inline-flex;
-            flex-direction: column;
-            gap:            var(--space) 0;
-        }
-        .textCandyCaption [row] {
-            display:        inline-flex;
-            flex-direction: row;
-            align-items:    flex-start;
-            gap:            0 var(--space);
-        }
-        .textCandyCaption [laydown] {
-            align-items: flex-end;
-        }
-
-        /** Design */
-
-        .textCandyCaption {
-          --font-family:    sans-serif;
-          --line-height:    0.75;
-          --space:          0.25em;
-        }
-        .textCandyCaption {
-            text-transform: uppercase;
-            font-weight:    bold;
-            font-family:    var(--font-family);
-            line-height:    var(--line-height);
-        }
-        .textCandyCaption * {
-            font-size: var(--font-size, inherit);
-            color:     var(--color,     inherit);
-        }
-
-        /** Model tint&size 2023 */
-
-        .textCandyCaption {
-          --tint-a: inherit;          /* a for alpha */
-          --tint-c: hsl(184,74%,54%); /* c for cyan */
-          --tint-m: hsl(334,64%,54%); /* m for magenta */
-          --tint-y: hsl(414,84%,54%); /* y for yellow */
-          --tint-g: hsl(114,44%,54%); /* g for green */
-        }
-        .textCandyCaption {
-          --size-a: 1.00em;
-          --size-b: 1.50em;
-          --size-c: 2.00em;
-          --size-d: 3.00em;
-          --size-z: 0.75em;
-        }
-
-        .textCandyCaption [size-a] {--font-size: var(--size-a);}
-        .textCandyCaption [size-b] {--font-size: var(--size-b);}
-        .textCandyCaption [size-c] {--font-size: var(--size-c);}
-        .textCandyCaption [size-d] {--font-size: var(--size-d);}
-        .textCandyCaption [size-z] {--font-size: var(--size-z);}
-
-        .textCandyCaption [tint-a] {--color: var(--tint-a);}
-        .textCandyCaption [tint-c] {--color: var(--tint-c);}
-        .textCandyCaption [tint-m] {--color: var(--tint-m);}
-        .textCandyCaption [tint-y] {--color: var(--tint-y);}
-        .textCandyCaption [tint-g] {--color: var(--tint-g);}
-
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /Candy caption */
-    </style>
 </article>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> JS EventDebouncer + DynamicVH -->
 <details class="detailsWithSummaryHeader" --open>
@@ -1014,7 +944,7 @@
 </article>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 <footer class="layoutBook">
-    <section>
+    <section class="articleCandyPageUpdated">
         <div class="textCandyCaption" demosize-a>
             <b row size-a tint-a>
                 <b size-a tint-a> updated</b>
@@ -1026,9 +956,79 @@
             <b row size-a tint-a>
                 <b size-c tint-y> 1 </b>
                 <b size-b tint-a> . </b>
-                <b size-d tint-m> 23 </b>
+                <b size-d tint-m> 25 </b>
             </b>
         </div>
+        <style>
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Candy caption */
+        /** 24.1.23 **/
+
+            /** Layout */
+
+            .textCandyCaption {
+                display:        inline-flex;
+                flex-direction: column;
+                gap:            var(--space) 0;
+            }
+            .textCandyCaption [row] {
+                display:        inline-flex;
+                flex-direction: row;
+                align-items:    flex-start;
+                gap:            0 var(--space);
+            }
+            .textCandyCaption [laydown] {
+                align-items: flex-end;
+            }
+
+            /** Design */
+
+            .textCandyCaption {
+              --font-family:    sans-serif;
+              --line-height:    0.75;
+              --space:          0.25em;
+            }
+            .textCandyCaption {
+                text-transform: uppercase;
+                font-weight:    bold;
+                font-family:    var(--font-family);
+                line-height:    var(--line-height);
+            }
+            .textCandyCaption * {
+                font-size: var(--font-size, inherit);
+                color:     var(--color,     inherit);
+            }
+
+            /** Model tint&size 2023 */
+
+            .textCandyCaption {
+              --tint-a: inherit;          /* a for alpha */
+              --tint-c: hsl(184,74%,54%); /* c for cyan */
+              --tint-m: hsl(334,64%,54%); /* m for magenta */
+              --tint-y: hsl(414,84%,54%); /* y for yellow */
+              --tint-g: hsl(114,44%,54%); /* g for green */
+            }
+            .textCandyCaption {
+              --size-a: 1.00em;
+              --size-b: 1.50em;
+              --size-c: 2.00em;
+              --size-d: 3.00em;
+              --size-z: 0.75em;
+            }
+
+            .textCandyCaption [size-a] {--font-size: var(--size-a);}
+            .textCandyCaption [size-b] {--font-size: var(--size-b);}
+            .textCandyCaption [size-c] {--font-size: var(--size-c);}
+            .textCandyCaption [size-d] {--font-size: var(--size-d);}
+            .textCandyCaption [size-z] {--font-size: var(--size-z);}
+
+            .textCandyCaption [tint-a] {--color: var(--tint-a);}
+            .textCandyCaption [tint-c] {--color: var(--tint-c);}
+            .textCandyCaption [tint-m] {--color: var(--tint-m);}
+            .textCandyCaption [tint-y] {--color: var(--tint-y);}
+            .textCandyCaption [tint-g] {--color: var(--tint-g);}
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /Candy caption */
+        </style>
     </section>
 </footer>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
