@@ -63,9 +63,12 @@
             overflow-x: auto;
         }
         [contenteditable] {
-          --color: var(--accent-color);
+          --color: var(--foreground-color);
             color: var(--color);
             border-left: 1em solid var(--color);
+        }
+        [contenteditable]:focus {
+            background-color: var(--accent-color);
         }
     </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS stylesheet -->
@@ -103,47 +106,96 @@
         </section>
     </article>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DEMO23a -->
-    <article
-        class="layoutScreen background-blend-mixer"
-        id="demo-background-blend-mixer"
-        >
+    <article id="Demo01" class="cssBackgroundBlendMode">
+        <style display-source contenteditable>
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ blend mode */
+        /** 24.1.25 **/
+        /** Blends together the background layers
+            without affecting the foreground content.
+            We can specify multiple values for blend-mode
+            one for each background layer.
+         */
 
-        <style display-source>
+            .cssBackgroundBlendMode {
+                background:
 
-        #demo-background-blend-mixer {
-            background:
-                url(art/artBackgroundMagenta.jpg),
-                url(art/artBackgroundBlack.jpg),
-                transparent
+                /** Layer0: */
+                    lightslategray
+
+                ,/* Layer1: */
+                    transparent
+
                 ;
-            background-blend-mode: screen, multiply;
-            background-size: cover;
-        }
+                background-blend-mode:
+                /** Layer0: */
+                    screen
+                ,/* Layer1: */
+                    multiply
+                ;
+                background-size: cover;
+            }
 
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
-        .background-blend-mixer {
-        /** Blends together the background layers
-          * without affecting the foreground content */
-            background:
-            /** Could have: */
+            .cssBackgroundBlendMode.snippets {
+                background:
 
-                url(image1.png),        /* images */
-                url(image2.png),
-                rgba(244, 65, 106, 1),  /* colors */
-                linear-gradient(        /* gradients */
-                    45deg,
-                    rgba(65, 68,244, 1),
-                    rgba(203, 66, 244, 0.5)
-                )
+                /** Layer0: */
+                    url(art/artBackgroundMagenta.jpg)
+
+                ,/* Layer1: */
+                    hsl(359, 59%, 43%)
+
+                ,/* Layer2: */
+                    linear-gradient(
+                        45deg,
+                        rgba( 65, 68, 244, 1.0),
+                        rgba(203, 66, 244, 0.5)
+                    )
+
+                ,/* LayerColornames: */
+                    lightskyblue,
+                    lightslategray,
+                    transparent
                 ;
-            background-size: cover;
+                background-blend-mode:
+                /** Layer0: */
+                    screen
+                ,/* Layer1: */
+                    multiply
+                ;
+                background-size: cover;
+                background-attachment: scroll;
+                background-position: 50% 50%;
+                mix-blend-mode: multiply;
+            }
 
-        /** We can specify multiple values for background-blend-mode
-          * one for each background layer */
-            background-blend-mode: screen, multiply;
-        }
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /blend mode */
+        </style>
+        <style display-source contenteditable>
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
+            #Demo01.cssBackgroundBlendMode {
+                background:
+                /** Layer0: */
+                    url(art/artBackgroundMagenta.jpg)
+                ,/* Layer1: */
+                    url(art/artBackgroundBlack.jpg)
+                ,/* Layer2: */
+                    transparent
+                ;
+                background-blend-mode:
+                /** Layer0: */
+                    screen
+                ,/* Layer1: */
+                    multiply
+                ;
+                background-size: cover;
+                background-attachment: fixed;
+                background-position: 50% 50%;
+            }
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
         </style>
 
         <article class="layoutGallery transparent">
@@ -154,11 +206,11 @@
             </section>
         </article>
 
-        <style display-source>
+        <style display-source contenteditable>
 
-        img.blend-with-color,
+        img.blend-with-color ,
            .blend-with-color {
-          --background-color: hsl(204, 22%, 55%); /*NobleSky*/
+          --background-color: lightskyblue;
             background-color: var(--background-color);
             mix-blend-mode: multiply;
         }
@@ -166,6 +218,16 @@
         </style>
 
     </article>
+        <article class="layoutGallery transparent">
+            <section class="gridline XX">
+                <img class=""
+                     src="art/artBackgroundCyan.jpg"
+                     alt="art_placeholder">
+                <img class="blend-with-color"
+                     src="art/artBackgroundCyan.jpg"
+                     alt="art_placeholder">
+            </section>
+        </article>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BLOB -->
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> END -->
