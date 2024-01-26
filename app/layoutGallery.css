@@ -136,6 +136,7 @@
         background-color: var(--background-color);
     }
 
+    .layoutGallery .outlined,
     .layoutGallery video,
     .layoutGallery img {
         outline: var(--gap) solid var(--background-color);
