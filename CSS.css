@@ -35,6 +35,12 @@
     white-space: pre-wrap;
 }
 
+        [opacity22] {opacity:0.22}
+        [opacity33] {opacity:0.33}
+        [opacity55] {opacity:0.55}
+        [opacity66] {opacity:0.66}
+        [opacity77] {opacity:0.77}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
     .mockbox {
