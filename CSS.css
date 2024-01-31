@@ -230,16 +230,56 @@ section {
 }
 
 
-/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Media */
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Animation */
 
+:root {
+  --timing-function--theFocusZoom: cubic-bezier(0.165,  0.84,  0.44,  1);
+  --timing-function--theOpenJump:  cubic-bezier(0.175,  0.885, 0.320, 1.275);
+  --timing-function--theCloseJump: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+  --timing-function--theWelcome:   cubic-bezier(0.6,    0.04,  0.98,  0.335);
+}
 
 @media screen and (prefers-reduced-motion: no-preference) {} /* do animations */
 @media screen and (prefers-reduced-motion: reduce) {}        /* do less animations */
-@media screen and (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
+@media screen and (prefers-reduced-motion: reduce) {*{transition: none !important}}
+
+/* keyframe animation */
+
+@keyframes animationSample {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
     }
 }
+.myElement {
+             animation-name: animationSample;
+  animation-timing-function: cubic-bezier(0.4,0,0.2,1);
+         animation-duration: 1s;
+  animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+            animation-delay: 2s;
+       animation-play-state: initial;
+}
+.myElement:hover {
+       animation-play-state: paused;
+}
+
+/** animate when hover */
+.el-animate-when-hover {
+    animation: 2s moveX alternate infinite paused;
+}
+.el-animate-when-hover:hover {
+    animation-play-state: running;
+}
+
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Media */
+
 
 @media only screen and (min-device-width: 400px) {}
 @media (min-width: 600px) and (max-width: 800px) {} /* AND statement */

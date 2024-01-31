@@ -126,6 +126,7 @@
         }
     </style>
 </article>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> details»summary -->
 <details class="detailsWithSummaryHeader" --open>
     <summary>
@@ -205,6 +206,7 @@
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
     </style>
 </details>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> html quickstart -->
 <details class="detailsWithSummaryHeader" open>
     <summary>
@@ -226,6 +228,11 @@
             <li>
                 <a href="htmlseedAllFeatures.html">
                     htmlseedAllFeatures.html file
+                </a>
+            </li>
+            <li>
+                <a href="CSS.css">
+                    css snippets file
                 </a>
             </li>
             <li>
@@ -254,6 +261,7 @@
         </style>
     </article>
 </details>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> css combos -->
 <details class="detailsWithSummaryHeader" open>
     <summary>
@@ -266,7 +274,7 @@
         </header>
     </summary>
     <style display-source>
-        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Common CSS combos */
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Common combos */
 
         .flexbox {
             display:         flex;
@@ -298,11 +306,19 @@
         @media all and (max-width:42em) and (min-width:64em) {
         }/* /media */
 
+        :root {
+          --timing-function--theFocusZoom: cubic-bezier(0.165,  0.84,  0.44,  1);
+          --timing-function--theOpenJump:  cubic-bezier(0.175,  0.885, 0.320, 1.275);
+          --timing-function--theCloseJump: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+          --timing-function--theWelcome:   cubic-bezier(0.6,    0.04,  0.98,  0.335);
+        }
+
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
     </style>
 </details>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> css topics -->
-<details class="detailsWithSummaryHeader" --open>
+<details class="detailsWithSummaryHeader" open>
     <summary>
         <header>
             css topics
@@ -321,23 +337,12 @@
             <li><a href="app/css.15xLayouts.css">app/css.15xLayouts.css</a></li>
             <li><a href="app/css.16xTools.css">app/css.16xTools.css</a></li>
         </ul>
-        <style display-source class="layoutBookFull">
-        <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ > appart web24 -->
-        <link
-            href="https://zlsheepcity.github.io/zlib/app/css.combinedlog.css"
-            type="text/css" rel="stylesheet" media="all">
-
-            not a library, just combined log
-        </style>
     </article>
     <article class="articleSecondaryDesign layoutBook">
-        <header>
-            <h4>background-blend-mode</h4>
-        </header>
-        <ul class="text-block-bigger">
-            <li><a href="22-cssComponents/imagesBlendMode.html">playground page</a></li>
-        </ul>
-        <div class="gridskip"></div>
+        <h4>background-blend-mode</h4>
+        <blockquote class="text-block-bigger">
+            → <a href="22-cssComponents/imagesBlendMode.html">Playground page</a>
+        </blockquote>
         <style>
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ blend mode demo */
         /** 24.1.25 **/
@@ -379,6 +384,34 @@
                 </section>
             </section>
         </section>
+    </article>
+    <article class="articleSecondaryDesign layoutBook">
+        <header>
+            <h4>flex-basis</h4>
+        </header>
+        <div class="layoutBookFull">
+            <div class="demoFlexBasis">
+            <img src="art/svgSetDrakai11.svg" alt="">
+            <img src="art/svgSetDrakai12.svg" alt="">
+            <img src="art/svgSetDrakai13.svg" alt="">
+            </div>
+        </div>
+        <style display-source class="layoutBookFull">
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+            .demoFlexBasis {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .demoFlexBasis >* {
+              --breakpoint: 600px;
+                flex-basis: calc(var(--breakpoint) * 99999 - 100% * 99999);
+                max-width: 100%;
+                min-width: 33%;
+            }
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+        </style>
     </article>
 </details>
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> layoutBook -->
