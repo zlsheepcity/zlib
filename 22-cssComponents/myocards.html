@@ -91,27 +91,17 @@
 
 </head>
 <body class="">
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SECTION -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> body -->
     <style display-source contenteditable spellcheck=false>
         body {
           --colorPaperTone: hsl( 37, 55%, 85%);
           --colorPaperDark: hsl(  0,  0%,  8%);
           --colorPaperRose: hsl(359, 59%, 43%);
-          --colorNobleDark: hsl(226, 15%, 12%);
-          --colorNobleMoon: hsl(226, 27%, 90%);
-          --colorNobleRise: hsl(204, 22%, 55%);
         }
         body {
           --background-color: var(--colorPaperDark);
           --foreground-color: var(--colorPaperTone);
               --accent-color: var(--colorPaperRose);
-        }
-        [demobox] {
-          --background-color: var(--colorNobleDark);
-          --foreground-color: var(--colorNobleMoon);
-              --accent-color: var(--colorNobleRise);
-            background-color: var(--background-color);
-                       color: var(--foreground-color);
         }
     </style>
 
@@ -244,8 +234,8 @@
     </details>
 
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> TestDemo -->
-    <article class="articlePrimaryDesign">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DemoConfig -->
+    <article>
     <style display-source contenteditable spellcheck=false DemoConfig>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Demo config */
 
@@ -265,15 +255,13 @@
             */
         }
 
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Demo config */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DemoConfig */
     </style>
-    <style display-source contenteditable spellcheck=false Avatars>
-        .el-avatar-icon {width:14em}
-        .el-avatar-big  {width:24em}
+    </article>
 
-        [text-bitmore]  {font-size:1.6em}
-        [text-muchmore] {font-size:2.4em}
-    </style>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> FeaturesDemo -->
+    <article class="articlePrimaryDesign">
 
         <!-- base -->
 
@@ -283,13 +271,12 @@
                     <p mock-paragraph>
                </div>
            </section>
-            <section demobox>
-                <div>
+            <section>
+                <div demobox>
                     <p mock-paragraph>
                </div>
            </section>
         </section>
-
         <center>
         <style display-source>
         <section class="myocard">
@@ -298,8 +285,8 @@
                     <p mock-paragraph>
                </div>
            </section>
-            <section demobox>
-                <div>
+            <section>
+                <div demobox>
                     <p mock-paragraph>
                </div>
            </section>
@@ -314,16 +301,15 @@
                 <div>
                     <img src="art/characterBrowser.svg"
                          class="el-avatar-big"
-                         alt="Browser character">
+                         alt="illustration placeholder">
                </div>
            </section>
             <section>
                 <div>
-                    <p text-bitmore mock-paragraph>
+                    <p text-bigger mock-paragraph>
                </div>
            </section>
         </section>
-
         <center>
         <style display-source>
         <section class="myocard" demobox>
@@ -331,12 +317,12 @@
                 <div>
                     <img src="art/characterBrowser.svg"
                          class="el-avatar-big"
-                         alt="Browser character">
+                         alt="illustration placeholder">
                </div>
            </section>
             <section>
                 <div>
-                    <p text-bitmore mock-paragraph>
+                    <p text-bigger mock-paragraph>
                </div>
            </section>
         </section>
@@ -348,31 +334,65 @@
         <section class="myocard myocardBanner" demobox>
             <section>
                 <div>
-                    <p text-bitmore mock-paragraph>
+                    <p text-bigger mock-paragraph>
                </div>
            </section>
             <section>
                 <div>
                     <img src="art/characterBrowser.svg"
                          class="el-avatar-icon"
-                         alt="Browser character">
+                         alt="illustration placeholder">
                </div>
            </section>
         </section>
-
         <center>
         <style display-source>
         <section class="myocard myocardBanner" demobox>
             <section>
                 <div>
-                    <p text-bitmore mock-paragraph>
+                    <p text-bigger mock-paragraph>
                </div>
            </section>
             <section>
                 <div>
                     <img src="art/characterBrowser.svg"
                          class="el-avatar-icon"
-                         alt="Browser character">
+                         alt="illustration placeholder">
+               </div>
+           </section>
+        </section>
+        </style>
+        </center>
+
+        <!-- myocardWideSection -->
+
+        <section class="myocard myocardWideSection" demobox>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-big"
+                         alt="illustration placeholder">
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p text-bigger mock-paragraph>
+               </div>
+           </section>
+        </section>
+        <center>
+        <style display-source>
+        <section class="myocard myocardWideSection" demobox>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-big"
+                         alt="illustration placeholder">
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p text-bigger mock-paragraph>
                </div>
            </section>
         </section>
@@ -395,7 +415,6 @@
                </div>
            </section>
         </section>
-
         <center>
         <style display-source>
         <section class="myocard myocardAlignTop">
@@ -415,71 +434,34 @@
         </style>
         </center>
 
-        <!-- myocardWideSection -->
-
-        <section class="myocard myocardWideSection" demobox>
-            <section>
-                <div>
-                    <img src="art/characterBrowser.svg"
-                         class="el-avatar-big"
-                         alt="Browser character">
-               </div>
-           </section>
-            <section>
-                <div>
-                    <p text-bitmore mock-paragraph>
-               </div>
-           </section>
-        </section>
-
-        <center>
-        <style display-source>
-        <section class="myocard myocardWideSection" demobox>
-            <section>
-                <div>
-                    <img src="art/characterBrowser.svg"
-                         class="el-avatar-big"
-                         alt="Browser character">
-               </div>
-           </section>
-            <section>
-                <div>
-                    <p text-bitmore mock-paragraph>
-               </div>
-           </section>
-        </section>
-        </style>
-        </center>
-
         <!-- myocardWrapOrderReverse -->
 
-        <section class="myocard myocardWrapOrderReverse" demobox>
+        <section class="myocard myocardWrapOrderReverse">
             <section>
                 <div>
-                    <img src="art/characterBrowser.svg"
-                         class="el-avatar-icon"
-                         alt="Browser character">
+                    <p text-bigger mock-paragraph>
                </div>
            </section>
             <section>
-                <div>
+                <div demobox>
+                    <p mock-paragraph>
+                    <p mock-paragraph>
                     <p mock-paragraph>
                </div>
            </section>
         </section>
-
         <center>
         <style display-source>
-        <section class="myocard myocardWrapOrderReverse" demobox>
+        <section class="myocard myocardWrapOrderReverse">
             <section>
                 <div>
-                    <img src="art/characterBrowser.svg"
-                         class="el-avatar-icon"
-                         alt="Browser character">
+                    <p text-bigger mock-paragraph>
                </div>
            </section>
             <section>
-                <div>
+                <div demobox>
+                    <p mock-paragraph>
+                    <p mock-paragraph>
                     <p mock-paragraph>
                </div>
            </section>
@@ -487,169 +469,135 @@
         </style>
         </center>
 
+        <!-- trisom -->
 
-
-        <!-- -------------------------------- Inside Grid -->
-
-        <article class="chapter use-colors colors--ivory">
-        <section class="grid-queen is-without-root">
-
-            <h2>Inside Grid</h2>
-
-            <section class="grid-column--wrap subgrid-content">
-
-                <section class="myocard is-banner back-color-accent">
-                    <section>
-                        <div>
-                            <img src="art/characterBrowser.svg"
-                                 class="el-avatar-icon" alt="">
-                       </div>
-                   </section>
-                    <section>
-                        <div>
-                            <p class="auto text-block-bigger"></p>
-                       </div>
-                   </section>
-                </section>
-
-                <section class="myocard is-banner wrap-order-reverse back-color-accent">
-                    <section>
-                        <div>
-                            <p class="auto text-block-bigger"></p>
-                       </div>
-                   </section>
-                    <section>
-                        <div>
-                            <img src="art/illustrations/austria.svg"
-                                 class="el-avatar-icon" alt="">
-                       </div>
-                   </section>
-                </section>
-
-            </section>
-            <section class="grid-column--wrap">
-                <section class="myocard align-top">
-                    <section>
-                        <div>
-                            <section class="rows">
-                            <h4>First Part</h4>
-                            <p class="auto"></p>
-                            </section>
-                       </div>
-                   </section>
-                    <section>
-                        <div>
-                            <section class="rows">
-                            <h4>Second Part</h4>
-                            <p class="auto"></p>
-                            <p class="auto"></p>
-                            <p class="auto"></p>
-                            </section>
-                       </div>
-                   </section>
-                </section>
-            </section>
-        </section>
-        </article>
-
-        <!-- -------------------------------- Cases -->
-
-        <section class="myocard">
-            <section>
-                <div>
-                    <h2>Universal Wrap</h2>
-               </div>
-           </section>
-            <section>
-                <div>
-                    <section class="rows">
-                    <p class="auto"></p>
-                    <big><mark>Learn More</mark></big>
-                    </section>
-               </div>
-           </section>
-        </section>
-
-        <section class="myocard">
-            <section>
-                <div>
-                    <h2>Long Multicontent Title inside Wrap</h2>
-               </div>
-           </section>
-            <section>
-                <div>
-                    <p class="auto"></p>
-               </div>
-           </section>
-        </section>
-
-        <div class="chapter back-color-accent">
-            <section class="myocard">
-
-                <section class="myocard is-banner">
-                    <header>
-                        <div>
-                            Meet our team at G2E Asia<br>
-                            3-4 December 2019<br>
-                            Marriot Manila, Philippines<br>
-                        </div>
-                    </header>
-                    <figure>
-                        <img src="art/illustrations/austria.svg"
-                             class="el-avatar-icon" alt="Logo">
-                    </figure>
-                </section>
-
-                <footer>
+        <section class="myocard" demobox-secondary>
+            <section class="myocard myocardBanner">
+                <header>
                     <div>
-                        <button class="swed-button">
-                            <span>Book a meeting</span>
-                        </button>
+                        Meet our team at G2E Austria<br>
+                        3-4 December 2019<br>
+                        Marriot Manila, Philippines<br>
                     </div>
-                </footer>
-
+                </header>
+                <figure>
+                    <img src="art/illustrationCastleAustria.svg"
+                         class="el-avatar-icon" alt="Logo">
+                </figure>
             </section>
-        </div>
-
-        <section class="el-myocardist chapter">
-
-            <style>
-                .el-myocardist .myocard { --card-max-width: 52rem; }
-                .el-myocardist .myocard + .myocard { margin-top: 2rem; }
-                .el-myocardist .myocard { background-color: var(--back-color-accent); }
-            </style>
-
-            <div class="myocard">
-                <div><p>When it comes to payment systems.</p></div>
-                <div><p>Self-Service Solution</p></div>
-            </div>
-
-            <div class="myocard">
-                <div><p>A few additional perks include full access to geolocation technologies.</p></div>
-                <div><p>Self-Service Customisation Options</p></div>
-            </div>
-
-            <div class="myocard">
+            <footer>
                 <div>
-                    <h4>When it comes to payment systems, the Self-Service solution supports both Visa and MasterCard.</h4>
+                    <div text-biggest>G2E Austria</div>
                 </div>
+            </footer>
+        </section>
+        <center>
+        <style display-source>
+        <section class="myocard" demobox-secondary>
+            <section class="myocard myocardBanner">
+                <header>
+                    <div>
+                        Meet our team at G2E Austria<br>
+                        3-4 December 2019<br>
+                        Marriot Manila, Philippines<br>
+                    </div>
+                </header>
+                <figure>
+                    <img src="art/illustrationCastleAustria.svg"
+                         class="el-avatar-icon" alt="Logo">
+                </figure>
+            </section>
+            <footer>
                 <div>
-                    <p>Self-Service Solution</p>
+                    <div text-biggest>G2E Austria</div>
                 </div>
-            </div>
-
-            <div class="myocard">
+            </footer>
+        </section>
+        </style>
+        </center>
+        <section class="myocard" demobox-secondary style="--card-max-width:40em; margin-bottom:2em;">
+            <section class="myocard myocardBanner">
+                <header>
+                    <div>
+                        Meet our team at G2E Austria<br>
+                        3-4 December 2019<br>
+                        Marriot Manila, Philippines<br>
+                    </div>
+                </header>
+                <figure>
+                    <img src="art/illustrationCastleAustria.svg"
+                         class="el-avatar-icon" alt="Logo">
+                </figure>
+            </section>
+            <footer>
                 <div>
-                    <h3>When it comes.</h3>
+                    <div text-biggest>G2E Austria</div>
                 </div>
+            </footer>
+        </section>
+        <section class="myocard" demobox-secondary style="--card-max-width:28em;">
+            <section class="myocard myocardBanner">
+                <header>
+                    <div>
+                        Meet our team at G2E Austria<br>
+                        3-4 December 2019<br>
+                        Marriot Manila, Philippines<br>
+                    </div>
+                </header>
+                <figure>
+                    <img src="art/illustrationCastleAustria.svg"
+                         class="el-avatar-icon" alt="Logo">
+                </figure>
+            </section>
+            <footer>
                 <div>
-                    <div><p>A few additional perks include full access to geolocation technologies.</p></div>
+                    <div text-biggest>G2E Austria</div>
                 </div>
-            </div>
-
+            </footer>
         </section>
 
     </article>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DEMO STYLES -->
+    <style display-source contenteditable spellcheck=false Avatars>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Demo page config */
+
+        .el-avatar-icon {width:14em}
+        .el-avatar-big  {width:24em}
+
+        [text-bigger]  {font-size:1.6em}
+        [text-biggest] {font-size:2.4em}
+
+        [demobox] {
+          --colorNobleDark: hsl(226, 15%, 12%);
+          --colorNobleMoon: hsl(226, 27%, 90%);
+          --colorNobleRise: hsl(204, 22%, 55%);
+
+          --background-color: var(--colorNobleDark);
+          --foreground-color: var(--colorNobleMoon);
+              --accent-color: var(--colorNobleRise);
+
+            background-color: var(--background-color);
+                       color: var(--foreground-color);
+        }
+
+        [demobox-secondary] {
+          --colorIvoryTone: hsl( 53, 66%, 80%);
+          --colorIvoryDark: hsl(204,  4%, 22%);
+          --colorNobleRose: hsl(359, 54%, 53%);
+
+          --background-color: var(--colorIvoryTone);
+          --foreground-color: var(--colorIvoryDark);
+              --accent-color: var(--colorNobleRose);
+
+            background-color: var(--background-color);
+                       color: var(--foreground-color);
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Demo page config */
+    </style>
+
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BLOB -->
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Bottom workers -->
