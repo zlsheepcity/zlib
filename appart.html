@@ -329,6 +329,30 @@
     </summary>
     <article class="articleSecondaryDesign layoutBook">
         <ul class="text-block-bigger">
+            <li>
+                <a href="22-cssComponents/myocards.html">
+                    layout .myocards
+                </a>
+            </li>
+            <li>
+                <a href="22-cssComponents/layoutGallery.html">
+                    .layoutGallery
+                </a>
+            </li>
+            <li>
+                <a href="22-cssComponents/layoutValley.html">
+                    .layoutValley
+                </a>
+            </li>
+            <li>
+                <a href="22-cssComponents/imagesBlendMode.html">
+                    background-blend-mode
+                </a>
+            </li>
+        </ul>
+    </article>
+    <article class="articleSecondaryDesign layoutBook">
+        <ul class="text-block-bigger">
             <li><a href="app/css.11xBase.css">app/css.11xBase.css</a></li>
             <li><a href="app/css.12xMarkup.css">app/css.12xMarkup.css</a></li>
             <li><a href="app/css.13xTypography.css">app/css.13xTypography.css</a></li>
@@ -337,53 +361,7 @@
             <li><a href="app/css.16xTools.css">app/css.16xTools.css</a></li>
         </ul>
     </article>
-    <article class="articleSecondaryDesign layoutBook">
-        <h4>background-blend-mode</h4>
-        <blockquote class="text-block-bigger">
-            → <a href="22-cssComponents/imagesBlendMode.html">Playground page</a>
-        </blockquote>
-        <style>
-        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ blend mode demo */
-        /** 24.1.25 **/
 
-            .cssBackgroundBlendMode.DemoBlendModePlayground {
-                background:
-                /** Layer0: */
-                    url(art/artBackgroundMagenta.jpg)
-                ,/* Layer1: */
-                    url(art/artBackgroundBlack.jpg)
-                ,/* Layer2: */
-                    transparent
-                ;
-                background-blend-mode:
-                /** Layer0: */
-                    screen
-                ,/* Layer1: */
-                    multiply
-                ;
-                background-size: cover;
-                background-attachment: fixed;
-                background-position: 50% 50%;
-            }
-
-        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /blend mode demo */
-        </style>
-        <section class="layoutBookFull">
-            <section class="layoutGallery">
-                <section class="gridline XXX">
-                    <img class="Wratio fitme"
-                         src="art/artBackgroundMagenta.jpg"
-                         alt="art_placeholder">
-                    <div class="DemoBlendModePlayground cssBackgroundBlendMode Wratio outlined"
-                         style="background-attachment:scroll;"
-                         ></div>
-                    <img class="Wratio fitme"
-                         src="art/artBackgroundBlack.jpg"
-                         alt="art_placeholder">
-                </section>
-            </section>
-        </section>
-    </article>
     <article class="articleSecondaryDesign layoutBook">
         <header>
             <h4>flex-basis</h4>
@@ -413,6 +391,7 @@
         </style>
     </article>
 </details>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> layoutBook -->
 <details class="detailsWithSummaryHeader" --open>
     <summary>
@@ -565,48 +544,7 @@
         </footer>
     </article>
 </details>
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> layoutGallery -->
-<details class="detailsWithSummaryHeader" --open>
-    <summary>
-        <header>
-            .layoutGallery
-            <span class="detailsMarkerShowHide">
-                <span>[show]</span>
-                <span>[hide]</span>
-            </span>
-        </header>
-    </summary>
-    <article class="layoutBook articleSecondaryDesign">
-        <ul class="text-block-bigger">
-            <li>
-                <a href="22-cssComponents/layoutGallery.html">
-                    Main article and demo
-                </a>
-            </li>
-        </ul>
-    </article>
-</details>
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> layoutValley -->
-<details class="detailsWithSummaryHeader" --open>
-    <summary>
-        <header>
-            .layoutValley parallax scroll
-            <span class="detailsMarkerShowHide">
-                <span>[show]</span>
-                <span>[hide]</span>
-            </span>
-        </header>
-    </summary>
-    <article class="layoutBook articleSecondaryDesign">
-        <ul class="text-block-bigger">
-            <li>
-                <a href="22-cssComponents/layoutValley.html">
-                    Main article and demo
-                </a>
-            </li>
-        </ul>
-    </article>
-</details>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> layoutScreen -->
 <details class="detailsWithSummaryHeader" --open>
     <summary>
@@ -737,6 +675,7 @@
         <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~/layoutScreen DEMO -->
 
 </details>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> candy features -->
 <article class="articleSecondaryDesign layoutBook">
     <header>
@@ -809,6 +748,7 @@
         }
     </style>
 </article>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> JS EventDebouncer + DynamicVH -->
 <details class="detailsWithSummaryHeader" --open>
     <summary>
@@ -883,6 +823,7 @@
     //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DynamicVH
     </script>
 </details>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> JS intersectionObserver-->
 <details class="detailsWithSummaryHeader" --open>
     <summary>
@@ -936,6 +877,7 @@
     //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /intersectionObserver
     </script>
 </details>
+
 <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> hr -->
 <article>
     <style display-source contenteditable>
