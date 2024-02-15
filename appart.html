@@ -6,7 +6,7 @@
     <!-- appart 24.1.26 keiko ~ ʕ⊙ᴥ⊙ʔ ~ -->
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Tab data -->
-    <title>appart</title>
+    <title>snappart</title>
     <meta name="theme-color" content="#314159">
     <link rel="icon" type="image/png" href="app/icon512.png">
     <meta name="description"  content="htmlseed">
@@ -110,9 +110,8 @@
     </section>
     <style display-source contenteditable class="layoutBookFull">
         [contenteditable] {
-          --color: var(--accent-color);
-            color: var(--color);
-            border-left: 1em solid var(--color);
+            color: var(--accent-color, inherit);
+            border-left: 1em solid currentColor;
         }
 
         [display-source] {
@@ -822,7 +821,8 @@
         </header>
     </summary>
     <script display-source class="layoutBookWrap">
-    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer 2024
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer */
+    /** 24.2.14 */
 
         function EventDebouncer (callback) {
             this.callback = callback;
@@ -838,7 +838,7 @@
             requestTick:
                 function() {
                     if(!this.ticking) {
-                        const action = this.rafCallback || (this.rafCallback = this.update.bind(this));
+                        const action = this.action || (this.action = this.update.bind(this));
                         requestAnimationFrame(action);
                         this.ticking = true;
                     }
@@ -846,22 +846,23 @@
             handleEvent:
                 function() {
                     this.requestTick();
-                }
+                },
         };
 
     /** USAGE:
 
-        const action = f => console.log(window.pageYOffset);
-        const eventReaction = new EventDebouncer(action);
-        window.addEventListener('scroll', eventReaction, false);
-        eventReaction.handleEvent();
+        const themeAction = f => 'do something';
+        const eventAction = new EventDebouncer(themeAction);
+        window.addEventListener('scroll',eventAction,false);
+        eventAction.handleEvent();
 
         **/
 
-    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer */
     </script>
     <script display-source class="layoutBookWrap">
-    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH 2024
+    //~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DynamicVH
+    //v2024.2.4
 
         (function activateDynamicVH () {
             const setVH = () => {

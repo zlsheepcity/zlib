@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <!-- .htmlseed 24.2.15 made with love ~ ʕ⊙ᴥ⊙ʔ ~ -->
+    <base href="../" />
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Tab data -->
+    <title>myocards</title>
+    <meta name="description" content="css layout component">
+    <meta name="theme-color" content="#314159">
+    <link rel="icon" type="image/png" href="app/icon512.png">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS preset 2024 -->
+    <style>
+        body {
+          --colorPaperTone: hsl( 37, 55%, 85%);
+          --colorPaperDark: hsl(  0,  0%,  8%);
+          --colorPaperRose: hsl(359, 59%, 43%);
+
+          --background-color: var(--colorPaperDark);
+          --foreground-color: var(--colorPaperTone);
+              --accent-color: var(--colorPaperRose);
+        }
+
+        body {
+            background-color: var(--background-color);
+            margin: 0; color: var(--foreground-color);
+            font-family: monospace; overflow-y:scroll;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        img, video, svg {
+            margin: 0;
+            border: 0;
+            max-width: 100%;
+            display:  block;
+        }
+
+        center {
+            display: grid;
+            place-items: center;
+            text-align: inherit;
+        }
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS custom -->
+    <style>
+        [display-source] {
+            display: block;
+            padding: 0 1em 1em 0;
+            margin:  0 0   1em 0;
+            max-width: max-content;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        [contenteditable] {
+            color: var(--accent-color, inherit);
+            border-left: 1em solid currentColor;
+        }
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS stylesheet -->
+    <link
+        href="app/custom.css"
+        type="text/css" rel="stylesheet" media="all">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Art TufteFont 2024Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            font-family: var(--font-family, sans-serif);
+          --font-family: var(--font-family--TufteSerif);
+          --font-family--TufteSerif:
+                Vollkorn, "et-book", Palatino,
+               "Palatino Linotype","Palatino LT STD","Book Antiqua",
+                Georgia, serif,
+               "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        }
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+</head>
+<body class="">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SECTION -->
+    <style display-source contenteditable spellcheck=false>
+        body {
+          --colorPaperTone: hsl( 37, 55%, 85%);
+          --colorPaperDark: hsl(  0,  0%,  8%);
+          --colorPaperRose: hsl(359, 59%, 43%);
+          --colorNobleDark: hsl(226, 15%, 12%);
+          --colorNobleMoon: hsl(226, 27%, 90%);
+          --colorNobleRise: hsl(204, 22%, 55%);
+        }
+        body {
+          --background-color: var(--colorPaperDark);
+          --foreground-color: var(--colorPaperTone);
+              --accent-color: var(--colorPaperRose);
+        }
+        [demobox] {
+          --background-color: var(--colorNobleDark);
+          --foreground-color: var(--colorNobleMoon);
+              --accent-color: var(--colorNobleRise);
+            background-color: var(--background-color);
+                       color: var(--foreground-color);
+        }
+    </style>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> TheCode -->
+    <details class="detailsWithSummaryHeader" --open>
+    <summary>
+        <header>
+            .myocard css code
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source contenteditable spellcheck=false>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ myocards */
+    /** 2019.12.15 **/
+    /** 2024.02.15 **/
+
+        /* config */
+
+        .myocard {
+          --sx: 1.5rem; /* horizontal paddings */
+          --sy: 1.5rem; /* vertical paddings */
+          --item-max-width: 28rem;
+         /* options
+          --card-max-width:      100%;
+          --card-wrap-order:     wrap-reverse;
+          --card-wrap-order:     wrap;
+          --card-centering:      0;
+          --card-centering:      auto;
+          --item-vertical-align: center;
+          --item-vertical-align: flex-end;
+          --item-vertical-align: flex-start;
+            */
+        }
+
+        /* addons */
+
+        .myocard.myocardBanner {
+          --item-max-width:      40rem;
+          --card-max-width:    57.5rem;
+        }
+        .myocard.myocardAlignTop {
+          --item-vertical-align: flex-start;
+        }
+        .myocard.myocardWideSection {
+          --card-padding:        calc( 0.5*var(--sy) ) calc( 0.5*var(--sx) );
+          --item-padding:        calc( 0.5*var(--sy) ) calc( 0.5*var(--sx) );
+          --item-max-width:      42rem;
+          --card-max-width:      100%;
+          --card-centering:      0;
+          --item-vertical-align: flex-start;
+        }
+        .myocard.myocardWrapOrderReverse {
+         /* second child goes first,
+            when wrapping */
+          --card-wrap-order: wrap-reverse;
+          --align-items:     var(--item-vertical-align ,flex-end );
+        }
+
+        /* layout */
+
+        .myocard *, .myocard {box-sizing:border-box}
+        .myocard {
+
+          --card-padding: calc( 0.5*var(--sy) ) 0;
+          --item-padding: calc( 0.5*var(--sy) ) var(--sx);
+
+          --width:        100%;
+            width:        var(--width);
+
+          --max-width-xx: calc( 2*var(--item-max-width) + var(--sx) );
+          --max-width:    var(--card-max-width, var(--max-width-xx) );
+            max-width:    var(--max-width);
+
+          --margin-left:  var(--card-centering, auto );
+            margin-left:  var(--margin-left);
+
+          --margin-right: var(--card-centering, auto );
+            margin-right: var(--margin-right);
+
+        }
+
+        /* Flex Half-Grow Technique 2019 */
+
+            .myocard {
+                display:        flex;
+                flex-direction: row;
+                flex-wrap:      var(--card-wrap-order,  wrap );}
+            .myocard>*                   { flex-grow:   0.5;   }
+            .myocard>*:nth-child( odd)   { margin-left: auto;  }
+            .myocard>*:nth-child(even)   { text-align:  right; }
+            .myocard>*>*                 { }
+            .myocard>*:nth-child( odd)>* { }
+            .myocard>*:nth-child(even)>* { }
+
+         /* Paddings Around Card and Items */
+
+            .myocard {    --padding: var(--card-padding ,0 );
+                            padding: var(--padding         );}
+            .myocard>*>*{ --padding: var(--item-padding ,0 );}
+            .myocard>*>*{   padding: var(--padding         );}
+
+         /* Inserted Child */
+
+            .myocard>.myocard   { padding: 0; width: auto; }
+            .myocard>.myocard>* { padding: 0; }
+
+         /* Item Box Model */
+
+            .myocard>* { --max-width: var(--item-max-width ,100% );}
+            .myocard>*>* { max-width: var(--max-width            );}
+            .myocard>*:nth-child(even)>* {
+                display:        inline-flex;
+                flex-direction: column;
+                text-align:     left;
+                vertical-align: middle; }
+
+         /* Vertical Align */
+
+            .myocard {
+              --align-items: var(--item-vertical-align, center );
+                align-items: var(--align-items); }
+
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /myocards */
+    </style>
+    </details>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> TestDemo -->
+    <article class="articlePrimaryDesign">
+    <style display-source contenteditable spellcheck=false DemoConfig>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Demo config */
+
+        .myocard {
+          --sx: 1.5rem; /* horizontal paddings */
+          --sy: 1.5rem; /* vertical paddings */
+          --item-max-width: 28rem;
+         /* options
+          --card-max-width:      100%;
+          --card-wrap-order:     wrap-reverse;
+          --card-wrap-order:     wrap;
+          --card-centering:      0;
+          --card-centering:      auto;
+          --item-vertical-align: center;
+          --item-vertical-align: flex-end;
+          --item-vertical-align: flex-start;
+            */
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Demo config */
+    </style>
+    <style display-source contenteditable spellcheck=false Avatars>
+        .el-avatar-icon {width:14em}
+        .el-avatar-big  {width:24em}
+
+        [text-bitmore]  {font-size:1.6em}
+        [text-muchmore] {font-size:2.4em}
+    </style>
+
+        <!-- base -->
+
+        <section class="myocard">
+            <section>
+                <div>
+                    <p mock-paragraph>
+               </div>
+           </section>
+            <section demobox>
+                <div>
+                    <p mock-paragraph>
+               </div>
+           </section>
+        </section>
+
+        <center>
+        <style display-source>
+        <section class="myocard">
+            <section>
+                <div>
+                    <p mock-paragraph>
+               </div>
+           </section>
+            <section demobox>
+                <div>
+                    <p mock-paragraph>
+               </div>
+           </section>
+        </section>
+        </style>
+        </center>
+
+        <!-- dikpic -->
+
+        <section class="myocard" demobox>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-big"
+                         alt="Browser character">
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p text-bitmore mock-paragraph>
+               </div>
+           </section>
+        </section>
+
+        <center>
+        <style display-source>
+        <section class="myocard" demobox>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-big"
+                         alt="Browser character">
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p text-bitmore mock-paragraph>
+               </div>
+           </section>
+        </section>
+        </style>
+        </center>
+
+        <!-- banner -->
+
+        <section class="myocard myocardBanner" demobox>
+            <section>
+                <div>
+                    <p text-bitmore mock-paragraph>
+               </div>
+           </section>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-icon"
+                         alt="Browser character">
+               </div>
+           </section>
+        </section>
+
+        <center>
+        <style display-source>
+        <section class="myocard myocardBanner" demobox>
+            <section>
+                <div>
+                    <p text-bitmore mock-paragraph>
+               </div>
+           </section>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-icon"
+                         alt="Browser character">
+               </div>
+           </section>
+        </section>
+        </style>
+        </center>
+
+        <!-- myocardAlignTop -->
+
+        <section class="myocard myocardAlignTop">
+            <section>
+                <div demobox>
+                    <p mock-paragraph>
+               </div>
+           </section>
+            <section>
+                <div demobox>
+                    <p mock-paragraph>
+                    <p mock-paragraph>
+                    <p mock-paragraph>
+               </div>
+           </section>
+        </section>
+
+        <center>
+        <style display-source>
+        <section class="myocard myocardAlignTop">
+            <section>
+                <div demobox>
+                    <p mock-paragraph>
+               </div>
+           </section>
+            <section>
+                <div demobox>
+                    <p mock-paragraph>
+                    <p mock-paragraph>
+                    <p mock-paragraph>
+               </div>
+           </section>
+        </section>
+        </style>
+        </center>
+
+        <!-- myocardWideSection -->
+
+        <section class="myocard myocardWideSection" demobox>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-big"
+                         alt="Browser character">
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p text-bitmore mock-paragraph>
+               </div>
+           </section>
+        </section>
+
+        <center>
+        <style display-source>
+        <section class="myocard myocardWideSection" demobox>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-big"
+                         alt="Browser character">
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p text-bitmore mock-paragraph>
+               </div>
+           </section>
+        </section>
+        </style>
+        </center>
+
+        <!-- myocardWrapOrderReverse -->
+
+        <section class="myocard myocardWrapOrderReverse" demobox>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-icon"
+                         alt="Browser character">
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p mock-paragraph>
+               </div>
+           </section>
+        </section>
+
+        <center>
+        <style display-source>
+        <section class="myocard myocardWrapOrderReverse" demobox>
+            <section>
+                <div>
+                    <img src="art/characterBrowser.svg"
+                         class="el-avatar-icon"
+                         alt="Browser character">
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p mock-paragraph>
+               </div>
+           </section>
+        </section>
+        </style>
+        </center>
+
+
+
+        <!-- -------------------------------- Inside Grid -->
+
+        <article class="chapter use-colors colors--ivory">
+        <section class="grid-queen is-without-root">
+
+            <h2>Inside Grid</h2>
+
+            <section class="grid-column--wrap subgrid-content">
+
+                <section class="myocard is-banner back-color-accent">
+                    <section>
+                        <div>
+                            <img src="art/characterBrowser.svg"
+                                 class="el-avatar-icon" alt="">
+                       </div>
+                   </section>
+                    <section>
+                        <div>
+                            <p class="auto text-block-bigger"></p>
+                       </div>
+                   </section>
+                </section>
+
+                <section class="myocard is-banner wrap-order-reverse back-color-accent">
+                    <section>
+                        <div>
+                            <p class="auto text-block-bigger"></p>
+                       </div>
+                   </section>
+                    <section>
+                        <div>
+                            <img src="art/illustrations/austria.svg"
+                                 class="el-avatar-icon" alt="">
+                       </div>
+                   </section>
+                </section>
+
+            </section>
+            <section class="grid-column--wrap">
+                <section class="myocard align-top">
+                    <section>
+                        <div>
+                            <section class="rows">
+                            <h4>First Part</h4>
+                            <p class="auto"></p>
+                            </section>
+                       </div>
+                   </section>
+                    <section>
+                        <div>
+                            <section class="rows">
+                            <h4>Second Part</h4>
+                            <p class="auto"></p>
+                            <p class="auto"></p>
+                            <p class="auto"></p>
+                            </section>
+                       </div>
+                   </section>
+                </section>
+            </section>
+        </section>
+        </article>
+
+        <!-- -------------------------------- Cases -->
+
+        <section class="myocard">
+            <section>
+                <div>
+                    <h2>Universal Wrap</h2>
+               </div>
+           </section>
+            <section>
+                <div>
+                    <section class="rows">
+                    <p class="auto"></p>
+                    <big><mark>Learn More</mark></big>
+                    </section>
+               </div>
+           </section>
+        </section>
+
+        <section class="myocard">
+            <section>
+                <div>
+                    <h2>Long Multicontent Title inside Wrap</h2>
+               </div>
+           </section>
+            <section>
+                <div>
+                    <p class="auto"></p>
+               </div>
+           </section>
+        </section>
+
+        <div class="chapter back-color-accent">
+            <section class="myocard">
+
+                <section class="myocard is-banner">
+                    <header>
+                        <div>
+                            Meet our team at G2E Asia<br>
+                            3-4 December 2019<br>
+                            Marriot Manila, Philippines<br>
+                        </div>
+                    </header>
+                    <figure>
+                        <img src="art/illustrations/austria.svg"
+                             class="el-avatar-icon" alt="Logo">
+                    </figure>
+                </section>
+
+                <footer>
+                    <div>
+                        <button class="swed-button">
+                            <span>Book a meeting</span>
+                        </button>
+                    </div>
+                </footer>
+
+            </section>
+        </div>
+
+        <section class="el-myocardist chapter">
+
+            <style>
+                .el-myocardist .myocard { --card-max-width: 52rem; }
+                .el-myocardist .myocard + .myocard { margin-top: 2rem; }
+                .el-myocardist .myocard { background-color: var(--back-color-accent); }
+            </style>
+
+            <div class="myocard">
+                <div><p>When it comes to payment systems.</p></div>
+                <div><p>Self-Service Solution</p></div>
+            </div>
+
+            <div class="myocard">
+                <div><p>A few additional perks include full access to geolocation technologies.</p></div>
+                <div><p>Self-Service Customisation Options</p></div>
+            </div>
+
+            <div class="myocard">
+                <div>
+                    <h4>When it comes to payment systems, the Self-Service solution supports both Visa and MasterCard.</h4>
+                </div>
+                <div>
+                    <p>Self-Service Solution</p>
+                </div>
+            </div>
+
+            <div class="myocard">
+                <div>
+                    <h3>When it comes.</h3>
+                </div>
+                <div>
+                    <div><p>A few additional perks include full access to geolocation technologies.</p></div>
+                </div>
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BLOB -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Bottom workers -->
+    <style detailsWithSummaryHeader>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
+    /** 24.1.23 **/
+
+    /** .detailsWithSummaryHeader
+        use details default marker
+        use <header> for summary decoration
+        */
+
+        .detailsWithSummaryHeader {
+          --font-size:           2.4em;
+          --font-size--mini:     1.6em;
+          --line-height:          1.25;
+          --marker-color: currentColor;
+        }
+        @media all and (max-width:42em) {
+        .detailsWithSummaryHeader {
+            --font-size:  var(--font-size--mini);
+        }
+        }/* /media */
+        .detailsWithSummaryHeader>summary {
+            font-size:   var(--font-size);
+            line-height: var(--line-height);
+            cursor: pointer;
+            width: max-content;
+            max-width: 100%;
+        }
+        .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
+        .detailsWithSummaryHeader>summary >header {
+            display:    inline-block;
+            vertical-align: text-top;
+            word-break:    break-all;
+            max-width: 78vw;
+        }
+
+    /** .detailsMarkerShowHide
+        switch first-last child without layout jump
+        */
+
+        .detailsMarkerShowHide {
+            display: inline-grid;
+            grid-template-areas: 'overlay';
+        }
+        .detailsMarkerShowHide>* {
+            grid-area:  overlay;
+            pointer-events: all;
+            pointer-events: var(--visible, none);
+            opacity:        var(--visible, 0);
+        }
+        details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
+        details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
+    </style>
+    <script mockAutofillParagraphs>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ mockAutofillParagraphs */
+    /** 2024.2.15 */
+    /** insert some lorem ipsum
+      */
+
+    function mockAutofillParagraphs (selector='[mock-paragraph]') {
+        const p = document.querySelectorAll(selector);
+        const texts = [
+            'Les grandes personnes m’ont conseillé de laisser de côté les dessins de serpents boas ouverts ou fermés, et de m’intéresser plutôt à la géographie, à l’histoire, au calcul et à la grammaire. C’est ainsi que j’ai abandonné, à l’âge de six ans, une magnifique carrière de peintre.',
+            'J’avais été découragé par l’insuccès de mon dessin numéro 1 et de mon dessin numéro 2. Les grandes personnes ne comprennent jamais rien toutes seules, et c’est fatigant, pour les enfants, de toujours et toujours leur donner des explications.',
+            'J’ai donc dû choisir un autre métier et j’ai appris à piloter des avions. J’ai volé un peu partout dans le monde. Et la géographie, c’est exact, m’a beaucoup servi. Je savais reconnaître, du premier coup d’œil, la Chine de l’Arizona. C’est très utile, si l’on est égaré pendant la nuit.',
+            'J’ai ainsi eu, au cours de ma vie, des tas de contacts avec des tas de gens sérieux. J’ai beaucoup vécu chez les grandes personnes. Je les ai vues de très près. Ça n’a pas trop amélioré mon opinion.',
+            'Quand j’en rencontrais une qui me paraissait un peu lucide, je faisais l’expérience sur elle de mon dessin numéro 1 que j’ai toujours conservé. Je voulais savoir si elle était vraiment compréhensive. Mais toujours elle me répondait : « C’est un chapeau. »',
+            'Alors je ne lui parlais ni de serpents boas, ni de forêts vierges, ni d’étoiles. Je me mettais à sa portée. Je lui parlais de bridge, de golf, de politique et de cravates. Et la grande personne était bien contente de connaître un homme aussi raisonnable.'
+            ];
+        for(let x in p) {
+            let text = texts[Math.floor(Math.random()*texts.length)];
+            let textnode = document.createTextNode(text);
+            if (p[x].appendChild) p[x].appendChild(textnode);
+        };
+    };
+
+    /** Run */
+        (O=> mockAutofillParagraphs(O) )('[mock-paragraph]');
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /mockAutofillParagraphs */
+    </script>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> END -->
+</body>
+</html>

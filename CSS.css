@@ -29,17 +29,25 @@
 }
 
 [display-source] {
-    display:     block;
-    padding:     0 1em 2em;
+    display: block;
+    padding: 0 1em 1em 0;
+    margin:  0 0   1em 0;
+    max-width: max-content;
     font-family: monospace;
-    white-space: pre-wrap;
+    white-space: pre;
+    overflow-x: auto;
 }
 
-        [opacity22] {opacity:0.22}
-        [opacity33] {opacity:0.33}
-        [opacity55] {opacity:0.55}
-        [opacity66] {opacity:0.66}
-        [opacity77] {opacity:0.77}
+
+[opacity00] {opacity:0.00}
+[opacity11] {opacity:0.11}
+[opacity22] {opacity:0.22}
+[opacity33] {opacity:0.33}
+[opacity44] {opacity:0.44}
+[opacity55] {opacity:0.55}
+[opacity66] {opacity:0.66}
+[opacity77] {opacity:0.77}
+[opacity88] {opacity:0.88}
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 

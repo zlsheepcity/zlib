@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width,initial-scale=1" name="viewport">
-    <!-- .htmlseed 24.1.25 made with love ~ ʕ⊙ᴥ⊙ʔ ~ -->
+    <!-- .htmlseed 24.2.15 made with love ~ ʕ⊙ᴥ⊙ʔ ~ -->
     <base href="https://zlsheepcity.github.io/zlib/" />
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Tab data -->
     <title>htmlseed</title>
+    <meta name="description" content="htmlseed">
     <meta name="theme-color" content="#314159">
     <link rel="icon" type="image/png" href="app/icon512.png">
-    <meta name="description"  content="htmlseed">
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS preset 2024 -->
     <style>
         body {
-          --color--PaperTone: hsl( 37, 55%, 85%);
-          --color--PaperDark: hsl(  0,  0%,  8%);
-          --color--PaperRose: hsl(359, 59%, 43%);
+          --colorPaperTone: hsl( 37, 55%, 85%);
+          --colorPaperDark: hsl(  0,  0%,  8%);
+          --colorPaperRose: hsl(359, 59%, 43%);
 
-          --background-color: var(--color--PaperDark);
-          --foreground-color: var(--color--PaperTone);
-              --accent-color: var(--color--PaperRose);
+          --background-color: var(--colorPaperDark);
+          --foreground-color: var(--colorPaperTone);
+              --accent-color: var(--colorPaperRose);
         }
 
         body {
@@ -46,6 +46,7 @@
         center {
             display: grid;
             place-items: center;
+            text-align: inherit;
         }
     </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS custom -->
@@ -60,9 +61,8 @@
             overflow-x: auto;
         }
         [contenteditable] {
-          --color: var(--accent-color);
-            color: var(--color);
-            border-left: 1em solid var(--color);
+            color: var(--accent-color, inherit);
+            border-left: 1em solid currentColor;
         }
     </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS stylesheet -->
@@ -92,15 +92,15 @@
 </head>
 <body class="">
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SECTION -->
-    <style display-source contenteditable>
+    <style display-source contenteditable spellcheck=false>
         body {
-          --color--PaperTone: hsl( 37, 55%, 85%);
-          --color--PaperDark: hsl(  0,  0%,  8%);
-          --color--PaperRose: hsl(359, 59%, 43%);
+          --colorPaperTone: hsl( 37, 55%, 85%);
+          --colorPaperDark: hsl(  0,  0%,  8%);
+          --colorPaperRose: hsl(359, 59%, 43%);
 
-          --background-color: var(--color--PaperDark);
-          --foreground-color: var(--color--PaperTone);
-              --accent-color: var(--color--PaperRose);
+          --background-color: var(--colorPaperDark);
+          --foreground-color: var(--colorPaperTone);
+              --accent-color: var(--colorPaperRose);
         }
     </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BLOB -->
