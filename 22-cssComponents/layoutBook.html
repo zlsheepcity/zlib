@@ -64,6 +64,16 @@
             color: var(--accent-color, inherit);
             border-left: 1em solid currentColor;
         }
+        hr[section-divider] {
+          --height: 20vh;
+            height: var(--height);
+            background: transparent;
+            box-shadow: none;
+            border:  0;
+            margin:  0;
+            display:    block;
+            font-size:  inherit;
+        }
     </style>
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
 
@@ -114,24 +124,34 @@
     </summary>
     <style display-source contenteditable spellcheck=false>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
-    /** 24.2.18 */
+    /** 24.2.19 */
 
+        /** config */
         .layoutBook {
-
-        /** config columns */
-          --textSize: 42em;
+          --leftOffset: 0;
+        /*--leftOffset: auto;
+          --leftOffset: 2em;*/
+          --sideOffset: 1em;
+          --textSize: 36em;
           --sideSize: 24em;
           --grid-gap:  1em;
-          --join-gap:  2em;
+          --join-gap:  1em;
+        /** calculated min width:
+            gap×3 + textSize + sideSize + sideOffset = 64em */
+        }
+        .layoutBook.layoutBookCentered {
+          --leftOffset: auto;
+        }
 
         /** functional */
+        .layoutBook {
             position: relative;
             width:    100%;
             display:  grid;
             grid-gap: var(--grid-gap);
             grid-auto-flow:  row;
             grid-auto-rows:  min-content;
-            grid-template-columns: 0 var(--useColumns) auto;
+            grid-template-columns: var(--useColumns);
             grid-column: var(--grid-column-full);
         }
 
@@ -143,19 +163,27 @@
           --grid-column-side: 4/5;
           --grid-column-wrap: 2/5;
           --useColumns:
+                var(--leftOffset)
                 minmax( auto, var(--textSize) )
                 var(--join-gap)
                 var(--sideSize)
+                auto
              ;
         }
         }/* /media */
-        @media all and (max-width:68em) {
+        @media all and (max-width:64em) {
         .layoutBook {
-          --grid-column-full: 1/4;
-          --grid-column-text: 2/3;
-          --grid-column-side: 2/3;
-          --grid-column-wrap: 2/3;
-          --useColumns: minmax(auto, var(--textSize));
+          --grid-column-full: 1/-1;
+          --grid-column-wrap: 2/-2;
+          --grid-column-text: 2/4;
+          --grid-column-side: 3/5;
+          --useColumns:
+              0
+              minmax(0, calc(100% - var(--sideSize) - 3 * var(--grid-gap) ))
+              1fr
+              minmax(0, calc(100% - var(--textSize) - 3 * var(--grid-gap) ))
+              0
+              ;
         }
         }/* /media */
 
@@ -166,6 +194,7 @@
         .layoutBook >header     {grid-column:var(--grid-column-wrap)} /* double column */
         .layoutBook >footer     {grid-column:var(--grid-column-wrap)} /* double column */
         .layoutBook >article    {grid-column:var(--grid-column-full)} /* overlay */
+        .layoutBook >style      {grid-column:var(--grid-column-full)} /* overlay */
 
         .layoutBook >.layoutBookText {grid-column:var(--grid-column-text)}
         .layoutBook >.layoutBookWrap {grid-column:var(--grid-column-wrap)}
@@ -173,7 +202,7 @@
         .layoutBook >.layoutBookFull {grid-column:var(--grid-column-full)}
 
         /** subgrid single column */
-        .layoutBook >header,
+        .layoutBook .layoutBookCell,
         .layoutBook >footer,
         .layoutBook >section {
             width:    100%;
@@ -190,29 +219,205 @@
 
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> WELCOME -->
-    <header class="layoutBook">
+    <article class="layoutBook">
+        <header>
+            <h1 class="h2">Book-looking text grid 2024</h1>
+        </header>
         <ul>
             <li>
-                <h1>Book-looking text grid 2024</h1>
-                <h2>Book-looking text grid 2024</h2>
-                <h3>Book-looking text grid 2024</h3>
-                <h4>Book-looking text grid 2024</h4>
-                <h5>Book-looking text grid 2024</h5>
-                <h6>Book-looking text grid 2024</h6>
-                <p>Book-looking text grid 2024</p>
-            </li>
-            <li>
                 <a href="https://zlsheepcity.github.io/appart/projects/article-grid.html">
-                    Previous text grid 2020
+                    See also text grid 2020
                 </a>
             </li>
         </ul>
-    </header>
+    </article>
+    <hr section-divider />
 
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DemoB -->
+    <article class="layoutBook layoutBookCentered DemoArticle">
+        <style display-source contenteditable spellcheck=false>
+            .layoutBook.DemoArticle {
+              --color:            hsl(226, 27%, 90%); /* NobleWhite */
+              --background-color: hsl(226, 15%, 12%); /* NobleBlack */
+                background-color: var(--background-color);
+                color:            var(--color);
+            }
+        </style>
+        <header>
+            <h1>Demo Article</h1>
+            <h4>Common text combo</h4>
+        </header>
+        <section>
+            <p mock-paragraph>
+            <p mock-paragraph>
+            <p mock-paragraph>
+        </section>
+        <blockquote>
+            <p mock-paragraph>
+        </blockquote>
+        <section class="layoutBookWrap">
+            <p mock-paragraph class="h3">
+        </section>
+        <section>
+            <p mock-paragraph>
+        </section>
+        <blockquote>
+            <p mock-paragraph>
+        </blockquote>
+        <header>
+            <h3>la Chine de l’Arizona</h3>
+        </header>
+        <section>
+            <p mock-paragraph>
+            <p mock-paragraph>
+        </section>
+        <section>
+            <h3>C’est un chapeau</h3>
+            <p mock-paragraph>
+            <p mock-paragraph>
+            <p mock-paragraph>
+        </section>
+        <blockquote>
+            <h4>C’est un chapeau</h4>
+            <p mock-paragraph>
+        </blockquote>
+        <footer class="layoutBookFull">
+            <img style="width:100%; transform:translateY(1px);"
+                 src="art/valleyRange10PaperDark.svg"
+                 alt="" >
+        </footer>
+    </article>
+    <style display-source DemoB>
+    <article class="layoutBook layoutBookCentered DemoArticle">
+
+        <header>
+            <h1>DemoB</h1>
+            <h4>Common text combo</h4>
+        </header>
+
+        <section>
+            <p mock-paragraph>
+            <p mock-paragraph>
+            <p mock-paragraph>
+        </section>
+        <blockquote>
+            <p mock-paragraph>
+        </blockquote>
+
+        <section class="layoutBookWrap">
+            <p mock-paragraph class="h3">
+        </section>
+
+        <footer class="layoutBookFull">
+            <img style="width:100%; transform:translateY(1px);"
+                 src="art/valleyRange10PaperDark.svg"
+                 alt="art-fullwidth" >
+        </footer>
+
+    </article>
+    </style>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DemoC -->
+    <article class="layoutBook layoutBookCentered DemoArticle">
+        <figure class="layoutBookFull">
+            <img style="width:100%; transform:translateY(-1px);"
+                 src="art/valleyClouds10PaperDark.svg"
+                 alt="art-fullwidth" >
+        </figure>
+        <header>
+            <h1>DemoC</h1>
+            <h4>Common media combo</h4>
+        </header>
+        <section class="layoutBookWrap">
+            <img style="width:100%;"
+                 src="art/artBackgroundYellow.jpg"
+                 alt="art-wide" >
+        </section>
+        <blockquote>
+            <p mock-paragraph>
+        </blockquote>
+
+        <header>
+            <h3>la Chine de l’Arizona</h3>
+        </header>
+        <section>
+            <p mock-paragraph>
+            <p mock-paragraph>
+        </section>
+        <blockquote>
+            <img style="width:100%;"
+                 src="art/artBackgroundBlack.jpg"
+                 alt="art-wide" >
+        </blockquote>
+        <section class="layoutBookCell">
+            <h3>C’est un chapeau</h3>
+            <p mock-paragraph>
+            <p mock-paragraph>
+        </section>
+        <blockquote>
+            <h4>C’est un chapeau</h4>
+            <p mock-paragraph>
+        </blockquote>
+        <section class="layoutBookText">
+            <img style="width:100%;"
+                 src="art/artBackgroundYellow.jpg"
+                 alt="art-wide" >
+            <img style="width:100%;"
+                 src="art/artBackgroundBlack.jpg"
+                 alt="art-wide" >
+        </section>
+        <blockquote class="layoutBookCell">
+            <img style="width:100%;"
+                 src="art/artBackgroundYellow.jpg"
+                 alt="art-wide" >
+            <p mock-paragraph>
+        </blockquote>
+        <footer class="layoutBookFull">
+            <img style="width:100%; transform:translateY(1px);"
+                 src="art/valleyRange10PaperDark.svg"
+                 alt="art-fullwidth" >
+        </footer>
+    </article>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DemoScheme -->
+    <style display-source contenteditable spellcheck=false>
+        .layoutBook.DemoScheme {
+            max-width: 72em;
+            min-width: min(100%, 64em);
+            margin:  5vh auto;
+            padding: 1em 0;
+            background-color: hsl(204, 22%, 55%);
+        }
+        [schemebox] {
+            background-color: hsl(212, 34%, 29%);
+            display: grid;
+            place-items: center;
+            padding: 1em;
+            box-sizing: border-box;
+        }
+    </style>
+    <article class="layoutBook layoutBookCentered DemoScheme">
+        <header>
+            <h3>cell name scheme</h3>
+        </header>
+        <header schemebox>
+            wrap
+        </header>
+        <section schemebox>
+            text
+        </section>
+        <blockquote schemebox>
+            side
+        </blockquote>
+        <article schemebox>
+            full
+        </article>
+    </article>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Markup -->
     <style display-source>
-        # markup columns
+        # markup snippet
 
         <article class="layoutBook">
             <header>wrap</header>
@@ -220,16 +425,17 @@
             <section>text</section>
             <section>
                 <p>text</p>
-                <p>text</p>
             </section>
             <blockquote>side</blockquote>
             <article>full</article>
-            <div class="layoutBookText">text</div>
             <div class="layoutBookWrap">wrap</div>
-            <div class="layoutBookSide">side</div>
             <div class="layoutBookFull">full</div>
+            <div class="layoutBookText">text</div>
+            <div class="layoutBookSide">side</div>
+            <div class="layoutBookCell">subrgid_column</div>
         </article>
     </style>
+
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Typography CSS -->
     <details class="detailsWithSummaryHeader" open>
