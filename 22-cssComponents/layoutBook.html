@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <!-- .htmlseed 24.2.15 made with love ~ ʕ⊙ᴥ⊙ʔ ~ -->
+    <base href="../" />
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Tab data -->
+    <title>layoutBook</title>
+    <meta name="description" content="CSS grid layout">
+    <meta name="theme-color" content="#314159">
+    <link rel="icon" type="image/png" href="app/icon512.png">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS preset 2024 -->
+    <style>
+        body {
+          --colorPaperTone: hsl( 37, 55%, 85%);
+          --colorPaperDark: hsl(  0,  0%,  8%);
+          --colorPaperRose: hsl(359, 59%, 43%);
+
+          --background-color: var(--colorPaperDark);
+          --foreground-color: var(--colorPaperTone);
+              --accent-color: var(--colorPaperRose);
+        }
+
+        body {
+            background-color: var(--background-color);
+            margin: 0; color: var(--foreground-color);
+            font-family: monospace; overflow-y:scroll;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        img, video, svg {
+            margin: 0;
+            border: 0;
+            max-width: 100%;
+            display:  block;
+        }
+
+        center {
+            display: grid;
+            place-items: center;
+            text-align: inherit;
+        }
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS custom -->
+    <style>
+        [display-source] {
+            display: block;
+            padding: 0 1em 1em 0;
+            margin:  0 0   1em 0;
+            max-width: max-content;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        [contenteditable] {
+            color: var(--accent-color, inherit);
+            border-left: 1em solid currentColor;
+        }
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Art TufteFont 2024Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            font-family: var(--font-family, sans-serif);
+          --font-family: var(--font-family--TufteSerif);
+          --font-family--TufteSerif:
+                Vollkorn, "et-book", Palatino,
+               "Palatino Linotype","Palatino LT STD","Book Antiqua",
+                Georgia, serif,
+               "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        }
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+</head>
+<body class="">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BODY SECTION -->
+    <style display-source contenteditable spellcheck=false>
+        body {
+          --colorPaperTone: hsl( 37, 55%, 85%);
+          --colorPaperDark: hsl(  0,  0%,  8%);
+          --colorPaperRose: hsl(359, 59%, 43%);
+
+          --background-color: var(--colorPaperDark);
+          --foreground-color: var(--colorPaperTone);
+              --accent-color: var(--colorPaperRose);
+        }
+    </style>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS -->
+    <details class="detailsWithSummaryHeader" --open>
+    <summary>
+        <header>
+            .layoutBook css code
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source contenteditable spellcheck=false>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook */
+    /** 24.2.18 */
+
+        .layoutBook {
+
+        /** config columns */
+          --textSize: 42em;
+          --sideSize: 24em;
+          --grid-gap:  1em;
+          --join-gap:  2em;
+
+        /** functional */
+            position: relative;
+            width:    100%;
+            display:  grid;
+            grid-gap: var(--grid-gap);
+            grid-auto-flow:  row;
+            grid-auto-rows:  min-content;
+            grid-template-columns: 0 var(--useColumns) auto;
+            grid-column: var(--grid-column-full);
+        }
+
+        /** columns */
+        @media all {
+        .layoutBook {
+          --grid-column-full: 1/6;
+          --grid-column-text: 2/3;
+          --grid-column-side: 4/5;
+          --grid-column-wrap: 2/5;
+          --useColumns:
+                minmax( auto, var(--textSize) )
+                var(--join-gap)
+                var(--sideSize)
+             ;
+        }
+        }/* /media */
+        @media all and (max-width:68em) {
+        .layoutBook {
+          --grid-column-full: 1/4;
+          --grid-column-text: 2/3;
+          --grid-column-side: 2/3;
+          --grid-column-wrap: 2/3;
+          --useColumns: minmax(auto, var(--textSize));
+        }
+        }/* /media */
+
+        /** children */
+        .layoutBook >*          {grid-column:var(--grid-column-text)} /* text paragraph */
+        .layoutBook >section    {grid-column:var(--grid-column-text)} /* paragraphs combined */
+        .layoutBook >blockquote {grid-column:var(--grid-column-side)} /* side note */
+        .layoutBook >header     {grid-column:var(--grid-column-wrap)} /* double column */
+        .layoutBook >footer     {grid-column:var(--grid-column-wrap)} /* double column */
+        .layoutBook >article    {grid-column:var(--grid-column-full)} /* overlay */
+
+        .layoutBook >.layoutBookText {grid-column:var(--grid-column-text)}
+        .layoutBook >.layoutBookWrap {grid-column:var(--grid-column-wrap)}
+        .layoutBook >.layoutBookSide {grid-column:var(--grid-column-side)}
+        .layoutBook >.layoutBookFull {grid-column:var(--grid-column-full)}
+
+        /** subgrid single column */
+        .layoutBook >header,
+        .layoutBook >footer,
+        .layoutBook >section {
+            width:    100%;
+            display:  grid;
+            grid-gap: var(--grid-gap);
+            grid-auto-flow: row;
+            grid-auto-rows: min-content;
+            grid-template-columns:  1fr;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutBook */
+    </style>
+    </details>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> WELCOME -->
+    <header class="layoutBook">
+        <ul>
+            <li>
+                <h1>Book-looking text grid 2024</h1>
+                <h2>Book-looking text grid 2024</h2>
+                <h3>Book-looking text grid 2024</h3>
+                <h4>Book-looking text grid 2024</h4>
+                <h5>Book-looking text grid 2024</h5>
+                <h6>Book-looking text grid 2024</h6>
+                <p>Book-looking text grid 2024</p>
+            </li>
+            <li>
+                <a href="https://zlsheepcity.github.io/appart/projects/article-grid.html">
+                    Previous text grid 2020
+                </a>
+            </li>
+        </ul>
+    </header>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Markup -->
+    <style display-source>
+        # markup columns
+
+        <article class="layoutBook">
+            <header>wrap</header>
+            <footer>wrap</footer>
+            <section>text</section>
+            <section>
+                <p>text</p>
+                <p>text</p>
+            </section>
+            <blockquote>side</blockquote>
+            <article>full</article>
+            <div class="layoutBookText">text</div>
+            <div class="layoutBookWrap">wrap</div>
+            <div class="layoutBookSide">side</div>
+            <div class="layoutBookFull">full</div>
+        </article>
+    </style>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Typography CSS -->
+    <details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            Typography css
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source contenteditable spellcheck=false>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Typography */
+
+        body {
+          --font-family: var(--fontFamilyTufteSerif2018);
+          --fontFamilyTufteSerif2018:
+                Vollkorn, "et-book",
+                Palatino, "Palatino Linotype","Palatino LT STD",
+               "Book Antiqua", Georgia, serif,
+               "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        }
+
+        h1, h2, h3, h4, h5, h6, p,
+        blockquote, figure, figcaption {
+            display: block;
+            margin:  0;
+            padding: 0;
+            font-family: inherit;
+            font-size:   inherit;
+            line-height: inherit;
+            font-weight: inherit;
+        }
+        ul, ol {
+            padding:  0;
+            margin:   0;
+            margin-left: 1.5em;
+        }
+
+        body   { font-size:    1em; line-height: 1.50; } /* 16/24 */
+        big    { font-size: 1.25em; line-height: 1.20; } /* 20/24 */
+        small  { font-size: 0.75em; line-height: 1.33; } /* 12/16 */
+        .h1,h1 { font-size:    4em; line-height: 1.25; } /* 64/80 */
+        .h2,h2 { font-size:    3em; line-height: 1.25; } /* 48/60 */
+        .h3,h3 { font-size: 2.25em; line-height: 1.33; } /* 36/48 */
+        .h4,h4 { font-size: 1.50em; line-height: 1.33; } /* 24/32 */
+        .h5,h5 { font-size: 1.25em; line-height: 1.20; } /* 20/24 */
+        .h6,h6 { font-size:    1em; line-height: 1.50; } /* 16/24 */
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /Typography */
+    </style>
+    </details>
+
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BLOB -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Workers -->
+    <style detailsWithSummaryHeader>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
+    /** 24.1.23 **/
+
+    /** .detailsWithSummaryHeader
+        use details default marker
+        use <header> for summary decoration
+        */
+
+        .detailsWithSummaryHeader {
+          --font-size:           2.4em;
+          --font-size--mini:     1.6em;
+          --line-height:          1.25;
+          --marker-color: currentColor;
+        }
+        @media all and (max-width:42em) {
+        .detailsWithSummaryHeader {
+            --font-size:  var(--font-size--mini);
+        }
+        }/* /media */
+        .detailsWithSummaryHeader>summary {
+            font-size:   var(--font-size);
+            line-height: var(--line-height);
+            cursor: pointer;
+            width: max-content;
+            max-width: 100%;
+        }
+        .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
+        .detailsWithSummaryHeader>summary >header {
+            display:    inline-block;
+            vertical-align: text-top;
+            word-break:    break-all;
+            max-width: 78vw;
+        }
+
+        /* custom settings */
+
+        .detailsWithSummaryHeader>summary >header {
+            font-family: monospace;
+        }
+
+    /** .detailsMarkerShowHide
+        switch first-last child without layout jump
+        */
+
+        .detailsMarkerShowHide {
+            display: inline-grid;
+            grid-template-areas: 'overlay';
+        }
+        .detailsMarkerShowHide>* {
+            grid-area:  overlay;
+            pointer-events: all;
+            pointer-events: var(--visible, none);
+            opacity:        var(--visible, 0);
+        }
+        details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
+        details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
+    </style>
+    <script mockAutofillParagraphs>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ mockAutofillParagraphs */
+    /** 2024.2.15 */
+    /** insert some lorem ipsum
+        <p mock-paragraph>
+      */
+
+    function mockAutofillParagraphs (selector='[mock-paragraph]') {
+        const p = document.querySelectorAll(selector);
+        const texts = [
+            'Les grandes personnes m’ont conseillé de laisser de côté les dessins de serpents boas ouverts ou fermés, et de m’intéresser plutôt à la géographie, à l’histoire, au calcul et à la grammaire. C’est ainsi que j’ai abandonné, à l’âge de six ans, une magnifique carrière de peintre.',
+            'J’avais été découragé par l’insuccès de mon dessin numéro 1 et de mon dessin numéro 2. Les grandes personnes ne comprennent jamais rien toutes seules, et c’est fatigant, pour les enfants, de toujours et toujours leur donner des explications.',
+            'J’ai donc dû choisir un autre métier et j’ai appris à piloter des avions. J’ai volé un peu partout dans le monde. Et la géographie, c’est exact, m’a beaucoup servi. Je savais reconnaître, du premier coup d’œil, la Chine de l’Arizona. C’est très utile, si l’on est égaré pendant la nuit.',
+            'J’ai ainsi eu, au cours de ma vie, des tas de contacts avec des tas de gens sérieux. J’ai beaucoup vécu chez les grandes personnes. Je les ai vues de très près. Ça n’a pas trop amélioré mon opinion.',
+            'Quand j’en rencontrais une qui me paraissait un peu lucide, je faisais l’expérience sur elle de mon dessin numéro 1 que j’ai toujours conservé. Je voulais savoir si elle était vraiment compréhensive. Mais toujours elle me répondait : « C’est un chapeau. »',
+            'Alors je ne lui parlais ni de serpents boas, ni de forêts vierges, ni d’étoiles. Je me mettais à sa portée. Je lui parlais de bridge, de golf, de politique et de cravates. Et la grande personne était bien contente de connaître un homme aussi raisonnable.'
+            ];
+        for(let x in p) {
+            let text = texts[Math.floor(Math.random()*texts.length)];
+            let textnode = document.createTextNode(text);
+            if (p[x].appendChild) p[x].appendChild(textnode);
+        };
+    };
+
+    /** Run */
+        (O=> mockAutofillParagraphs(O) )('[mock-paragraph]');
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /mockAutofillParagraphs */
+    </script>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> END -->
+</body>
+</html>
