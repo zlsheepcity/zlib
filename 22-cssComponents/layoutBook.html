@@ -7,7 +7,7 @@
     <base href="../" />
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Tab data -->
-    <title>layoutBook</title>
+    <title>.layoutBook</title>
     <meta name="description" content="CSS grid layout">
     <meta name="theme-color" content="#314159">
     <link rel="icon" type="image/png" href="app/icon512.png">
@@ -110,6 +110,13 @@
         }
     </style>
 
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> WELCOME -->
+    <article class="layoutBook" style="padding-bottom: 2em;">
+        <header>
+            <h1 class="h2">Book-looking text grid 2024</h1>
+        </header>
+    </article>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS -->
     <details class="detailsWithSummaryHeader" --open>
@@ -218,30 +225,14 @@
     </details>
 
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> WELCOME -->
-    <article class="layoutBook">
-        <header>
-            <h1 class="h2">Book-looking text grid 2024</h1>
-        </header>
-        <ul>
-            <li>
-                <a href="https://zlsheepcity.github.io/appart/projects/article-grid.html">
-                    See also text grid 2020
-                </a>
-            </li>
-        </ul>
-    </article>
-    <hr section-divider />
-
-
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DemoB -->
     <article class="layoutBook layoutBookCentered DemoArticle">
         <style display-source contenteditable spellcheck=false>
             .layoutBook.DemoArticle {
-              --color:            hsl(226, 27%, 90%); /* NobleWhite */
+              --foreground-color: hsl(226, 27%, 90%); /* NobleWhite */
               --background-color: hsl(226, 15%, 12%); /* NobleBlack */
                 background-color: var(--background-color);
-                color:            var(--color);
+                color:            var(--foreground-color);
             }
         </style>
         <header>
@@ -355,10 +346,6 @@
             <p mock-paragraph>
             <p mock-paragraph>
         </section>
-        <blockquote>
-            <h4>C’est un chapeau</h4>
-            <p mock-paragraph>
-        </blockquote>
         <section class="layoutBookText">
             <img style="width:100%;"
                  src="art/artBackgroundYellow.jpg"
@@ -379,6 +366,7 @@
                  alt="art-fullwidth" >
         </footer>
     </article>
+
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DemoScheme -->
     <style display-source contenteditable spellcheck=false>
@@ -415,6 +403,48 @@
         </article>
     </article>
 
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DemoD -->
+    <article class="layoutBook layoutBookCentered DemoArticle">
+        <header>
+            <h1>DemoD</h1>
+            <h4>English language text fit</h4>
+        </header>
+        <section>
+            <p mocktext>
+                Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
+            </p>
+        </section>
+        <blockquote>
+            <p mocktext>
+                Main article: History of quantum field theory
+            </p>
+        </blockquote>
+
+        <h3>
+            Theoretical background
+        </h3>
+        <section>
+            <p mocktext>
+                Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
+            </p>
+            <p mocktext>
+                The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
+            </p>
+        </section>
+        <blockquote>
+            <p mocktext>
+                [1] [2] [3]
+            </p>
+        </blockquote>
+        <footer>
+            <p mocktext>
+                Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
+            </p>
+        </footer>
+        <div></div>
+    </article>
+
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Markup -->
     <style display-source>
         # markup snippet
@@ -435,7 +465,6 @@
             <div class="layoutBookCell">subrgid_column</div>
         </article>
     </style>
-
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Typography CSS -->
     <details class="detailsWithSummaryHeader" open>
@@ -491,7 +520,18 @@
     </details>
 
 
-    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BLOB -->
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> READMORE -->
+    <article class="layoutBook" style="padding: 4em 0;">
+        <section>
+            <a href="https://zlsheepcity.github.io/appart/projects/article-grid.html">
+                <span class="h4">See also text grid 2020</span>
+                <img
+                    src="https://zlsheepcity.github.io/appart/projects/article-grid--long-read.png"
+                    alt="Text grid 2020 example view">
+            </a>
+        </section>
+    </article>
+
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Workers -->
     <style detailsWithSummaryHeader>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */

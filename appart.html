@@ -76,7 +76,7 @@
             code snippets
         </h1>
         <p>
-            v2024.1.29 keiko
+            v2024.2.20 keiko
         </p>
     </header>
     <style>
@@ -91,6 +91,11 @@
         <li>
             <a href="https://github.com/zlsheepcity/zlib/">
                 this project git repository
+            </a>
+        </li>
+        <li>
+            <a href="https://zlsheepcity.github.io/appart/">
+                appart home
             </a>
         </li>
     </ul>
@@ -328,10 +333,15 @@
         </header>
     </summary>
     <article class="articleSecondaryDesign layoutBook">
-        <ul class="text-block-bigger">
+        <ul style="font-size:1.5em;line-height:1.75;">
             <li>
                 <a href="22-cssComponents/myocards.html">
-                    layout .myocards
+                    .myocards
+                </a>
+            </li>
+            <li>
+                <a href="22-cssComponents/layoutBook.html">
+                    .layoutBook
                 </a>
             </li>
             <li>
@@ -389,159 +399,6 @@
 
         /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
         </style>
-    </article>
-</details>
-
-<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> layoutBook -->
-<details class="detailsWithSummaryHeader" --open>
-    <summary>
-        <header>
-            .layoutBook
-            <span class="detailsMarkerShowHide">
-                <span>[show]</span>
-                <span>[hide]</span>
-            </span>
-        </header>
-    </summary>
-    <style display-source>
-        <article class="layoutBook">
-            <header>wrap</header>
-            <footer>wrap</footer>
-            <section>text</section>
-            <blockquote>side</blockquote>
-            <article>full</article>
-            <section>
-                <p>text</p>
-                <p>text</p>
-            </section>
-            <div class="layoutBookText">xxx</div>
-            <div class="layoutBookWrap">xxx</div>
-            <div class="layoutBookSide">xxx</div>
-            <div class="layoutBookFull">xxx</div>
-        </article>
-    </style>
-    <style display-source contenteditable>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook 24.1.23 */
-
-        .layoutBook {
-
-        /** config */
-          --textSize: 42em;
-          --sideSize: 24em;
-          --grid-gap:  1em;
-          --join-gap:  2em;
-
-        /** functional */
-            position: relative;
-            width:    100%;
-            display:  grid;
-            grid-gap: var(--grid-gap);
-            grid-auto-flow:  row;
-            grid-auto-rows:  min-content;
-            grid-template-columns: 0 var(--useColumns) auto;
-            grid-column: var(--grid-column-full);
-        }
-
-        /** columns */
-        @media all {
-        .layoutBook {
-          --grid-column-full: 1/6;
-          --grid-column-text: 2/3;
-          --grid-column-side: 4/5;
-          --grid-column-wrap: 2/5;
-          --useColumns:
-                minmax( auto, var(--textSize) )
-                var(--join-gap)
-                var(--sideSize)
-             ;
-        }
-        }/* /media */
-        @media all and (max-width:68em) {
-        .layoutBook {
-          --grid-column-full: 1/4;
-          --grid-column-text: 2/3;
-          --grid-column-side: 2/3;
-          --grid-column-wrap: 2/3;
-          --useColumns: minmax(auto, var(--textSize));
-        }
-        }/* /media */
-
-        /** children */
-        .layoutBook >*          {grid-column:var(--grid-column-text)} /* text paragraph */
-        .layoutBook >section    {grid-column:var(--grid-column-text)} /* paragraphs combined */
-        .layoutBook >blockquote {grid-column:var(--grid-column-side)} /* side note */
-        .layoutBook >header     {grid-column:var(--grid-column-wrap)} /* double column */
-        .layoutBook >footer     {grid-column:var(--grid-column-wrap)} /* double column */
-        .layoutBook >article    {grid-column:var(--grid-column-full)} /* overlay */
-
-        .layoutBook >.layoutBookText {grid-column:var(--grid-column-text)}
-        .layoutBook >.layoutBookWrap {grid-column:var(--grid-column-wrap)}
-        .layoutBook >.layoutBookSide {grid-column:var(--grid-column-side)}
-        .layoutBook >.layoutBookFull {grid-column:var(--grid-column-full)}
-
-        /** subgrid single column */
-        .layoutBook >header,
-        .layoutBook >footer,
-        .layoutBook >section {
-            width:    100%;
-            display:  grid;
-            grid-gap: var(--grid-gap);
-            grid-auto-flow: row;
-            grid-auto-rows: min-content;
-            grid-template-columns:  1fr;
-        }
-
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutBook */
-    </style>
-    <article class="layoutBook DemoBoxNB">
-        <header>
-            <h2>
-                .layoutBook.DemoBoxNB
-            </h2>
-            <p>v2023.10.20 keiko</p>
-            <style display-source contenteditable>
-            .layoutBook.DemoBoxNB {
-              --color:            hsl(226, 27%, 90%); /* NobleWhite */
-              --background-color: hsl(226, 15%, 12%); /* NobleBlack */
-                background-color: var(--background-color);
-                color:            var(--color);
-                padding: 1em 0;
-            }
-            </style>
-        </header>
-        <section>
-            <p mocktext>
-                Quantum field theory emerged from the work of generations of theoretical physicists spanning much of the 20th century. Its development began in the 1920s with the description of interactions between light and electrons, culminating in the first quantum field theory —quantum electrodynamics. A major theoretical obstacle soon followed with the appearance and persistence of various infinities in perturbative calculations, a problem only resolved in the 1950s with the invention of the renormalization procedure. A second major barrier came with QFT's apparent inability to describe the weak and strong interactions, to the point where some theorists called for the abandonment of the field theoretic approach. The development of gauge theory and the completion of the Standard Model in the 1970s led to a renaissance of quantum field theory.
-            </p>
-        </section>
-        <blockquote>
-            <p mocktext>
-                Main article: History of quantum field theory
-            </p>
-        </blockquote>
-
-        <h3>
-            Theoretical background
-        </h3>
-        <section>
-            <p mocktext>
-                Quantum field theory results from the combination of classical field theory, quantum mechanics, and special relativity. [1]  A brief overview of these theoretical precursors follows.
-            </p>
-            <p mocktext>
-                The earliest successful classical field theory is one that emerged from Newton's law of universal gravitation, despite the complete absence of the concept of fields from his 1687 treatise Philosophiæ Naturalis Principia Mathematica. The force of gravity as described by Newton is an "action at a distance"—its effects on faraway objects are instantaneous, no matter the distance. In an exchange of letters with Richard Bentley, however, Newton stated that "it is inconceivable that inanimate brute matter should, without the mediation of something else which is not material, operate upon and affect other matter without mutual contact." [2]  It was not until the 18th century that mathematical physicists discovered a convenient description of gravity based on fields—a numerical quantity (a vector in the case of gravitational field) assigned to every point in space indicating the action of gravity on any particle at that point. However, this was considered merely a mathematical trick. [3]
-            </p>
-        </section>
-        <blockquote>
-            <p mocktext>
-                [1] [2] [3]
-            </p>
-        </blockquote>
-
-        <footer>
-            <p mocktext>
-                Fields began to take on an existence of their own with the development of electromagnetism in the 19th century. Michael Faraday coined the English term "field" in 1845. He introduced fields as properties of space (even when it is devoid of matter) having physical effects. He argued against "action at a distance", and proposed that interactions between objects occur via space-filling "lines of force". This description of fields remains to this day.
-            </p>
-        </footer>
     </article>
 </details>
 
@@ -1017,9 +874,9 @@
                 <b size-c tint-y> . </b>
             </b>
             <b row size-a tint-a>
-                <b size-c tint-y> 1 </b>
+                <b size-c tint-y> 2 </b>
                 <b size-b tint-a> . </b>
-                <b size-d tint-m> 29 </b>
+                <b size-d tint-m> 20 </b>
             </b>
         </div>
     </section>
