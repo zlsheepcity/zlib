@@ -1,0 +1,7 @@
+body #text.short {
+    height: auto!important;
+    overflow: visible!important;
+}
+.maxfp {
+    display: none!important;
+}
