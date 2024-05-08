@@ -16,7 +16,10 @@ class ControllerExtensionModuleZlcustommodule extends Controller {
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
             $this->model_setting_setting->editSetting('module_zlcustommodule', $this->request->post);
             $this->session->data['success'] = $this->language->get('text_success');
-            $this->response->redirect($this->url->link('extension/module/zlcustommodule', 'user_token=' . $this->session->data['user_token'], true));
+            $this->response->redirect($this->url->link(
+                'extension/module/zlcustommodule',
+                'type=module&user_token=' . $this->session->data['user_token'],
+                TRUE));
         }
 
         $data['heading_title'] = $this->language->get('heading_title');
@@ -28,22 +31,35 @@ class ControllerExtensionModuleZlcustommodule extends Controller {
         $data['button_cancel'] = $this->language->get('button_cancel');
 
         $data['error_warning'] = isset($this->error['warning']) ? $this->error['warning'] : '';
-        $data['action'] = $this->url->link('extension/module/zlcustommodule', 'user_token=' . $this->session->data['user_token'], true);
-        $data['cancel'] = $this->url->link('extension/module', 'user_token=' . $this->session->data['user_token'], true);
+
+        $data['action'] = $this->url->link(
+            'extension/module/zlcustommodule',
+            'type=module&user_token=' . $this->session->data['user_token'],
+            TRUE);
+        $data['cancel'] = $this->url->link(
+            'marketplace/extension',
+            'type=module&user_token=' . $this->session->data['user_token'],
+            TRUE);
 
         $data['breadcrumbs'] = array();
         $data['breadcrumbs'][] = array(
             'text' => $this->language->get('text_home'),
-            'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true)
-        );
+            'href' => $this->url->link(
+                'common/dashboard',
+                'user_token=' . $this->session->data['user_token'],
+                TRUE));
         $data['breadcrumbs'][] = array(
             'text' => $this->language->get('text_extension'),
-            'href' => $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'], true)
-        );
+            'href' => $this->url->link(
+                'marketplace/extension',
+                'type=module&user_token=' . $this->session->data['user_token'],
+                TRUE));
         $data['breadcrumbs'][] = array(
             'text' => $this->language->get('heading_title'),
-            'href' => $this->url->link('extenison/module/zlcustommodule', 'user_token=' . $this->session->data['user_token'], true)
-        );
+            'href' => $this->url->link(
+                'extenison/module/zlcustommodule',
+                'type=module&user_token=' . $this->session->data['user_token'],
+                TRUE));
 
         $data['module_zlcustommodule_status'] = isset($this->request->post['module_zlcustommodule_status'])
             ? $this->request->post['module_zlcustommodule_status']
