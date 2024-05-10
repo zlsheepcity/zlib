@@ -93,9 +93,6 @@
 <body class="">
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SECTION -->
     <article class="layoutBook layoutBookCentered articlePageTitle">
-        <style>
-            .articlePageTitle {}
-        </style>
         <header>
             <h1>PageTitle</h1>
             <h4>PageTitleMessage</h4>
@@ -111,11 +108,21 @@
                 <ul>PageTitleOp</ul>
             </ul>
         </blockquote>
+        <style>
+            .articlePageTitle {}
+        </style>
     </article>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SECTION -->
     <article class="layoutBook layoutBookCentered articleDesignSecondary">
-        <style>
+        <header>
+            <h2>ArticleTitle</h2>
+            <h4>ArticleTitleMessage</h4>
+        </header>
+        <section>
+            <p>Les grandes personnes m’ont conseillé de laisser de côté les dessins de serpents boas ouverts ou fermés, et de m’intéresser plutôt à la géographie, à l’histoire, au calcul et à la grammaire. C’est ainsi que j’ai abandonné, à l’âge de six ans, une magnifique carrière de peintre.</p>
+        </section>
+        <style display-source contenteditable class="layoutBookWrap">
             .articleDesignSecondary {
               --color--NobleBlack:  hsl(226, 15%, 12%);
               --color--NobleWhite:  hsl(226, 27%, 90%);
@@ -131,13 +138,53 @@
                 margin:  1em 0;
             }
         </style>
+    </article>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SECTION GALLERY -->
+    <article class="layoutBook layoutBookCentered">
         <header>
-            <h2>ArticleTitle</h2>
-            <h4>ArticleTitleMessage</h4>
+            <h2>GalleryTitle</h2>
+            <h4>GalleryTitleMessage</h4>
         </header>
-        <section>
-            <p>Les grandes personnes m’ont conseillé de laisser de côté les dessins de serpents boas ouverts ou fermés, et de m’intéresser plutôt à la géographie, à l’histoire, au calcul et à la grammaire. C’est ainsi que j’ai abandonné, à l’âge de six ans, une magnifique carrière de peintre.</p>
+    </article>
+    <article class="layoutGallery">
+        <section class="gridline XX">
+            <img class="Qratio fitme"
+                 src="art/placeholderGQ33.jpg"
+                 alt="art_placeholder">
+            <video class="Qratio" loop muted controls --autoplay>
+                <source type="video/webm"
+                    src="art/placeholderWEBM.webm">
+                    </video>
         </section>
+        <section class="gridline">
+            <div class="gridskip"></div>
+            <div class="gridline"></div>
+        </section>
+    </article>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SECTION TRISOM -->
+    <article class="layoutBook layoutBookCentered">
+        <div class="layoutBookFull">
+            <section class="myocard" style="--item-max-width: 18rem; --max-width-xx: calc( 3*var(--item-max-width) + 2*var(--sx) );">
+                <section>
+                    <div>
+                        <p>Les grandes personnes m’ont conseillé de laisser de côté les dessins de serpents boas ouverts ou fermés, et de m’intéresser plutôt à la géographie, à l’histoire, au calcul et à la grammaire. C’est ainsi que j’ai abandonné, à l’âge de six ans, une magnifique carrière de peintre.</p>
+                   </div>
+               </section>
+                <section>
+                    <div demobox>
+                        <p>Les grandes personnes m’ont conseillé de laisser de côté les dessins de serpents boas ouverts ou fermés, et de m’intéresser plutôt à la géographie, à l’histoire, au calcul et à la grammaire. C’est ainsi que j’ai abandonné, à l’âge de six ans, une magnifique carrière de peintre.</p>
+                   </div>
+               </section>
+                <section>
+                    <div demobox>
+                        <p>Les grandes personnes m’ont conseillé de laisser de côté les dessins de serpents boas ouverts ou fermés, et de m’intéresser plutôt à la géographie, à l’histoire, au calcul et à la grammaire. C’est ainsi que j’ai abandonné, à l’âge de six ans, une magnifique carrière de peintre.</p>
+                   </div>
+               </section>
+            </section>
+
+        </div>
     </article>
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> BLOB -->
