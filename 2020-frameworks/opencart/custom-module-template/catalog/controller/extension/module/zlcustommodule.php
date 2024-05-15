@@ -1,10 +1,14 @@
 <?php
 /**
-  * Reports from route=checkout/checkout «Shop cart»
+  * 2024.5.15
+  * Here are reports from «Shopping cart»
+  * route=checkout/checkout
   */
-
 class ControllerExtensionModuleZlcustommodule extends Controller {
+    private $moduleNamePlain = 'zlcustommodule';
+    private $moduleNameCamel = 'Zlcustommodule';
     private $devmode = true;
+    private $error = array();
     private $apiDemoUrl = 'https://api.omnisend.com/v3';
     private $apiDemoKey = '64ae84b8091c7843509cfec3-zVl2WLQUqlyNRgq7fb5sj3xD1zs4aweXF53KB5LG0AZjIPrTsg';
 
