@@ -10,7 +10,7 @@ class ControllerExtensionModuleZlcustommodule extends Controller {
     private $error = array();
 
 
-    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Component logic
+    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Lyfecycle
 
     public function index() {
         $this->indexInitModule();
@@ -26,6 +26,10 @@ class ControllerExtensionModuleZlcustommodule extends Controller {
         $this->deleteEvents();
     }
 
+    public function eventReactionTesting(&$route, &$args, &$template = '') {
+        $this->testingNotifySend();
+    }
+
     // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Events
 
     protected function createEvents() {
@@ -35,7 +39,7 @@ class ControllerExtensionModuleZlcustommodule extends Controller {
         $this->model_setting_event->addEvent(
             ''.$moduleName.'-ev11',
             'admin/model/catalog/product/addProduct/before',
-            'extension/module/'.$moduleName.'/eventReactionOperator'
+            'extension/module/'.$moduleName.'/eventReactionTesting'
         );
 
         $this->model_setting_event->addEvent(
@@ -52,6 +56,13 @@ class ControllerExtensionModuleZlcustommodule extends Controller {
         $this->model_setting_event->deleteEventByCode(''.$moduleName.'-ev12');
         $this->operatorNotifySend();
     }
+
+    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Actions
+
+    public function testingNotifySend() {
+        //
+    }
+
 
     // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Init module
 

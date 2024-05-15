@@ -12,13 +12,13 @@ class ControllerExtensionModuleZlcustommodule extends Controller {
     private $apiDemoUrl = 'https://api.omnisend.com/v3';
     private $apiDemoKey = '64ae84b8091c7843509cfec3-zVl2WLQUqlyNRgq7fb5sj3xD1zs4aweXF53KB5LG0AZjIPrTsg';
 
-    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> actions
+    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> lifecycle
 
     public function eventReactionOperator(&$route, &$data, &$template = '') {
         $this->operatorSendMessage();
     }
 
-    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> logic
+    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> actions
 
     public function operatorSendMessage() {
         $checkoutID    = $this->getCheckoutID();
