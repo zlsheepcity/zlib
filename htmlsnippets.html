@@ -9,6 +9,15 @@
     <meta name="description" content="template">
     <meta name="author"      content="zl">
 
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Security header -->
+    <!-- This line means only scripts that are part of your website can be executed -->
+
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'" />
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src https://*; child-src 'none';" />
 
     <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ MICRODATA -->
     <meta property="og:url"          content="">
