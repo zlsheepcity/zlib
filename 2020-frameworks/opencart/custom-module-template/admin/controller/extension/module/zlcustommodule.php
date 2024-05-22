@@ -1,6 +1,6 @@
 <?php
 /**
-  * 2024.5.15
+  * 2024.5.21
   * Here are extension module base
   */
 class ControllerExtensionModuleZlcustommodule extends Controller {
@@ -54,7 +54,6 @@ class ControllerExtensionModuleZlcustommodule extends Controller {
         $this->load->model('setting/event');
         $this->model_setting_event->deleteEventByCode(''.$moduleName.'-ev11');
         $this->model_setting_event->deleteEventByCode(''.$moduleName.'-ev12');
-        $this->operatorNotifySend();
     }
 
     // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Actions

@@ -3,11 +3,10 @@ https://www.opencart.com/
 Free open-source eCommerce platform  
 OpenCart Version 3.0.3.1  
 
-## help links
+## links
 - https://webkul.com/blog/how-to-create-a-module-in-opencart/
 
-## custom module
-### folders
+## custom module folders
 ```
 admin
     controller
@@ -33,10 +32,11 @@ catalog
             module
 ```
 
-### install
-1. upload files
-2. ADMIN System → Users → UserGroups
+## Custom module installation (Opencart admin)
+1. Upload files
+2. GOTO: System → Users → UserGroups
 3. Check permissions
-4. ADMIN Extensions → Extension, Select «Modules»
+4. GOTO: Extensions → Extension, Select «Modules»
 5. Press Install button
 6. Press Edit button
+7. Enable and Save
