@@ -1,6 +1,7 @@
 # Web Components
 
 - https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
+- https://css-tricks.com/an-approach-to-lazy-loading-custom-elements/
 
 ### I've used them for the following goals:
 - building UI Kits (probably their best use case);
