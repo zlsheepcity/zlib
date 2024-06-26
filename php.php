@@ -1,13 +1,17 @@
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> TEMPLATES
+
 <?php
     $xxx = 'xxx';
+    $yyy = $_GET['yyy'];
 ?>
+
 <?= $xxx; ?>
 
-<?php
+<?php if ($insert_lead): ?>
+<?php echo $insert_lead; ?>
+<?php endif; ?>
 
-    $v = $_GET['v'];
-
-?>
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> FUNCTIONS
 
 <?php
 
@@ -26,12 +30,7 @@ function endsWith($haystack, $needle)
 
 ?>
 
-<?php if ($insert_lead): ?>
-<?php echo $insert_lead; ?>
-<?php endif; ?>
-
-
-// --------------------------------- DATABASE
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DATABASE
 
 <?php
 
