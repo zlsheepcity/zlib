@@ -34,9 +34,71 @@ return new Promise(result);
 
 
 
-//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-// before 23.9.5
+//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ best practices
+//https://dev.to/parthchovatiya/boost-your-javascript-performance-tips-and-best-practices-114l
+
+const fragment = document.createDocumentFragment();
+
+  // Batch DOM performance manipulations
+  const div = document.createElement('div');
+  div.textContent = 'textContent';
+  fragment.appendChild(div);
+  // ... 
+
+document.body.appendChild(fragment);
+
+
+// When looping through arrays, cache the length to avoid recalculating it in each iteration.
+const items = [/* array elements */];
+for (let i = 0, len = items.length; i < len; i++) {
+    // Process items[i]
+}
+
+
+// Tip: Debounce
+// Execute a function only after a certain amount of time has passed since the last time it was invoked.
+function debounce(func, delay) {
+    let timeoutId;
+    return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+const handleResize = debounce(() => {
+    console.log('Resized');
+}, 300);
+window.addEventListener('resize', handleResize);
+
+
+// Tip: Throttle
+// Ensure a function is executed at most once in a specified period.
+function throttle(func, limit) {
+    let lastFunc;
+    let lastRan;
+    return function (...args) {
+        const context = this;
+        if (!lastRan) {
+            func.apply(context, args);
+            lastRan = Date.now();
+        } else {
+            clearTimeout(lastFunc);
+            lastFunc = setTimeout(function () {
+                if ((Date.now() - lastRan) >= limit) {
+                    func.apply(context, args);
+                    lastRan = Date.now();
+                }
+            }, limit - (Date.now() - lastRan));
+        }
+    };
+}
+const handleScroll = throttle(() => {
+    console.log('Scrolled');
+}, 300);
+window.addEventListener('scroll', handleScroll);
+
+
+
+//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ before 23.9.5
 
 "use strict"
 
