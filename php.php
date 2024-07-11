@@ -11,6 +11,19 @@
 <?php echo $insert_lead; ?>
 <?php endif; ?>
 
+<?php
+
+    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> get data
+
+    private function getApiParams() {
+        return [
+            'url' => $this->config->get('module_'.$this->moduleNamePlain.'_'.'apiurl'),
+            'key' => $this->config->get('module_'.$this->moduleNamePlain.'_'.'apikey'),
+        ];
+    }
+
+?>
+
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> FUNCTIONS
 
 <?php
