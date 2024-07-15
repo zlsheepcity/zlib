@@ -22,6 +22,14 @@
         ];
     }
 
+// get the first element of array
+
+// Original answer, but costly (O(n)):
+array_shift(array_values($array));
+
+// In O(1):
+array_pop(array_reverse($array));
+
 ?>
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> FUNCTIONS
