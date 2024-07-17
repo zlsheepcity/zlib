@@ -174,9 +174,9 @@
         }
         .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
         .detailsWithSummaryHeader>summary >header {
-            display:       inline-block;
-            vertical-align:    text-top;
-            max-width: calc(100% - 2em);
+            display: inline-block;
+            vertical-align: text-top;
+            max-width: calc(100vw - 2.4em);
         }
     /** #detailsMarkerShowHide
         switch child nodes without layout jump

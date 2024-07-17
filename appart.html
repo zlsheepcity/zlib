@@ -76,7 +76,7 @@
             code snippets
         </h1>
         <p>
-            v2024.2.20 keiko
+            v2024.2.20 keiko <br> u2024.7.17
         </p>
     </header>
     <style>
@@ -176,9 +176,9 @@
         }
         .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
         .detailsWithSummaryHeader>summary >header {
-            display:       inline-block;
-            vertical-align:    text-top;
-            max-width: calc(100% - 2em);
+            display: inline-block;
+            vertical-align: text-top;
+            max-width: calc(100vw - 2.4em);
         }
     /** #detailsMarkerShowHide
         switch child nodes without layout jump
@@ -705,8 +705,8 @@
                     time,
                 } = entry;
                 // actions
-                if ( isIntersecting ) console.log('visible');
-                if (!isIntersecting ) console.log('hidden');
+                if ( isIntersecting ) console.log('LatestNews: observation object is visible');
+                if (!isIntersecting ) console.log('LatestNews: observation object is hidden');
             });
             const option = {
                 root:       null,          // default window
@@ -862,9 +862,9 @@
                 <b size-c tint-y> . </b>
             </b>
             <b row size-a tint-a>
-                <b size-c tint-y> 2 </b>
+                <b size-c tint-y> 7 </b>
                 <b size-b tint-a> . </b>
-                <b size-d tint-m> 20 </b>
+                <b size-d tint-m> 17 </b>
             </b>
         </div>
     </section>
