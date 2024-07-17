@@ -157,43 +157,32 @@
     </style>
     <style display-source contenteditable>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
-    /** 24.1.23 **/
-
-    /** .detailsWithSummaryHeader
-        use details default marker
-        use <header> for summary decoration
+    /** 24.7.17 **/
+    /** #detailsWithSummaryHeader
+        <details> with default marker
+        <header> with decorated typo
         */
-
         .detailsWithSummaryHeader {
-          --font-size:           2.4em;
-          --font-size--mini:     1.6em;
-          --line-height:          1.25;
+          --header-font-size: clamp( 1em, 3.2vw, 2.4em );
+          --header-line-height: 1.25;
           --marker-color: currentColor;
         }
-        @media all and (max-width:42em) {
-        .detailsWithSummaryHeader {
-            --font-size:  var(--font-size--mini);
-        }
-        }/* /media */
         .detailsWithSummaryHeader>summary {
-            font-size:   var(--font-size);
-            line-height: var(--line-height);
+            font-size:   var(--header-font-size);
+            line-height: var(--header-line-height);
             cursor: pointer;
             width: max-content;
             max-width: 100%;
         }
         .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
         .detailsWithSummaryHeader>summary >header {
-            display:    inline-block;
-            vertical-align: text-top;
-            word-break:    break-all;
-            max-width: 78vw;
+            display:       inline-block;
+            vertical-align:    text-top;
+            max-width: calc(100% - 2em);
         }
-
-    /** .detailsMarkerShowHide
-        switch first-last child without layout jump
+    /** #detailsMarkerShowHide
+        switch child nodes without layout jump
         */
-
         .detailsMarkerShowHide {
             display: inline-grid;
             grid-template-areas: 'overlay';
@@ -206,7 +195,6 @@
         }
         details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
         details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
-
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
     </style>
 </details>
