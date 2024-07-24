@@ -1,0 +1,51 @@
+/** fonts index, 24.7.24 **/
+
+@font-face {
+    font-family: 'Vollkorn';
+    font-weight:  normal;
+    font-style:   normal;
+    src:
+        /* local('Vollkorn'), */
+        url('./Vollkorn-R.eot?#iefix')           format('embedded-opentype'),
+        url('./Vollkorn-R.woff2')                format('woff2'),
+        url('./Vollkorn-R.woff')                 format('woff'),
+        url('./Vollkorn-R.ttf')                  format('truetype'),
+        url('./Vollkorn-R.svg#Vollkorn-Regular') format('svg');
+}
+
+@font-face {
+    font-family: 'Vollkorn';
+    font-weight:  700;
+    font-style:   normal;
+    src:
+        url('./Vollkorn-B.eot?#iefix')        format('embedded-opentype'),
+        url('./Vollkorn-B.woff2')             format('woff2'),
+        url('./Vollkorn-B.woff')              format('woff'),
+        url('./Vollkorn-B.ttf')               format('truetype'),
+        url('./Vollkorn-B.svg#Vollkorn-Bold') format('svg');
+}
+
+@font-face {
+    font-family: 'Vollkorn';
+    font-weight:  normal;
+    font-style:   italic;
+    src:
+        url('./Vollkorn-I.eot?#iefix')          format('embedded-opentype'),
+        url('./Vollkorn-I.woff2')               format('woff2'),
+        url('./Vollkorn-I.woff')                format('woff'),
+        url('./Vollkorn-I.ttf')                 format('truetype'),
+        url('./Vollkorn-I.svg#Vollkorn-Italic') format('svg');
+}
+
+/** RETRO MONOSPACE CODE;
+@font-face {
+    font-family: 'VT323';
+    font-weight:  normal;
+    font-style:   normal;
+    src:
+        url('./VT323-CODE.eot?#iefix')        format('embedded-opentype'),
+        url('./VT323-CODE.woff')              format('woff'),
+        url('./VT323-CODE.ttf')               format('truetype'),
+        url('./VT323-CODE.svg#VT323-Regular') format('svg');
+}
+**/

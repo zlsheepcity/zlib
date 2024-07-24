@@ -1,0 +1,501 @@
+/** components compo, 24.7.24.Len **/
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutGallery **/
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook **/
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ myocards **/
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Candy caption **/
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary **/
+
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutGallery **/
+/** v2024.7.24 demi **/
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ colors */
+
+    .layoutGallery {
+      --color:            hsl(226, 27%, 90%); /* NobleWhite */
+      --background-color: hsl(226, 15%, 12%); /* NobleBlack */
+    }
+
+    .layoutGallery:not(.transparent) {
+        background-color: var(--background-color);
+        color:            var(--color);
+    }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ gaps */
+
+    .layoutGallery {
+      --gap--base: 1.500em;
+      --gap--mini: 0.125em;
+      --gap: var(--gap--base);
+    }
+
+    @media all and (max-width:1080px) {
+    .layoutGallery {--gap: var(--gap--mini);}
+    }/* /media */
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ grid */
+
+    .layoutGallery,
+    .layoutGallery .gridline {
+        position: relative;
+        max-width: 100%;
+        display: grid;
+        grid-gap: var(--gap);
+        align-content: start;
+        grid-template-columns: var(--grid-template-columns);
+      --grid-template-columns: 1fr;
+    }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ lines */
+
+    .layoutGallery .gridline.X    {--grid-template-columns: repeat(1, 1fr);}
+    .layoutGallery .gridline.XX   {--grid-template-columns: repeat(2, 1fr);}
+    .layoutGallery .gridline.XXX  {--grid-template-columns: repeat(3, 1fr);}
+    .layoutGallery .gridline.XXXX {--grid-template-columns: repeat(4, 1fr);}
+    .layoutGallery .gridline.X5   {--grid-template-columns: repeat(5, 1fr);}
+    .layoutGallery .gridline.X6   {--grid-template-columns: repeat(6, 1fr);}
+
+    .layoutGallery .gridline.OOX>*:first-child { grid-column:  1 /  3 }
+    .layoutGallery .gridline.XOO>*:last-child  { grid-column: -3 / -1 }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ lines more */
+/** VWQ ratio set 2023 */
+
+    .layoutGallery {
+      --aspect-ratio--Qratio: 1080/1080;
+      --aspect-ratio--Wratio: 1774/1080;
+      --aspect-ratio--Vratio: 1080/1774;
+    }
+
+    .layoutGallery .gridline.WQ
+    {--grid-template-columns: 1774fr 1080fr}
+    .layoutGallery .gridline.QW
+    {--grid-template-columns: 1080fr 1774fr}
+
+    .layoutGallery .gridline.QWW
+    {--grid-template-columns: 1080fr 1774fr 1774fr}
+    .layoutGallery .gridline.QQW
+    {--grid-template-columns: 1080fr 1080fr 1774fr}
+    .layoutGallery .gridline.QWQ
+    {--grid-template-columns: 1080fr 1774fr 1080fr}
+    .layoutGallery .gridline.WQW
+    {--grid-template-columns: 1774fr 1080fr 1774fr}
+    .layoutGallery .gridline.WWQ
+    {--grid-template-columns: 1774fr 1774fr 1080fr}
+    .layoutGallery .gridline.WQQ
+    {--grid-template-columns: 1774fr 1080fr 1080fr}
+
+    .layoutGallery .gridline.VWV
+    {--grid-template-columns: 658fr 1774fr 658fr}
+    .layoutGallery .gridline.VQV
+    {--grid-template-columns: 658fr 1080fr 658fr}
+    .layoutGallery .gridline.QVQ
+    {--grid-template-columns: 1080fr 658fr 1080fr}
+    .layoutGallery .gridline.WVW
+    {--grid-template-columns: 1774fr 658fr 1774fr}
+    .layoutGallery .gridline.VWQV
+    {--grid-template-columns: 658fr 1774fr 1080fr 658fr}
+    .layoutGallery .gridline.VQWV
+    {--grid-template-columns: 658fr 1080fr 1774fr 658fr}
+
+    .layoutGallery .gridline.VQW
+    {--grid-template-columns: 658fr 1080fr 1774fr}
+    .layoutGallery .gridline.VWQ
+    {--grid-template-columns: 658fr 1774fr 1080fr}
+    .layoutGallery .gridline.WQV
+    {--grid-template-columns: 1774fr 1080fr 658fr}
+    .layoutGallery .gridline.QWV
+    {--grid-template-columns: 1080fr 1774fr 658fr}
+    .layoutGallery .gridline.WVQ
+    {--grid-template-columns: 1774fr 658fr 1080fr}
+    .layoutGallery .gridline.QVW
+    {--grid-template-columns: 1080fr 658fr 1774fr}
+
+    .layoutGallery .Qratio {aspect-ratio: var(--aspect-ratio--Qratio);}
+    .layoutGallery .Wratio {aspect-ratio: var(--aspect-ratio--Wratio);}
+    .layoutGallery .Vratio {aspect-ratio: var(--aspect-ratio--Vratio);}
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ empty cells */
+
+    .layoutGallery .gridline,
+    .layoutGallery .gridskip {
+        pointer-events: none;
+    }
+    .layoutGallery .gridline >*:not(.gridline, .gridskip),
+    .layoutGallery .gridskip >*:not(.gridline, .gridskip) {
+        pointer-events: all;
+    }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ scroll slices */
+
+    .layoutGallery .scrolltopGroup >*,
+    .layoutGallery .scrolltop { position:sticky; top:0; }
+
+    .layoutGallery .scrollbotGroup >*,
+    .layoutGallery .scrollbot { position:sticky; bottom:0; }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ items */
+
+    .layoutGallery video,
+    .layoutGallery img {
+        display: block;
+        width:   100%;
+        height:  auto;
+        object-fit: contain;
+        background-color: var(--background-color);
+    }
+
+    .layoutGallery video,
+    .layoutGallery img {
+        outline: var(--gap) solid var(--background-color);
+    }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ plugins */
+
+    .layoutGallery:is(article) {
+        padding: var(--gap) 0;
+    }
+    .layoutGallery.fitness *:is(img,video)  {
+        object-fit: cover;
+        height: 100%;
+    }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ workers */
+
+    .layoutGallery .screensize {min-height:100vh}
+    .layoutGallery .centerit {
+        display: grid;
+        place-items: center;
+    }
+    .layoutGallery .fitme  {
+        object-fit: cover;
+        height: 100%;
+    }
+    .layoutGallery .fillme {
+        background-color: var(--background-color);
+        outline: var(--gap) solid var(--background-color);
+    }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutGallery */
+
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutBook **/
+/** 24.7.24 */
+
+    /** config */
+    .layoutBook {
+      --leftOffset: 0;
+    /*--leftOffset: auto;
+      --leftOffset: 2em;*/
+      --sideOffset: 1em;
+      --textSize: 36em;
+      --sideSize: 24em;
+      --grid-gap:  1em;
+      --join-gap:  1em;
+    /** calculated min width:
+        gap×3 + textSize + sideSize + sideOffset = 64em */
+    }
+    .layoutBook.layoutBookCentered {
+      --leftOffset: auto;
+    }
+
+    /** functional */
+    .layoutBook {
+        position: relative;
+        width:    100%;
+        display:  grid;
+        grid-gap: var(--grid-gap);
+        grid-auto-flow:  row;
+        grid-auto-rows:  min-content;
+        grid-template-columns: var(--useColumns);
+        grid-column: var(--grid-column-full);
+    }
+
+    /** columns */
+    @media all {
+    .layoutBook {
+      --grid-column-full: 1/6;
+      --grid-column-text: 2/3;
+      --grid-column-side: 4/5;
+      --grid-column-wrap: 2/5;
+      --useColumns:
+            var(--leftOffset)
+            minmax( auto, var(--textSize) )
+            var(--join-gap)
+            var(--sideSize)
+            auto
+         ;
+    }
+    }/* /media */
+    @media all and (max-width:64em) {
+    .layoutBook {
+      --grid-column-full: 1/-1;
+      --grid-column-wrap: 2/-2;
+      --grid-column-text: 2/4;
+      --grid-column-side: 3/5;
+      --useColumns:
+          0
+          minmax(0, calc(100% - var(--sideSize) - 3 * var(--grid-gap) ))
+          1fr
+          minmax(0, calc(100% - var(--textSize) - 3 * var(--grid-gap) ))
+          0
+          ;
+    }
+    }/* /media */
+
+    /** children */
+    .layoutBook >*          {grid-column:var(--grid-column-text)} /* text paragraph */
+    .layoutBook >section    {grid-column:var(--grid-column-text)} /* paragraphs combined */
+    .layoutBook >blockquote {grid-column:var(--grid-column-side)} /* side note */
+    .layoutBook >header     {grid-column:var(--grid-column-wrap)} /* double column */
+    .layoutBook >footer     {grid-column:var(--grid-column-wrap)} /* double column */
+    .layoutBook >article    {grid-column:var(--grid-column-full)} /* overlay */
+    .layoutBook >style      {grid-column:var(--grid-column-full)} /* overlay */
+
+    .layoutBook >.layoutBookText {grid-column:var(--grid-column-text)}
+    .layoutBook >.layoutBookWrap {grid-column:var(--grid-column-wrap)}
+    .layoutBook >.layoutBookSide {grid-column:var(--grid-column-side)}
+    .layoutBook >.layoutBookFull {grid-column:var(--grid-column-full)}
+
+    /** subgrid single column */
+    .layoutBook .layoutBookCell,
+    .layoutBook >footer,
+    .layoutBook >section {
+        width:    100%;
+        display:  grid;
+        grid-gap: var(--grid-gap);
+        grid-auto-flow: row;
+        grid-auto-rows: min-content;
+        grid-template-columns:  1fr;
+    }
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutBook **/
+
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ myocards **/
+/** 2019.12.15 (core) */
+/** 2024.07.24 */
+
+    /* config */
+
+    .myocard {
+      --sx: 1.5rem; /* horizontal paddings */
+      --sy: 1.5rem; /* vertical paddings */
+      --item-max-width: 28rem;
+     /* options
+      --card-max-width:      100%;
+      --card-wrap-order:     wrap-reverse;
+      --card-wrap-order:     wrap;
+      --card-centering:      0;
+      --card-centering:      auto;
+      --item-vertical-align: center;
+      --item-vertical-align: flex-end;
+      --item-vertical-align: flex-start;
+        */
+    }
+
+    /* addons */
+
+    .myocard.myocardBanner {
+      --item-max-width:      40rem;
+      --card-max-width:    57.5rem;
+    }
+    .myocard.myocardAlignTop {
+      --item-vertical-align: flex-start;
+    }
+    .myocard.myocardWideSection {
+      --card-padding:        calc( 0.5*var(--sy) ) calc( 0.5*var(--sx) );
+      --item-padding:        calc( 0.5*var(--sy) ) calc( 0.5*var(--sx) );
+      --item-max-width:      42rem;
+      --card-max-width:      100%;
+      --card-centering:      0;
+      --item-vertical-align: flex-start;
+    }
+    .myocard.myocardWrapOrderReverse {
+     /* second child goes first,
+        when wrapping */
+      --card-wrap-order: wrap-reverse;
+      --align-items:     var(--item-vertical-align ,flex-end );
+    }
+
+    /* layout */
+
+    .myocard *, .myocard {box-sizing:border-box}
+    .myocard {
+
+      --card-padding: calc( 0.5*var(--sy) ) 0;
+      --item-padding: calc( 0.5*var(--sy) ) var(--sx);
+
+      --width:        100%;
+        width:        var(--width);
+
+      --max-width-xx: calc( 2*var(--item-max-width) + var(--sx) );
+      --max-width:    var(--card-max-width, var(--max-width-xx) );
+        max-width:    var(--max-width);
+
+      --margin-left:  var(--card-centering, auto );
+        margin-left:  var(--margin-left);
+
+      --margin-right: var(--card-centering, auto );
+        margin-right: var(--margin-right);
+
+    }
+
+    /* Flex Half-Grow Technique 2019 */
+
+        .myocard {
+            display:        flex;
+            flex-direction: row;
+            flex-wrap:      var(--card-wrap-order,  wrap );}
+        .myocard>*                   { flex-grow:   0.5;   }
+        .myocard>*:nth-child( odd)   { margin-left: auto;  }
+        .myocard>*:nth-child(even)   { text-align:  right; }
+        .myocard>*>*                 { }
+        .myocard>*:nth-child( odd)>* { }
+        .myocard>*:nth-child(even)>* { }
+
+     /* Paddings Around Card and Items */
+
+        .myocard {    --padding: var(--card-padding ,0 );
+                        padding: var(--padding         );}
+        .myocard>*>*{ --padding: var(--item-padding ,0 );}
+        .myocard>*>*{   padding: var(--padding         );}
+
+     /* Inserted Child */
+
+        .myocard>.myocard   { padding: 0; width: auto; }
+        .myocard>.myocard>* { padding: 0; }
+
+     /* Item Box Model */
+
+        .myocard>* { --max-width: var(--item-max-width ,100% );}
+        .myocard>*>* { max-width: var(--max-width            );}
+        .myocard>*:nth-child(even)>* {
+            display:        inline-flex;
+            flex-direction: column;
+            text-align:     left;
+            vertical-align: middle; }
+
+     /* Vertical Align */
+
+        .myocard {
+          --align-items: var(--item-vertical-align, center );
+            align-items: var(--align-items); }
+
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /myocards **/
+
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Candy caption **/
+/** 24.7.24 **/
+
+    /** Layout */
+
+    .textCandyCaption {
+        display:        inline-flex;
+        flex-direction: column;
+        gap:            var(--space) 0;
+    }
+    .textCandyCaption [row] {
+        display:        inline-flex;
+        flex-direction: row;
+        align-items:    flex-start;
+        gap:            0 var(--space);
+    }
+    .textCandyCaption [laydown] {
+        align-items: flex-end;
+    }
+
+    /** Design */
+
+    .textCandyCaption {
+      --font-family:     sans-serif;
+      --line-height:     0.75;
+      --space:           0.25em;
+    }
+    .textCandyCaption {
+        text-transform:  uppercase;
+        font-weight:     bold;
+        font-family:     var(--font-family);
+        line-height:     var(--line-height);
+        text-decoration: none;
+    }
+    .textCandyCaption * {
+        font-size: var(--font-size, inherit);
+        color:     var(--color,     inherit);
+    }
+
+    /** Model tint&size 2023 */
+
+    .textCandyCaption {
+      --tint-a: inherit;          /* a for alpha */
+      --tint-c: hsl(184,74%,54%); /* c for cyan */
+      --tint-m: hsl(334,64%,54%); /* m for magenta */
+      --tint-y: hsl(414,84%,54%); /* y for yellow */
+      --tint-g: hsl(114,44%,54%); /* g for green */
+    }
+    .textCandyCaption {
+      --size-a: 1.00em;
+      --size-b: 1.50em;
+      --size-c: 2.00em;
+      --size-d: 3.00em;
+      --size-z: 0.75em;
+    }
+
+    .textCandyCaption [size-a] {--font-size: var(--size-a);}
+    .textCandyCaption [size-b] {--font-size: var(--size-b);}
+    .textCandyCaption [size-c] {--font-size: var(--size-c);}
+    .textCandyCaption [size-d] {--font-size: var(--size-d);}
+    .textCandyCaption [size-z] {--font-size: var(--size-z);}
+
+    .textCandyCaption [tint-a] {--color: var(--tint-a);}
+    .textCandyCaption [tint-c] {--color: var(--tint-c);}
+    .textCandyCaption [tint-m] {--color: var(--tint-m);}
+    .textCandyCaption [tint-y] {--color: var(--tint-y);}
+    .textCandyCaption [tint-g] {--color: var(--tint-g);}
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /Candy caption **/
+
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary **/
+/** 24.7.17 **/
+/** #detailsWithSummaryHeader
+    <details> with default marker
+    <header> with decorated typo
+    */
+    .detailsWithSummaryHeader {
+      --header-font-size: clamp( 1em, 3.2vw, 2.4em );
+      --header-line-height: 1.25;
+      --marker-color: currentColor;
+    }
+    .detailsWithSummaryHeader>summary {
+        font-size:   var(--header-font-size);
+        line-height: var(--header-line-height);
+        cursor: pointer;
+        width: max-content;
+        max-width: 100%;
+    }
+    .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
+    .detailsWithSummaryHeader>summary >header {
+            display: inline-block;
+            vertical-align: text-top;
+            max-width: calc(100vw - 2.4em);
+    }
+/** #detailsMarkerShowHide
+    switch child nodes without layout jump
+    */
+    .detailsMarkerShowHide {
+        display: inline-grid;
+        grid-template-areas: 'overlay';
+    }
+    .detailsMarkerShowHide>* {
+        grid-area:  overlay;
+        pointer-events: all;
+        pointer-events: var(--visible, none);
+        opacity:        var(--visible, 0);
+    }
+    details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
+    details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary **/
+
+
+/** components compo, EOF ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ **/
