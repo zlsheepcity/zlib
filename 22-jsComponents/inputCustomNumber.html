@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input custom number</title>
+</head>
+<body>
+   
+    <fieldset  class="inputNumberComboWrapper">
+        <input class="inputNumberComboButton"
+            type="button"
+            value="-"
+            onclick="
+                const input = this.parentNode.getElementsByClassName('inputNumberComboInput')[0];
+                input.value = parseInt(input.value) - 1 || 1;
+                input.oninput();
+                "
+            />
+        <input class="inputNumberComboInput"
+            type="text"
+            value="1"
+            inputmode="numeric"
+            pattern="\d*"
+            oninput="
+                this.value = parseInt(this.value) || 1;
+                console.log('oninput',this.value);
+                "
+            />
+        <input class="inputNumberComboButton"
+            type="button"
+            value="+"
+            onclick="
+                const input = this.parentNode.getElementsByClassName('inputNumberComboInput')[0];
+                input.value = parseInt(input.value) + 1 || 1;
+                input.oninput();
+                "
+            />
+    </fieldset>
+    
+</body>
+</html>
