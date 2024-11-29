@@ -8,6 +8,19 @@ git config --list
 
 # steps back
 ```
+git commit -m "WRONG message"
+git reset --soft HEAD~1
+git commit -m "correct message"
+
+// creates a new commit to negate the changes made by the specified commit
+git revert <commit-hash>
+
+// To stash changes:
+git stash
+// Later, when you want to reapply those changes:
+git stash pop
+
+
 // previous commits step by step
 git reset --soft HEAD~1
 
