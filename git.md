@@ -47,3 +47,31 @@ git reset --hard savepoint
 // If you want to clean up, you can now delete the savepoint with:
 git branch -d savepoint
 ```
+
+## 10 Git commands become lifesavers
+
+### git reflog
+Ever made a mistake so bad you wished you could turn back time? git reflog is the time machine you didn’t know you had.
+
+What it does:
+It tracks every single thing you’ve done in your repository—even commits you thought were lost.
+
+When to use:
+
+You accidentally deleted a branch.
+You need to recover a commit after a bad reset.
+Command:
+git reflog
+
+### git cherry-pick
+Imagine this: there’s one perfect commit on another branch, and you need it now without merging the entire branch. That’s where git cherry-pick comes in.
+
+What it does:
+It lets you pick specific commits from one branch and apply them to another.
+
+When to use:
+
+You want a bug fix from feature-branch in main without merging the entire branch.
+Command:
+git cherry-pick <commit-hash>
+
