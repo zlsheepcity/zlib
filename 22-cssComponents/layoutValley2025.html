@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <!-- .htmlseed 24.1.29 made with love ~ ʕ⊙ᴥ⊙ʔ ~ -->
+    <base href="../" />
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Tab data -->
+    <title>layoutValley2025</title>
+    <meta name="description" content="parallax scroll research demo, CSS/JS">
+    <meta name="theme-color" content="#314159">
+    <link rel="icon" type="image/png" href="app/icon512.png">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS preset 2024 -->
+    <style>
+        body {
+          --color--PaperTone: hsl( 37, 55%, 85%);
+          --color--PaperDark: hsl(  0,  0%,  8%);
+          --color--PaperRose: hsl(359, 59%, 43%);
+
+          --background-color: var(--color--PaperDark);
+          --foreground-color: var(--color--PaperTone);
+              --accent-color: var(--color--PaperRose);
+        }
+
+        body {
+            background-color: var(--background-color);
+            margin: 0; color: var(--foreground-color);
+            font-family: monospace; overflow-y:scroll;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        img, video, svg {
+            margin: 0;
+            border: 0;
+            max-width: 100%;
+            display:  block;
+        }
+
+        center {
+            display: grid;
+            place-items: center;
+        }
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS custom -->
+    <style>
+        [display-source] {
+            display: block;
+            padding: 0 1em 1em 0;
+            margin:  0 0   1em 0;
+            max-width: max-content;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        [contenteditable] {
+          --color: var(--accent-color);
+            color: var(--color);
+            border-left: 1em solid var(--color);
+        }
+
+        h1,h2,h3 {padding: 0 1.5rem}
+    </style>
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS stylesheet -->
+    <link
+        href="app/custom.css"
+        type="text/css" rel="stylesheet" media="all">
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+</head>
+<body class="">
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> Intro -->
+<style display-source contenteditable>
+    body {
+      --background-color: white;
+      --foreground-color: hsl(0,  0%,  8%);
+          --accent-color: hsl(0, 59%, 43%);
+    }
+</style>
+<header>
+    <h1>appart .layoutValley</h1>
+    <h3>CSS parallax scroll playground</h3>
+</header>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            CSS code
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source contenteditable>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutValley */
+    /** 24.1.29 **/
+
+        .layoutValley,
+        .layoutValley.defaultSettings {
+          --height--total: 100vh;
+          --width--total:  100vw;
+          --width--image:  100vw;
+            background: lightskyblue;
+        }
+
+    /** Main container */
+
+        .layoutValley {
+            height:    var(--height--total);
+            width:     var(--width--total);
+            max-width: 100%;
+            overflow:  hidden;
+            position:  relative;
+        }
+
+    /** Layer position */
+
+        .layoutValley [sky-header],
+        .layoutValley [sky-layers]>*,
+        .layoutValley [sea-layers]>*,
+        .layoutValley [sea-footer] {
+            position: absolute;
+            left:  0;
+            right: 0;
+        }
+        .layoutValley [sky-header]   {top:-1px; z-index:1}
+        .layoutValley [sky-layers]>* {top:0}
+        .layoutValley [sea-layers]>* {bottom:0}
+        .layoutValley [sea-footer]   {bottom:-1px}
+
+    /** Layer geometry */
+
+        .layoutValley [sky-header],
+        .layoutValley [sky-layers]>*,
+        .layoutValley [sea-layers]>*,
+        .layoutValley [sea-footer] {
+            height: var(--rangeHeight, 0);
+            width:  100%;
+            display:     grid;
+            place-items: center;
+            margin:      0;
+            padding:     0;
+        }
+
+    /** Layer background image element */
+
+        .layoutValley [sky-header]:before,
+        .layoutValley [sky-layers]>*:before,
+        .layoutValley [sea-layers]>*:before,
+        .layoutValley [sea-footer]:before {
+            content:  '';
+            display:  block;
+            position: absolute;
+            left:  0;
+            right: 0;
+            top:   0;
+            height: 100%;
+            pointer-events: none; /* default */
+        }
+
+    /** Layer extended underground element */
+
+        .layoutValley [sky-layers]>*:after,
+        .layoutValley [sea-layers]>*:after {
+            content:  '';
+            display:  block;
+            position: absolute;
+            left:  0;
+            right: 0;
+            height: var(--height--total);
+            pointer-events: none; /* default */
+        }
+        .layoutValley [sky-layers]>*:after {bottom: 100%; bottom: calc(100% - 1px);}
+        .layoutValley [sea-layers]>*:after {top:    100%; top:    calc(100% - 1px);}
+
+    /** Layer images */
+
+        .layoutValley [sky-header]:before,
+        .layoutValley [sky-layers]>*:before,
+        .layoutValley [sea-layers]>*:before,
+        .layoutValley [sea-footer]:before {
+            background-image:  var(--rangeImage);
+            background-size:   var(--width--image) var(--rangeHeight);
+            background-color:  transparent;
+            background-repeat: no-repeat;
+            background-position: 50% calc(50% * 0.5 * (var(--rangeDirection, 1) + 1));
+            pointer-events: all; /* override default */
+        }
+        .layoutValley [sky-layers]>*:after,
+        .layoutValley [sea-layers]>*:after {
+            background-color: var(--rangeColor, transparent);
+            pointer-events: all; /* override default */
+        }
+
+     /** Offset formula */
+
+        .layoutValley [sky-layers]>* ,
+        .layoutValley [sea-layers]>* {
+          --a: var(--rangeOffsetStartPoint, 0);
+          --b: var(--rangeOffsetFinishPoint, 0);
+          --s: var(--rangeScroll, 0); /* covered distance modifyer [0..1] */
+          --D: var(--rangeDirection, 1); /* [-1,1] */
+          --offset: calc(var(--a) - var(--s) * (var(--a) - var(--b)));
+          --result: calc(var(--D) * var(--offset));
+            transform: translateY(var(--result));
+        }
+        .layoutValley [sky-layers]>* {--rangeDirection:  1;}
+        .layoutValley [sea-layers]>* {--rangeDirection: -1;}
+        .layoutValley [sky-layers]>* {--rangeOffsetStartPoint:  var(--rangeOffsetMin);}
+        .layoutValley [sky-layers]>* {--rangeOffsetFinishPoint: var(--rangeOffsetMax);}
+        .layoutValley [sea-layers]>* {--rangeOffsetStartPoint:  var(--rangeOffsetMax);}
+        .layoutValley [sea-layers]>* {--rangeOffsetFinishPoint: var(--rangeOffsetMin);}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutValley */
+    </style>
+    </details>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> MARKUP defaultDemo -->
+<h2>.defaultDemo</h2>
+<style display-source>
+    <article class="layoutValley defaultDemo" id="defaultDemoObservableRangearea">
+        <section sky-header></section>
+        <section sky-layers><p/><p/><p/><p/></section>
+        <section sea-layers><p/><p/><p/><p/></section>
+        <section sea-footer></section>
+    </article>
+</style>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DEMO defaultDemo -->
+    <article class="layoutValley defaultDemo" id="defaultDemoObservableRangearea">
+        <section sky-header></section>
+        <section sky-layers><p/><p/><p/><p/></section>
+        <section sea-layers><p/><p/><p/><p/></section>
+        <section sea-footer></section>
+    </article>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS defaultDemo -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            CSS .defaultDemo
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source contenteditable>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ defaultDemo */
+
+        .layoutValley.defaultDemo [sky-header]   {--rangeHeight: 10vw}
+        .layoutValley.defaultDemo [sky-layers]>* {--rangeHeight: 10vw}
+        .layoutValley.defaultDemo [sea-layers]>* {--rangeHeight: 10vw}
+        .layoutValley.defaultDemo [sea-footer]   {--rangeHeight: 12vw}
+
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(1) {--rangeOffsetMax: 32vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(2) {--rangeOffsetMax: 20vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(3) {--rangeOffsetMax: 14vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(4) {--rangeOffsetMax: 8vw}
+
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(1) {--rangeOffsetMin: 5vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(2) {--rangeOffsetMin: 4vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(3) {--rangeOffsetMin: 3vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(4) {--rangeOffsetMin: 2vw}
+
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(1) {--rangeOffsetMax: 32vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(2) {--rangeOffsetMax: 26vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(3) {--rangeOffsetMax: 18vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(4) {--rangeOffsetMax: 12vw}
+
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(1) {--rangeOffsetMin: 8vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(2) {--rangeOffsetMin: 6vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(3) {--rangeOffsetMin: 5vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(4) {--rangeOffsetMin: 3vw}
+
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(1) {--rangeColor: transparent;}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(2) {--rangeColor: hsl(212, 21%, 70%);}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(3) {--rangeColor: hsl(212, 17%, 80%);}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(4) {--rangeColor: hsl(212, 12%, 90%);}
+
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(1) {--rangeColor: hsl(212, 25%, 45%);}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(2) {--rangeColor: hsl(212, 30%, 40%);}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(3) {--rangeColor: hsl(212, 35%, 35%);}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(4) {--rangeColor: hsl(212, 40%, 30%);}
+
+        .layoutValley.defaultDemo [sky-header]               {--rangeImage: url(art/valleyClouds10.svg);}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(1) {--rangeImage: url(art/valleyClouds11.svg);}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(2) {--rangeImage: url(art/valleyClouds12.svg);}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(3) {--rangeImage: url(art/valleyClouds13.svg);}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(4) {--rangeImage: url(art/valleyClouds14.svg);}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(1) {--rangeImage: url(art/valleyRange11.svg);}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(2) {--rangeImage: url(art/valleyRange12.svg);}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(3) {--rangeImage: url(art/valleyRange13.svg);}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(4) {--rangeImage: url(art/valleyRange14.svg);}
+        .layoutValley.defaultDemo [sea-footer]               {--rangeImage: url(art/valleyRange10.svg);}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /defaultDemo */
+    </style>
+</details>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS mobile defaultDemo -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            CSS .defaultDemo @media
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source contenteditable>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ defaultDemo media screen */
+
+        @media screen and (max-aspect-ratio: 1/1) {
+
+        .layoutValley.defaultDemo {
+          --height--total: max(60vh, 100vw);
+          --width--image: 200vw;
+        }
+
+        .layoutValley.defaultDemo [sky-header]   {--rangeHeight:20vw}
+        .layoutValley.defaultDemo [sky-layers]>* {--rangeHeight:20vw}
+        .layoutValley.defaultDemo [sea-layers]>* {--rangeHeight:20vw}
+        .layoutValley.defaultDemo [sea-footer]   {--rangeHeight:24vw}
+
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(1) {--rangeOffsetMax: 54vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(2) {--rangeOffsetMax: 36vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(3) {--rangeOffsetMax: 26vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(4) {--rangeOffsetMax: 14vw}
+
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(1) {--rangeOffsetMin:  5vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(2) {--rangeOffsetMin:  4vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(3) {--rangeOffsetMin:  3vw}
+        .layoutValley.defaultDemo [sky-layers]>:nth-child(4) {--rangeOffsetMin:  2vw}
+
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(1) {--rangeOffsetMax: 64vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(2) {--rangeOffsetMax: 52vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(3) {--rangeOffsetMax: 36vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(4) {--rangeOffsetMax: 24vw}
+
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(1) {--rangeOffsetMin: 10vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(2) {--rangeOffsetMin:  8vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(3) {--rangeOffsetMin:  6vw}
+        .layoutValley.defaultDemo [sea-layers]>:nth-child(4) {--rangeOffsetMin:  4vw}
+
+        }/* /media */
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+    </style>
+</details>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> JS defaultDemo -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            JS .defaultDemo
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <script display-source>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer */
+    /** 25.1.21 */
+
+        function handleEventDebouncer(action) {
+            this.action = action;
+            this.active = false;
+        };
+        handleEventDebouncer.prototype = {
+            constructor: handleEventDebouncer,
+            handleEvent:
+                function() {
+                    this.requestActivity();
+                },
+            requestActivity:
+                function() {
+                    if (!this.active) {
+                        const activity = this.activity || (this.activity = this.bounce.bind(this));
+                        requestAnimationFrame(activity);
+                        this.active = true;
+                    }
+                },
+            bounce:
+                function() {
+                    this.action && this.action();
+                    this.active = false;
+                },
+        };
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer */
+    </script>
+    <script display-source>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer */
+    /** 24.1.29 */
+
+        function EventDebouncer (callback) {
+            this.callback = callback;
+            this.ticking = false;
+        };
+        EventDebouncer.prototype = {
+            constructor: EventDebouncer,
+            update:
+                function() {
+                    this.callback && this.callback();
+                    this.ticking = false;
+                },
+            requestTick:
+                function() {
+                    if(!this.ticking) {
+                        const action = this.action || (this.action = this.update.bind(this));
+                        requestAnimationFrame(action);
+                        this.ticking = true;
+                    }
+                },
+            handleEvent:
+                function() {
+                    this.requestTick();
+                },
+        };
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer */
+    </script>
+    <script display-source>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ObservableRangearea */
+    /** 24.1.29 */
+
+        function runObservableRangearea (areaElement) {
+            const DOM = {
+                area: areaElement,
+                windowHeight: window.innerHeight,
+            };
+            const state = {
+                active: false,
+                boundingClientRect: {},
+                intersectionRect: {},
+                rootBounds: {},
+            };
+            const setRatioVar = () => {
+                const wt = window.pageYOffset;
+                const wh = DOM.windowHeight;
+                const vt = DOM.area.offsetTop;
+                const vh = DOM.area.offsetHeight;
+                const wayStart = vt - wh > 0 ? vt - wh : 0;
+                const wayEnd = vt + vh;
+                const wayDistance = wh + vh || 1;
+                const wayDP = (wt - wayStart) / wayDistance;
+                const rangeScroll = wayDP<0 ? 0 : wayDP>1 ? 1 : wayDP;
+                DOM.area.style.setProperty('--rangeScroll', `${rangeScroll}`);
+            }
+            const eventOnScroll = new handleEventDebouncer(setRatioVar);
+            const eventOnScrollActivate = () => {
+                if(!state.active) {
+                    state.active = true;
+                    window.addEventListener('scroll', eventOnScroll);
+                }
+            }
+            const eventOnScrollDeactivate = () => {
+                if (state.active) {
+                    state.active = false;
+                    window.removeEventListener('scroll', eventOnScroll);
+                }
+            }
+            const obAction = entries => entries.forEach(entry => {
+                const {isIntersecting} = entry;
+                if ( isIntersecting ) eventOnScrollActivate();
+                if (!isIntersecting ) eventOnScrollDeactivate();
+            });
+            const obOption = {
+                rootMargin: '0% 0% 0% 0%',
+                threshold:  [0],
+            };
+            const ObserverN1 = new IntersectionObserver(obAction,obOption);
+            eventOnScroll.handleEvent();
+            ObserverN1.observe(DOM.area);
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /ObservableRangearea */
+
+        // Run demo
+
+        const elDemo01 = document.getElementById('defaultDemoObservableRangearea');
+        runObservableRangearea(elDemo01);
+    </script>
+</details>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> MARKUP loveDemo -->
+<h2>.loveDemo</h2>
+<style display-source>
+    <article class="layoutValley loveDemo" id="loveDemoObservableRangearea">
+        <section sky-header></section>
+        <section sea-layers><p/><p/><p/></section>
+        <section sea-footer></section>
+    </article>
+</style>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DEMO loveDemo -->
+    <article class="layoutValley loveDemo" id="loveDemoObservableRangearea">
+        <section sea-layers><p/><p/><p/></section>
+        <section sea-footer></section>
+    </article>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> CSS loveDemo -->
+<details class="detailsWithSummaryHeader" open>
+    <summary>
+        <header>
+            CSS .loveDemo
+            <span class="detailsMarkerShowHide">
+                <span>[show]</span>
+                <span>[hide]</span>
+            </span>
+        </header>
+    </summary>
+    <style display-source contenteditable>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ loveDemo */
+
+        .layoutValley.loveDemo {
+          --width--total:  100vw;
+          --width--image:  100vmin;
+          --height--total:  80vmin;
+            background: transparent;
+        }
+
+        .layoutValley.loveDemo [sea-layers]>:nth-child(1) {--rangeHeight: 16vmin}
+        .layoutValley.loveDemo [sea-layers]>:nth-child(2) {--rangeHeight: 18vmin}
+        .layoutValley.loveDemo [sea-layers]>:nth-child(3) {--rangeHeight: 20vmin}
+        .layoutValley.loveDemo [sea-footer]               {--rangeHeight: 22vmin}
+
+        .layoutValley.loveDemo [sea-layers]>:nth-child(1) {--rangeOffsetMin: 18vmin}
+        .layoutValley.loveDemo [sea-layers]>:nth-child(2) {--rangeOffsetMin: 12vmin}
+        .layoutValley.loveDemo [sea-layers]>:nth-child(3) {--rangeOffsetMin: 6vmin}
+
+        .layoutValley.loveDemo [sea-layers]>:nth-child(1) {--rangeOffsetMax: 64vmin}
+        .layoutValley.loveDemo [sea-layers]>:nth-child(2) {--rangeOffsetMax: 44vmin}
+        .layoutValley.loveDemo [sea-layers]>:nth-child(3) {--rangeOffsetMax: 23vmin}
+
+        .layoutValley.loveDemo [sea-layers]>:nth-child(1) {--rangeImage: url(art/loveSheepline14.svg);}
+        .layoutValley.loveDemo [sea-layers]>:nth-child(2) {--rangeImage: url(art/loveSheepline13.svg);}
+        .layoutValley.loveDemo [sea-layers]>:nth-child(3) {--rangeImage: url(art/loveSheepline12.svg);}
+        .layoutValley.loveDemo [sea-footer]               {--rangeImage: url(art/loveSheepline11.svg);}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /loveDemo */
+    </style>
+</details>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> JS loveDemo -->
+<script display-source>
+    // Run demo
+
+    const elDemo02 = document.getElementById('loveDemoObservableRangearea');
+    runObservableRangearea(elDemo02);
+</script>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> SVG Gallery -->
+<article class="layoutGallery">
+    <header><h2>SVG Images</h2></header>
+    <section class="gridline XXX">
+        <img src="art/valleyRange10.svg">
+        <img src="art/valleyRange11.svg">
+        <img src="art/valleyRange12.svg">
+        <img src="art/valleyRange13.svg">
+        <img src="art/valleyRange14.svg">
+    </section>
+    <section class="gridline XXX">
+        <img src="art/valleyClouds11.svg">
+        <img src="art/valleyClouds12.svg">
+        <img src="art/valleyClouds13.svg">
+        <img src="art/valleyClouds14.svg">
+        <img src="art/valleyClouds10.svg">
+        <img src="art/valleyCloudividerA.svg">
+    </section>
+    <section class="gridline XX">
+        <img src="art/loveSheepline11.svg">
+        <img src="art/loveSheepline12.svg">
+        <img src="art/loveSheepline13.svg">
+        <img src="art/loveSheepline14.svg">
+    </section>
+
+</article>
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> DEMO components -->
+<style>
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ details»summary */
+/** 24.1.23 **/
+
+/** .detailsWithSummaryHeader
+    use details default marker
+    use <header> for summary decoration
+    */
+
+    .detailsWithSummaryHeader {
+      --font-size:           2.4em;
+      --font-size--mini:     1.6em;
+      --line-height:          1.25;
+      --marker-color: currentColor;
+    }
+    @media all and (max-width:42em) {
+    .detailsWithSummaryHeader {
+        --font-size:  var(--font-size--mini);
+    }
+    }/* /media */
+    .detailsWithSummaryHeader>summary {
+        font-size:   var(--font-size);
+        line-height: var(--line-height);
+        cursor: pointer;
+        width: max-content;
+        max-width: 100%;
+    }
+    .detailsWithSummaryHeader>summary::marker {color:var(--marker-color);}
+    .detailsWithSummaryHeader>summary >header {
+        display:    inline-block;
+        vertical-align: text-top;
+        word-break:    break-all;
+        max-width: 78vw;
+    }
+
+/** .detailsMarkerShowHide
+    switch first-last child without layout jump
+    */
+
+    .detailsMarkerShowHide {
+        display: inline-grid;
+        grid-template-areas: 'overlay';
+    }
+    .detailsMarkerShowHide>* {
+        grid-area:  overlay;
+        pointer-events: all;
+        pointer-events: var(--visible, none);
+        opacity:        var(--visible, 0);
+    }
+    details:not([open]) .detailsMarkerShowHide >:first-child {--visible:1}
+    details:is([open])  .detailsMarkerShowHide >:last-child  {--visible:1}
+
+/** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /details»summary */
+</style>
+<style>
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ layoutGallery */
+    /** v2024.1.24 demia **/
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ colors */
+
+        .layoutGallery {
+          --color:            hsl(226, 27%, 90%); /* NobleWhite */
+          --background-color: hsl(226, 15%, 12%); /* NobleBlack */
+        }
+
+        .layoutGallery:not(.transparent) {
+            background-color: var(--background-color);
+            color:            var(--color);
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ gaps */
+
+        .layoutGallery {
+          --gap--base: 1.500em;
+          --gap--mini: 0.125em;
+          --gap: var(--gap--base);
+        }
+
+        @media all and (max-width:1080px) {
+        .layoutGallery {--gap: var(--gap--mini);}
+        }/* /media */
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ grid */
+
+        .layoutGallery,
+        .layoutGallery .gridline {
+            position: relative;
+            max-width: 100%;
+            display: grid;
+            grid-gap: var(--gap);
+            align-content: start;
+            grid-template-columns: var(--grid-template-columns);
+          --grid-template-columns: 1fr;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ lines */
+
+        .layoutGallery .gridline.X    {--grid-template-columns: repeat(1, 1fr);}
+        .layoutGallery .gridline.XX   {--grid-template-columns: repeat(2, 1fr);}
+        .layoutGallery .gridline.XXX  {--grid-template-columns: repeat(3, 1fr);}
+        .layoutGallery .gridline.XXXX {--grid-template-columns: repeat(4, 1fr);}
+        .layoutGallery .gridline.X5   {--grid-template-columns: repeat(5, 1fr);}
+        .layoutGallery .gridline.X6   {--grid-template-columns: repeat(6, 1fr);}
+
+        .layoutGallery .gridline.OOX>*:first-child { grid-column:  1 /  3 }
+        .layoutGallery .gridline.XOO>*:last-child  { grid-column: -3 / -1 }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ lines more */
+    /** VWQ ratio set 2023 */
+
+        .layoutGallery {
+          --aspect-ratio--Qratio: 1080/1080;
+          --aspect-ratio--Wratio: 1774/1080;
+          --aspect-ratio--Vratio: 1080/1774;
+        }
+
+        .layoutGallery .gridline.WQ
+        {--grid-template-columns: 1774fr 1080fr}
+        .layoutGallery .gridline.QW
+        {--grid-template-columns: 1080fr 1774fr}
+
+        .layoutGallery .gridline.QWW
+        {--grid-template-columns: 1080fr 1774fr 1774fr}
+        .layoutGallery .gridline.QQW
+        {--grid-template-columns: 1080fr 1080fr 1774fr}
+        .layoutGallery .gridline.QWQ
+        {--grid-template-columns: 1080fr 1774fr 1080fr}
+        .layoutGallery .gridline.WQW
+        {--grid-template-columns: 1774fr 1080fr 1774fr}
+        .layoutGallery .gridline.WWQ
+        {--grid-template-columns: 1774fr 1774fr 1080fr}
+        .layoutGallery .gridline.WQQ
+        {--grid-template-columns: 1774fr 1080fr 1080fr}
+
+        .layoutGallery .gridline.VWV
+        {--grid-template-columns: 658fr 1774fr 658fr}
+        .layoutGallery .gridline.VQV
+        {--grid-template-columns: 658fr 1080fr 658fr}
+        .layoutGallery .gridline.QVQ
+        {--grid-template-columns: 1080fr 658fr 1080fr}
+        .layoutGallery .gridline.WVW
+        {--grid-template-columns: 1774fr 658fr 1774fr}
+        .layoutGallery .gridline.VWQV
+        {--grid-template-columns: 658fr 1774fr 1080fr 658fr}
+        .layoutGallery .gridline.VQWV
+        {--grid-template-columns: 658fr 1080fr 1774fr 658fr}
+
+        .layoutGallery .gridline.VQW
+        {--grid-template-columns: 658fr 1080fr 1774fr}
+        .layoutGallery .gridline.VWQ
+        {--grid-template-columns: 658fr 1774fr 1080fr}
+        .layoutGallery .gridline.WQV
+        {--grid-template-columns: 1774fr 1080fr 658fr}
+        .layoutGallery .gridline.QWV
+        {--grid-template-columns: 1080fr 1774fr 658fr}
+        .layoutGallery .gridline.WVQ
+        {--grid-template-columns: 1774fr 658fr 1080fr}
+        .layoutGallery .gridline.QVW
+        {--grid-template-columns: 1080fr 658fr 1774fr}
+
+        .layoutGallery .Qratio {aspect-ratio: var(--aspect-ratio--Qratio);}
+        .layoutGallery .Wratio {aspect-ratio: var(--aspect-ratio--Wratio);}
+        .layoutGallery .Vratio {aspect-ratio: var(--aspect-ratio--Vratio);}
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ empty cells */
+
+        .layoutGallery .gridline,
+        .layoutGallery .gridskip {
+            pointer-events: none;
+        }
+        .layoutGallery .gridline >*:not(.gridline, .gridskip),
+        .layoutGallery .gridskip >*:not(.gridline, .gridskip) {
+            pointer-events: all;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ scroll slices */
+
+        .layoutGallery .scrolltopGroup >*,
+        .layoutGallery .scrolltop { position:sticky; top:0; }
+
+        .layoutGallery .scrollbotGroup >*,
+        .layoutGallery .scrollbot { position:sticky; bottom:0; }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ items */
+
+        .layoutGallery video,
+        .layoutGallery img {
+            display: block;
+            width:   100%;
+            height:  auto;
+            object-fit: contain;
+            background-color: var(--background-color);
+        }
+
+        .layoutGallery video,
+        .layoutGallery img {
+            outline: var(--gap) solid var(--background-color);
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ plugins */
+
+        .layoutGallery:is(article) {
+            padding: var(--gap) 0;
+        }
+        .layoutGallery.fitness *:is(img,video)  {
+            object-fit: cover;
+            height: 100%;
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ workers */
+
+        .layoutGallery .screensize {min-height:100vh}
+        .layoutGallery .centerit {
+            display: grid;
+            place-items: center;
+        }
+        .layoutGallery .fitme  {
+            object-fit: cover;
+            height: 100%;
+        }
+        .layoutGallery .fillme {
+            background-color: var(--background-color);
+            outline: var(--gap) solid var(--background-color);
+        }
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /layoutGallery */
+    
+</style>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~>> END -->
+
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+<footer style="padding: 1rem;background:black;color:white;">
+    <section class="articleCandyPageUpdated">
+        <style>
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Candy caption */
+        /** 24.1.23 **/
+
+            /** Layout */
+
+            .textCandyCaption {
+                display:        inline-flex;
+                flex-direction: column;
+                gap:            var(--space) 0;
+            }
+            .textCandyCaption [row] {
+                display:        inline-flex;
+                flex-direction: row;
+                align-items:    flex-start;
+                gap:            0 var(--space);
+            }
+            .textCandyCaption [laydown] {
+                align-items: flex-end;
+            }
+
+            /** Design */
+
+            .textCandyCaption {
+              --font-family:    sans-serif;
+              --line-height:    0.75;
+              --space:          0.25em;
+            }
+            .textCandyCaption {
+                text-transform: uppercase;
+                font-weight:    bold;
+                font-family:    var(--font-family);
+                line-height:    var(--line-height);
+            }
+            .textCandyCaption * {
+                font-size: var(--font-size, inherit);
+                color:     var(--color,     inherit);
+            }
+
+            /** Model tint&size 2023 */
+
+            .textCandyCaption {
+              --tint-a: inherit;          /* a for alpha */
+              --tint-c: hsl(184,74%,54%); /* c for cyan */
+              --tint-m: hsl(334,64%,54%); /* m for magenta */
+              --tint-y: hsl(414,84%,54%); /* y for yellow */
+              --tint-g: hsl(114,44%,54%); /* g for green */
+            }
+            .textCandyCaption {
+              --size-a: 1.00em;
+              --size-b: 1.50em;
+              --size-c: 2.00em;
+              --size-d: 3.00em;
+              --size-z: 0.75em;
+            }
+
+            .textCandyCaption [size-a] {--font-size: var(--size-a);}
+            .textCandyCaption [size-b] {--font-size: var(--size-b);}
+            .textCandyCaption [size-c] {--font-size: var(--size-c);}
+            .textCandyCaption [size-d] {--font-size: var(--size-d);}
+            .textCandyCaption [size-z] {--font-size: var(--size-z);}
+
+            .textCandyCaption [tint-a] {--color: var(--tint-a);}
+            .textCandyCaption [tint-c] {--color: var(--tint-c);}
+            .textCandyCaption [tint-m] {--color: var(--tint-m);}
+            .textCandyCaption [tint-y] {--color: var(--tint-y);}
+            .textCandyCaption [tint-g] {--color: var(--tint-g);}
+
+        /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /Candy caption */
+        </style>
+        <div class="textCandyCaption" demosize-a>
+            <b row size-a tint-a>
+                <b size-a tint-a> updated</b>
+            </b>
+            <b row size-a tint-a>
+                <b size-b tint-c> 2024 </b>
+                <b size-c tint-y> . </b>
+            </b>
+            <b row size-a tint-a>
+                <b size-c tint-y> 1 </b>
+                <b size-b tint-a> . </b>
+                <b size-d tint-m> 29 </b>
+            </b>
+        </div>
+    </section>
+</footer>
+<!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+</body>
+</html>
