@@ -368,26 +368,22 @@
         </header>
     </summary>
     <script display-source>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ zl */
-    /** 25.1.21 */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ zl */
 
         function zl() {
-            let api = {
-                handleEventDebouncer,
-                activateObservableArea,
+            return {
+                created: '2025.1.21',
+                document: !!document,
+                window: !!window,
+                requestAnimationFrame: !!requestAnimationFrame,
+                IntersectionObserver: !!IntersectionObserver,
             };
-            let dep = {
-                document,
-                window,
-                requestAnimationFrame,
-            };
-            return {api,dep};
         };
 
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /zl */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
     </script>
     <script display-source>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ handleEventDebouncer */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ handleEventDebouncer */
     /** 25.1.21 */
 
         function handleEventDebouncer(action) {
@@ -415,17 +411,39 @@
                 },
         };
 
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /handleEventDebouncer */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /handleEventDebouncer */
     </script>
     <script display-source>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DeepScrollComponent */
     /** 25.1.21 */
 
-        function activateObservableArea(props = {
-            areaElement
-        }) {
+        let DeepScrollComponent = function DeepScroll(options) {
+
+            const optionsDefault = {
+                areaElement: undefined, // node
+                offsetProperty: '--DeepOffset',
+            };
+
+            const o = {
+               ...optionsDefault,
+               ...options,
+            };
+
+            const domBuild = (o=o) => ({
+                pageYOffset:    window.pageYOffset,
+                innerHeight:    window.innerHeight,
+                offsetTop:      o.areaElement?.offsetTop,
+                offsetHeight:   o.areaElement?.offsetHeight,
+            });
             
-        }
+            const getDOM = () => ({
+                
+            });
+            const api = {};
+            api.start = () => {
+                
+            };
+        };
         /** code example
 
 
@@ -436,7 +454,7 @@
 
          */
 
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /DeepScrollComponent */
     </script>
     <script display-source>
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer */
