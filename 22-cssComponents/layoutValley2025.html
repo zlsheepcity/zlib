@@ -368,7 +368,26 @@
         </header>
     </summary>
     <script display-source>
-    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer */
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ zl */
+    /** 25.1.21 */
+
+        function zl() {
+            let api = {
+                handleEventDebouncer,
+                activateObservableArea,
+            };
+            let dep = {
+                document,
+                window,
+                requestAnimationFrame,
+            };
+            return {api,dep};
+        };
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /zl */
+    </script>
+    <script display-source>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ handleEventDebouncer */
     /** 25.1.21 */
 
         function handleEventDebouncer(action) {
@@ -379,22 +398,43 @@
             constructor: handleEventDebouncer,
             handleEvent:
                 function() {
-                    this.requestActivity();
+                    this.requestBounce();
                 },
-            requestActivity:
+            requestBounce:
                 function() {
                     if (!this.active) {
-                        const activity = this.activity || (this.activity = this.bounce.bind(this));
-                        requestAnimationFrame(activity);
+                        const bounce = this.bounce || (this.bounce = this.doBounce.bind(this));
+                        requestAnimationFrame(bounce);
                         this.active = true;
                     }
                 },
-            bounce:
+            doBounce:
                 function() {
                     this.action && this.action();
                     this.active = false;
                 },
         };
+
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /handleEventDebouncer */
+    </script>
+    <script display-source>
+    /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EventDebouncer */
+    /** 25.1.21 */
+
+        function activateObservableArea(props = {
+            areaElement
+        }) {
+            
+        }
+        /** code example
+
+
+
+
+        let f =()=> f;
+        let o ={};
+
+         */
 
     /** ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ /EventDebouncer */
     </script>
