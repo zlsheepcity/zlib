@@ -23,7 +23,11 @@
         // Reactive defineProperty pattern
         
         let target = null;
-        let targetWatch
+        let targetWatch = f => {
+            target = f;
+            target();
+            target = null;
+        };
 
         class PropertyWatcher {
             constructor () {
@@ -37,7 +41,7 @@
             notify() {
                 this.watchers.forEach( f => f() );
             }
-        }
+        };
         
         let data = { price:1, quantity:1 };
         
@@ -59,6 +63,11 @@
                 }
             );
         });
+        
+        targetWatch( f => { data.total = data.price * data.quantity; } );
+        data.price = 7;
+        data.quantity = 3;
+        console.log("Updated data total:", data.total);
         
     </script>
     
