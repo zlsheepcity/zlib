@@ -20,6 +20,65 @@
 
     <script display-source>
 
+        // Reactive defineProperty pattern (pure)
+
+        class PropertyWatcher {
+            constructor (getCurrentGuest) {
+                this.guests = [];
+                this.coming = getCurrentGuest;
+            }
+            review() {
+                let guest = this.coming();
+                if (guest && !this.guests.includes(guest)) {
+                    this.guests.push(guest);
+                }
+            }
+            notify() {
+                this.guests.forEach( f => f() );
+            }
+        }
+
+        let target = null;
+        let targetGetter = f => target;
+        let targetWatch = f => {
+            target = f;
+            target();
+            target = null;
+        };
+
+        let data = { price:1, quantity:1 };
+
+        Object.keys(data).forEach(key => {
+            let valueStored = data[key];
+            let valueAction = new PropertyWatcher(targetGetter);
+            Object.defineProperty(
+                data,
+                key,
+                {
+                    get() {
+                        valueAction.review();
+                        return valueStored;
+                    },
+                    set(valueUpdate) {
+                        valueStored = valueUpdate;
+                        valueAction.notify();
+                    },
+                }
+            );
+        });
+
+        targetWatch( f => { data.total = data.price * data.quantity; } );
+        targetWatch( f => { data.logsumm = (parseInt(data.logsumm)||0) + data.price; } );
+        data.price = 7;
+        data.quantity = 3;
+        console.log("Updated data total:", data.total);
+        console.log("Updated data logsumm:", data.logsumm);
+
+    </script>
+
+
+    <script display-source>
+/*
         // Reactive defineProperty pattern
         
         let target = null;
@@ -68,7 +127,7 @@
         data.price = 7;
         data.quantity = 3;
         console.log("Updated data total:", data.total);
-        
+        */
     </script>
     
 </body>
